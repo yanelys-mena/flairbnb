@@ -10,12 +10,15 @@ import configureStore from './store';
 
 const store = configureStore();
 
+
 if (process.env.NODE_ENV !== 'production') {
   restoreCSRF();
 
   window.csrfFetch = csrfFetch;
   window.store = store;
-}
+};
+
+
 function Root() {
   return (
     <Provider store={store}>

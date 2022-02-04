@@ -10,23 +10,22 @@ const router = express.Router();
 // User Login API Route
 
 const validateLogin = [
-    check('credential')
+    check('email')
         .exists({ checkFalsy: true })
         .notEmpty()
-        .withMessage('Please provide a valid email or username.'),
+        .withMessage('Please provide a valid email.'),
     check('password')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a password.'),
-    handleValidationErrors
-];
+        .withMessage('Please provide a password.')
+
+]
 
 router.post(
     '/',
-    validateLogin,
     asyncHandler(async (req, res, next) => {
-        const { credential, password } = req.body;
-
-        const user = await User.login({ credential, password });
+        const { email, password } = req.body;
+        console.log('IN THE ROUTE')
+        const user = await User.login({ email, password });
 
         if (!user) {
             const err = new Error('Login failed');
@@ -42,6 +41,26 @@ router.post(
     })
 );
 
+// router.post(
+//     '/',
+//     asyncHandler(async (req, res, next) => {
+//         const { credential, password } = req.body;
+//         console.log('IN THE ROUTE')
+//         const user = await User.login({ credential, password });
+
+//         if (!user) {
+//             const err = new Error('Login failed');
+//             err.status = 401;
+//             err.title = 'Login failed';
+//             err.errors = ['The provided credentials were invalid.'];
+//             return next(err);
+
+//         } else {
+//             await setTokenCookie(res, user);
+//             return res.json({ user });
+//         }
+//     })
+// );
 // User Logout API Route
 //removing jwt token
 router.delete(

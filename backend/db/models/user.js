@@ -59,14 +59,12 @@ module.exports = (sequelize, DataTypes) => {
   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
   };
-
-  User.login = async function ({ credential, password }) {
+  User.login = async function ({ email, password }) {
     const { Op } = require('sequelize');
     const user = await User.scope('loginUser').findOne({
       where: {
         [Op.or]: {
-          username: credential,
-          email: credential
+          email
         }
       }
     });
@@ -74,7 +72,20 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
   };
-
+  // User.login = async function ({ credential, password }) {
+  //   const { Op } = require('sequelize');
+  //   const user = await User.scope('loginUser').findOne({
+  //     where: {
+  //       [Op.or]: {
+  //         username: credential,
+  //         email: credential
+  //       }
+  //     }
+  //   });
+  //   if (user && user.validatePassword(password)) {
+  //     return await User.scope('currentUser').findByPk(user.id);
+  //   }
+  // };
   User.signup = async function ({ username, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
@@ -84,7 +95,6 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope('currentUser').findByPk(user.id);
   };
-
   User.associate = function (models) {
     // associations can be defined here
   };

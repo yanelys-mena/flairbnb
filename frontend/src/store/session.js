@@ -16,6 +16,15 @@ const removeUser = () => {
     }
 };
 
+//call the API to restore User Session
+export const restoreUser = () => async dispatch => {
+    const response = await csrfFetch('/api/session');
+    const data = await response.json();
+    dispatch(setUser(data.user));
+    return response;
+};
+
+
 // call the API to login then set the session user from the response which includes id, username, email, dates
 export const login = ({ email, password }) => async (dispatch) => {
     console.log(email, password)

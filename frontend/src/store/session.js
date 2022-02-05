@@ -36,12 +36,33 @@ export const login = ({ email, password }) => async (dispatch) => {
         }),
     });
     const data = await response.json();
-    console.log('===LOGIN THUNK', data);
-    console.log('===LOGIN THUNK DATA.USER', data.user);
     dispatch(setUser(data.user));
     return response;
 };
 
+
+export const signup = ({ username, email, password }) => async (dispatch) => {
+    console.log(username, email, password)
+    const response = await csrfFetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({
+            username, email, password
+        }),
+    });
+    const data = await response.json();
+    dispatch(setUser(data.user));
+    return response;
+
+
+};
+
+export const logout = () => async (dispatch) => {
+    const response = await csrfFetch('/api/session', {
+        method: 'DELETE',
+    });
+    dispatch(removeUser());
+    return response;
+};
 
 /*{ structure for session slice of state
     user: {

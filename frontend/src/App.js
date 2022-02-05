@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import LoginFormPage from "./components/LoginFormPage";
-import SignUpFormPage from "./components/SignUpFormPage";
+import SignupFormPage from "./components/SignupFormPage";
 
 import * as sessionActions from "./store/session";
 
@@ -19,7 +19,7 @@ function App() {
         <LoginFormPage />
       </Route>
       <Route path="/signup">
-        <SignUpFormPage />
+        <SignupFormPage />
       </Route>
     </Switch>
   );

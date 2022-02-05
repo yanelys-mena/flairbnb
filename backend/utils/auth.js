@@ -21,7 +21,7 @@ const setTokenCookie = (res, user) => {
         secure: isProduction,
         sameSite: isProduction && "Lax"
     });
-
+    return token;
 };
 
 //NOTE restore session using JWT cookie. 

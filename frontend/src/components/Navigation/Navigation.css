@@ -1,3 +1,7 @@
-nav {
-    background-color: red;
+.navBar{
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+   margin: 6px;
 }
+

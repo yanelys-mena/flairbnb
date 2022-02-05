@@ -6,10 +6,6 @@
     margin: 0 auto;
 }
 
-.errorLi {
-    list-style-type: none;
-}
-
 input {
      width: 100%;
     background-color: #f5f7f8;

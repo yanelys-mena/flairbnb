@@ -82,7 +82,7 @@ const SignUpFormPage = () => {
                         name="confirmPassword"
                         required />
                 </label>
-                <button type="submit">Sign Up</button>
+                <button type="submit" className="signup_btn">Sign Up</button>
             </form>
         </div>
     )

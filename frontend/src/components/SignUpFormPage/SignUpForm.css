@@ -19,8 +19,8 @@ input {
     margin: 6px;
 }
 
-button {
-    background-color: black;
+.signup_btn {
+    background-color: red;
     color: white;
     text-decoration: none;
     margin: 6px;

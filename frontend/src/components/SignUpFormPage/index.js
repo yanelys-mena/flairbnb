@@ -48,6 +48,7 @@ const SignUpFormPage = () => {
                         type="text"
                         name="username"
                         placeholder="username"
+                        className="signup_input"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required />
@@ -58,6 +59,7 @@ const SignUpFormPage = () => {
                         type="text"
                         placeholder="email"
                         name="email"
+                        className="signup_input"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                         required />
@@ -69,6 +71,7 @@ const SignUpFormPage = () => {
                         placeholder="password"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
+                        className="signup_input"
                         name="password"
                         required />
                 </label>
@@ -79,6 +82,7 @@ const SignUpFormPage = () => {
                         placeholder="Confirm Password"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         value={confirmPassword}
+                        className="signup_input"
                         name="confirmPassword"
                         required />
                 </label>

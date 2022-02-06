@@ -9,7 +9,7 @@
 }
 
 
-input:focus, textarea:focus, select:focus, input{
+input:focus, textarea:focus, select:focus, input, button{
     outline: none;
 border: none;
 -webkit-appearance: none;
@@ -19,7 +19,7 @@ border: none;
 h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 27px;
 }
 
 li {

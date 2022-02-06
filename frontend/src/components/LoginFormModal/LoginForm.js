@@ -20,9 +20,24 @@ function LoginForm() {
         );
     };
 
+    const handleDemoLogin = (e) => {
+        e.preventDefault();
+        setErrors([]);
+        setEmail('demo@demo.com');
+        setPassword('password');
+        return dispatch(sessionActions.login({ email, password })).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
+    };
+
     return (
         <>
-            <h2> Welcome to Flairbnb </h2>
+            <div className="Welcome">
+                <h2> Welcome to Flairbnb </h2>
+            </div>
             <form
                 className="loginForm"
                 onSubmit={handleSubmit} >
@@ -53,6 +68,7 @@ function LoginForm() {
                     />
                 </label>
                 <button type="submit">Log In</button>
+                <button type="submit" onClick={handleDemoLogin}>Demo Login</button>
             </form>
         </>
     );

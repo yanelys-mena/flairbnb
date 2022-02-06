@@ -11,13 +11,21 @@
 
 }
 
+.Welcome {
+ display: flex;
+    width: 60%;
+    justify-content: flex-start;
+margin-bottom: -30px;
+}
+
+.Welcome > h2 {
+font-size: 25px;
+}
 .loginForm {
     display: flex;
     flex-direction: column;
-
     justify-content: space-around;
     width: 60%;
-    margin: 0 auto;
 
 }
 
@@ -29,26 +37,35 @@
 }
 
 .loginForm  > label >input{
-height: 30px;
-border-color: #D3D3D3;
+height: 40px;
+border: #D3D3D3 1.5px solid;
+width: 100%;
 border-radius:5px;
-border-color: white;
 color: gray;
-margin: 15px;
+margin-bottom: 15px;
+
 
 }
 
 .loginForm  > label >input:focus{
- background-color: red;
- accent-color: pink;
  border: white;
  color: black;
- border: black 3px;
+ border: black 1.5px solid;
     }
 
 .loginForm  > button{
-    height: 35px;
-    margin-top: 30px;
-    border: none;
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 103%;
     border-radius: 5px;
     }
+
+.loginForm  > button{
+    cursor: pointer;
+    margin-bottom: 15px;
+}

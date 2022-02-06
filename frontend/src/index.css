@@ -4,7 +4,7 @@
 
 
 
-div#root > *:first-child { margin-top: -20px; background-color: black; width: 100%;
+div#root > *:first-child { margin-top: -20px; background-color: black; width: 100%; 
 }
 /* add overflow:hidden if the body messees up again */
 

@@ -16,39 +16,44 @@ const Homepage = () => {
 
                 </div>
             </div>
-            <div className="home_inspocards">
-                <div className="inspo_card1">
-                    <img src="https://a0.muscache.com/im/pictures/1cdb5298-1e10-4d5a-ac27-20c80b53b4af.jpg?im_w=240" className="inspo_img"></img>
-                    <div className="inspocard_overlay">
-                        <p>Kissimmee</p>
-                        <p>189 miles away</p>
+            <div className="home_inspo">
+                <p>Inspiration for your next trip
+                </p>
+                <div className="home_inspocards">
+                    <div className="inspo_card1">
+                        <img src="https://a0.muscache.com/im/pictures/1cdb5298-1e10-4d5a-ac27-20c80b53b4af.jpg?im_w=240" className="inspo_img"></img>
+                        <div className="inspocard_overlay">
+                            <p>Kissimmee</p>
+                            <p>189 miles away</p>
+                        </div>
                     </div>
-                </div>
-                <div className="inspo_card2">
-                    <img src="https://a0.muscache.com/im/pictures/471ce643-a666-4787-8b9b-46ccd9137073.jpg?im_w=320" className="inspo_img"></img>
-                    <div className="inspocard_overlay">
+                    <div className="inspo_card2">
+                        <img src="https://a0.muscache.com/im/pictures/471ce643-a666-4787-8b9b-46ccd9137073.jpg?im_w=320" className="inspo_img"></img>
+                        <div className="inspocard_overlay">
 
-                        <p>Tampa</p>
-                        <p>205 miles away</p>
+                            <p>Tampa</p>
+                            <p>205 miles away</p>
+                        </div>
                     </div>
-                </div>
-                <div className="inspo_card3">
-                    <img src="https://a0.muscache.com/im/pictures/aef20929-0d6a-40e7-8ac9-321ff0edf8c9.jpg?im_w=320" className="inspo_img"></img>                    <div className="inspocard_overlay">
+                    <div className="inspo_card3">
+                        <img src="https://a0.muscache.com/im/pictures/aef20929-0d6a-40e7-8ac9-321ff0edf8c9.jpg?im_w=320" className="inspo_img"></img>                    <div className="inspocard_overlay">
 
-                        <p>Sevierville</p>
-                        <p>725 miles away</p>
+                            <p>Sevierville</p>
+                            <p>725 miles away</p>
+                        </div>
                     </div>
-                </div>
-                <div className="inspo_card4">
-                    <img src="https://a0.muscache.com/im/pictures/2c0232e1-1dfe-4979-8e9c-04a7217b2c7c.jpg?im_w=320" className="inspo_img"></img>
-                    <div className="inspocard_overlay">
+                    <div className="inspo_card4">
+                        <img src="https://a0.muscache.com/im/pictures/2c0232e1-1dfe-4979-8e9c-04a7217b2c7c.jpg?im_w=320" className="inspo_img"></img>
+                        <div className="inspocard_overlay">
 
-                        <p>Atlanta</p>
-                        <p>606 miles away</p>
+                            <p>Atlanta</p>
+                            <p>606 miles away</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="home_discover">
+
                 <div className="discover_card">
                     <img src="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=720" ></img>
                     <div className="discover_overlay">
@@ -65,8 +70,10 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="home_shop">
-                <p>Shop Flairbnb gift cards</p>
-                <button>Learn more</button>
+                <div>
+                    <p>Shop Flairbnb gift cards</p>
+                    <button>Learn more</button>
+                </div>
                 <img src="https://a0.muscache.com/im/pictures/1ca4a497-ba40-4429-be1c-ac6abe4209c6.jpg?im_w=1200"></img>
             </div>
         </main >

@@ -26,7 +26,7 @@ div .home_largeimg {
 div .largeimg_card {
     position: relative;
     padding: 50px;
-    height: 750px;
+    height: 850px;
 }
 
 .image {
@@ -38,22 +38,43 @@ div .largeimg_card {
 }
 
 .largeimg_overlay {
-    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: 12px;
     z-index: 1;
     position: absolute;
-    inset: 10px 20px 30px 40px;
+    bottom: 70px;
+    right: 500px;
+
+
 }
 
 .largeimg_overlay > p {
 color: white;
-font-size: 18px;
-width:500px;
+font-weight: 700;
+font-size: 50px;
+white-space: nowrap;
 }
 
 .largeimg_overlay > button {
-    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 35px;
+    background-color: white;
+    width: 185px;
+    height: 50px;
 
+} 
+
+.largeimg_overlay > button > p {
+    font-weight: 700;
+    font-size: 30px;
+    background:
+    linear-gradient(90deg, #3f0654, #f526d6);
+    background-clip: text;
+    color: transparent;
 }   
 
 /* NOTE SECTION THREE */

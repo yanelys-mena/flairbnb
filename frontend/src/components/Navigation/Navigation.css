@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
+
+a > img{
+
+ height: 40px;
+}
 
 nav a {
    text-decoration: none;
@@ -15,6 +21,7 @@ nav {
    position: sticky;
    top: 0;
    z-index: 4;
+   height: 40px;
    /* margin-top: -20px;
    margin-left: -20px;
    margin-right: -10px;
@@ -24,9 +31,13 @@ nav {
    /* height: 60px; */
 }
 
+
 .navBar{
+   overflow: visible;
    display: flex;
    width: 100%;
+   background-color: black;
+
    /* position: fixed; */
    /* top: -20px;
    right:0; */
@@ -34,7 +45,7 @@ nav {
 padding-top: 30px;
    justify-content: space-between;
    font-size: 18px;
-   height: 60px;
+   height: 50px;
    background-color: black;
    }
 
@@ -60,6 +71,7 @@ padding-top: 30px;
 }
 
 .dropdown > ul {
+   z-index: 10;
    display: flex;
    flex-direction: column;
    position: absolute;

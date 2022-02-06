@@ -11,7 +11,7 @@ const Homepage = () => {
                     <img className="image" src="https://a0.muscache.com/im/pictures/21c2735e-a734-40f8-9f60-9ac299c4394c.jpg?im_w=960"></img>
                     <div class="largeimg_overlay">
                         <p>Not sure where to go? Perfect.</p>
-                        <button href="/">I'm flexible</button>
+                        <button href="/"><p>I'm flexible</p></button>
                     </div>
 
                 </div>
@@ -49,15 +49,19 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="home_discover">
-                <div>
-                    <img src="https://a0.muscache.com/im/pictures/0dcae177-2f65-4a15-b9e8-75d8c9b3cbe8.jpg?im_w=480" className="discover_card"></img>
-                    <p>Things to do on your trip</p>
-                    <button>Experiences</button>
+                <div className="discover_card">
+                    <img src="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=720" ></img>
+                    <div className="discover_overlay">
+                        <p>Things to do on your trip</p>
+                        <button>Experiences</button>
+                    </div>
                 </div>
-                <div>
-                    <img src="https://a0.muscache.com/im/pictures/aef20929-0d6a-40e7-8ac9-321ff0edf8c9.jpg?im_w=320" className="discover_card"></img>
-                    <p>Things to do from home</p>
-                    <button>Online Experiences</button>
+                <div className="discover_card">
+                    <img src="https://a0.muscache.com/im/pictures/cae7ae9a-d069-4c6a-9267-795643472df1.jpg?im_w=720" ></img>
+                    <div className="discover_overlay">
+                        <p>Things to do from home</p>
+                        <button>Online Experiences</button>
+                    </div>
                 </div>
             </div>
             <div className="home_shop">

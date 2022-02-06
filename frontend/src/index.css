@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
 
 
-* {
+*{
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     /* font-size: 18px; */
 
+}
+
+
+input:focus, textarea:focus, select:focus, input{
+    outline: none;
+border: none;
+-webkit-appearance: none;
+}
+
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
 }
 
 li {

@@ -22,7 +22,7 @@ function LoginForm() {
 
     return (
         <>
-
+            <h2> Welcome to Flairbnb </h2>
             <form
                 className="loginForm"
                 onSubmit={handleSubmit} >
@@ -32,19 +32,22 @@ function LoginForm() {
                     ))}
                 </ul>
                 <label>
-                    Email
+                    {/* Email */}
                     <input
                         type="text"
                         value={email}
+                        placeholder="Email"
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                 </label>
                 <label>
-                    Password
+                    {/* Password */}
                     <input
                         type="password"
                         value={password}
+                        placeholder="Password"
+
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />

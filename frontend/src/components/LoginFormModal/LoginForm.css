@@ -48,7 +48,6 @@ margin-bottom: 15px;
 }
 
 .loginForm  > label >input:focus{
- border: white;
  color: black;
  border: black 1.5px solid;
     }

@@ -43,7 +43,7 @@ const SignUpFormPage = () => {
                     {errors.map((error, idx) => <li key={idx} className="errorLi">{error}</li>)}
                 </ul>
                 <label>
-                    Username:
+                    {/* Username: */}
                     <input
                         type="text"
                         name="username"
@@ -54,7 +54,7 @@ const SignUpFormPage = () => {
                         required />
                 </label>
                 <label>
-                    Email:
+                    {/* Email: */}
                     <input
                         type="text"
                         placeholder="email"
@@ -65,7 +65,7 @@ const SignUpFormPage = () => {
                         required />
                 </label>
                 <label>
-                    Password:
+                    {/* Password: */}
                     <input
                         type="password"
                         placeholder="password"
@@ -76,7 +76,7 @@ const SignUpFormPage = () => {
                         required />
                 </label>
                 <label>
-                    Confirm Password:
+                    {/* Confirm Password: */}
                     <input
                         type="password"
                         placeholder="Confirm Password"
@@ -87,6 +87,7 @@ const SignUpFormPage = () => {
                         required />
                 </label>
                 <button type="submit" className="signup_btn">Sign Up</button>
+
             </form>
         </div>
     )

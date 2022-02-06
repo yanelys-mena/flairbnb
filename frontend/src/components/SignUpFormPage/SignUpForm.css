@@ -1,9 +1,19 @@
+.formDiv {
+    width: 40%; 
+    margin: 0 auto;
+    height: 400px;
+    display: flex;
+ justify-content: center;
+ background-color:red;
+
+}
 
 .signUpForm {
-    width: 40%;
+    background-color: blue;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    justify-content: space-around;
 }
 
 .errorLi {
@@ -11,22 +21,46 @@
 }
 
 .signup_input {
+    height: 40px;
+    border: #D3D3D3 1.5px solid;
     width: 100%;
-    background-color: #f5f7f8;
-    border: gray;
-    resize: vertical;
-    height:50px;
-    margin: 6px;
+    border-radius:5px;
+    color: gray;
 }
 
-.signup_btn {
-    background-color: black;
+.signup_input:hover {
+    color: black;
+    border: black 1.5px solid;
+}; */
+
+
+.signup_btn{
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
     color: white;
-    text-decoration: none;
-    margin: 6px;
-    width: 100%;
-    height: 50px;
+    font-weight: 500;
+    height: 45px;
+    width: 103%;
+    border-radius: 5px;
 
-    /* font-size: 15px; */
+}
+/* 
+.signup_btn {
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 103%;
+    border-radius: 5px;
+
 }
 
+.signup_btn button {
+    cursor: pointer;
+    margin-bottom: 15px;
+} */

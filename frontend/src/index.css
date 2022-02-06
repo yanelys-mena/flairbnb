@@ -9,7 +9,7 @@
 }
 
 
-input:focus, textarea:focus, select:focus, input, button{
+input:focus, textarea:focus, select:focus, input{
     outline: none;
 border: none;
 -webkit-appearance: none;

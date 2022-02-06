@@ -55,6 +55,9 @@ padding-top: 30px;
 
 }
 
+.dropdown > button:hover {
+   cursor: pointer;
+}
 .dropdown > button {
    color: gray;
    background-color: white;

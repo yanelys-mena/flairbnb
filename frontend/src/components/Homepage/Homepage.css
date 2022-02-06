@@ -77,6 +77,11 @@ white-space: nowrap;
     color: transparent;
 }   
 
+.largeimg_overlay > button > p:hover {
+cursor: pointer;
+}  
+
+
 /* NOTE SECTION THREE */
  .home_inspo {
      display: flex;
@@ -202,6 +207,8 @@ height: 600px;
 .home_shop {
     display: flex;
     margin-top: 80px;
+    margin-bottom: 100px;
+    width: 70%;
 }
 
 .home_shop > div > p{
@@ -222,4 +229,8 @@ height: 600px;
     padding: 20px;
     font-size: 20px;
     font-weight: 300;
+}
+
+.home_shop > img {
+ height: 400px;
 }

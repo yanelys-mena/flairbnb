@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 
-import './CreateListings.css';
+import './HostExperience.css';
 
 const CreateListings = () => {
     const [showModal, setShowModal] = useState(false);

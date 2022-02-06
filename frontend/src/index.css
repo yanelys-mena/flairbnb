@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
+
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    /* font-size: 18px; */
+
+}
+
 li {
     list-style-type: none;
+}
+
+button {
+    font-size: 15px;
 }

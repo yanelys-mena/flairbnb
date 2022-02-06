@@ -1,7 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
+
+nav a {
+   text-decoration: none;
+   color: white;
+   margin: 5px;
+} 
+
+nav a:hover {
+   color:#D3D3D3;
+}
+
+nav {
+   width: 100%;
+   /* margin-top: -20px;
+   margin-left: -20px;
+   margin-right: -10px;
+
+
+   max-width:none; */
+   /* height: 60px; */
+}
+
 .navBar{
    display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-   margin: 6px;
+   position: fixed;
+   top: -20px;
+   right:0;
+left: 0;
+   padding-top: 30px;
+   justify-content: space-between;
+   font-size: 18px;
+   height: 60px;
+   background-color: black;
+   }
+
+ 
+.navMiddleLinks {
+   display: flex;
+
 }
+
+.dropdown > button {
+   color: gray;
+   background-color: white;
+   margin-right: 10px;
+   margin-left: -10px;
+
+   margin-bottom: 10px;
+   border: white;
+   border-radius: 20px;
+   height: 30px;
+   width: 60px;
+   text-align: start;
+   padding-left: 10px;
+   font-size: 15px;
+}
+
+.dropdown > ul {
+   display: flex;
+   flex-direction: column;
+   position: absolute;
+   background-color: white;
+   margin: 0 0 0 -140px;
+   border-radius: 20px;
+
+}
+
+.dropdownList > li {
+   margin: 0 0 0 -25px;
+   padding: 8px 5px 5px;
+   font-size: 16px;
+
+}
+
+.dropdownList > li:hover {
+   cursor: pointer;
+background-color: #D3D3D3;
+}
+
+.navButtons {
+   display: flex;
+   justify-content: space-between;
+}
+
+.login_btn {
+   border: none;background-color: transparent;
+   color: white;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+   font-size: 18px;
+}
+
+.logout_btn {
+   border: none;background-color: transparent;
+   color: black;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+   font-size: 16px;
+}
+
 

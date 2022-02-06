@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
 
 
-*{
+html {
+    width: 100%
+}
+div#root > *:first-child { margin-top: -20px; background-color: blue; width: 100%;}
+
+
+  
+* {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     /* font-size: 18px; */
@@ -9,7 +16,7 @@
 }
 
 
-input:focus, textarea:focus, select:focus, input{
+input:focus, textarea:focus, select:focus, input, button, form{
     outline: none;
 border: none;
 -webkit-appearance: none;
@@ -26,6 +33,23 @@ li {
     list-style-type: none;
 }
 
-button {
-    font-size: 15px;
+form > .signup_btn {
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 100%;
+    border-radius: 5px;
 }
+
+
+form > .signup_btn:hover {
+    cursor: pointer;
+} 
+
+body{
+    margin : 0px !important;
+ }

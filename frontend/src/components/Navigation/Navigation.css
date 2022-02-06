@@ -11,7 +11,10 @@ nav a:hover {
 }
 
 nav {
-   width: 100%;
+   /* width: 50%; */
+   position: sticky;
+   top: 0;
+   z-index: 4;
    /* margin-top: -20px;
    margin-left: -20px;
    margin-right: -10px;
@@ -23,11 +26,12 @@ nav {
 
 .navBar{
    display: flex;
+   width: 100%;
    /* position: fixed; */
    /* top: -20px;
    right:0; */
 /* left: 0; */
-   padding-top: 30px;
+padding-top: 30px;
    justify-content: space-between;
    font-size: 18px;
    height: 60px;
@@ -43,8 +47,7 @@ nav {
 .dropdown > button {
    color: gray;
    background-color: white;
-   margin-right: 10px;
-   margin-left: -10px;
+   margin-right: 70px;
 
    margin-bottom: 10px;
    border: white;
@@ -63,24 +66,29 @@ nav {
    background-color: white;
    margin: 0 0 0 -140px;
    border-radius: 20px;
+   width: 150px;
 
 }
 
 .dropdownList > li {
    margin: 0 0 0 -25px;
-   padding: 8px 5px 5px;
+   padding: 8px 10px 5px 10px;
    font-size: 16px;
+   width: 100%;
 
 }
 
 .dropdownList > li:hover {
    cursor: pointer;
 background-color: #D3D3D3;
+border-radius: 10px;
 }
 
 .navButtons {
    display: flex;
    justify-content: space-between;
+   margin-right: 70px;
+
 }
 
 .login_btn {

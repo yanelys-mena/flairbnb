@@ -9,7 +9,6 @@
 }
 
 .signUpForm {
-    background-color: blue;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -31,36 +30,4 @@
 .signup_input:hover {
     color: black;
     border: black 1.5px solid;
-}; */
-
-
-.signup_btn{
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
-    color: white;
-    font-weight: 500;
-    height: 45px;
-    width: 103%;
-    border-radius: 5px;
-
-}
-/* 
-.signup_btn {
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
-    color: white;
-    font-weight: 500;
-    height: 45px;
-    width: 103%;
-    border-radius: 5px;
-
-}
-
-.signup_btn button {
-    cursor: pointer;
-    margin-bottom: 15px;
-} */
+};

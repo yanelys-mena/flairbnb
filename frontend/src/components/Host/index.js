@@ -7,8 +7,8 @@ const CreateListings = () => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-
-        test);
+        <h1>this is the host page</h1>
+    );
 };
 
 export default CreateListings;

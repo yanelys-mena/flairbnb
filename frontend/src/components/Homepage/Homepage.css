@@ -1,15 +1,20 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+
+}
+
+
 /* NOTE SECTION ONE */
 .home_search {
     background-color: black;;
     width: 100%;
 }
 
+
 /* NOTE SECTION TWO */
-main {
- display: flex;
- flex-direction: column;
- align-items: center;   
-}
 
 div .home_largeimg {
     display: flex;
@@ -56,52 +61,81 @@ width:500px;
 .home_inspocards {
 
 display: flex;
+padding: 50px;
+height: 600px;
+
+
 } 
 
+ 
+
 .inspo_card1 {
-    background-color: #CC2D4A;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border-radius: 20px;
-    justify-content: center;
-
+    height: 75%;
+    background-color: #CC2D4A;
+    color: white;
+    margin: 10px;
 }
 
+
 .inspo_card2 {
-    background-color: #CC2D4A;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border-radius: 20px;
-    justify-content: center;
+    height: 75%;
+    background-color: #CC2D4A;
+    color: white;
+    margin: 10px;
 
 }
 
 
 .inspo_card3 {
-    background-color: #CC2D4A;
-    /* height: 400px; */
-    /* padding: 6px; */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border-radius: 20px;
-    justify-content: center;
+    height: 75%;
+    background-color: #CC2D4A;
+    color: white;
+    margin: 10px;
 
 }
 
 
 .inspo_card4 {
-    background-color: #CC2D4A;
-    /* height: 400px; */
-    /* padding: 6px; */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border-radius: 20px;
-    justify-content: center;
+    height: 75%;
+    background-color: #CC2D4A;
+    color: white;
+    margin: 10px;
 
 }
 
 .inspo_img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    width: 320px;
+    height: 213px;
+}
+
+
+
+.inspocard_overlay  > *:first-child{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.inspocard_overlay  {
+    padding: 24px 16px 16px; 
+    color: white;
+
 
 }

@@ -17,23 +17,25 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="home_inspocards">
-                <div className="trip_card">
-                    <img src="https://a0.muscache.com/im/pictures/1cdb5298-1e10-4d5a-ac27-20c80b53b4af.jpg?im_w=240"></img>
-                    <p>Kissimmee</p>
-                    <p>189 miles away</p>
+                <div className="inspo_card1">
+                    <img src="https://a0.muscache.com/im/pictures/1cdb5298-1e10-4d5a-ac27-20c80b53b4af.jpg?im_w=240" className="inspo_img"></img>
+                    <div className="inspocard_overlay">
+                        <p>Kissimmee</p>
+                        <p>189 miles away</p>
+                    </div>
                 </div>
-                <div className="trip_card">
-                    <img src="https://a0.muscache.com/im/pictures/471ce643-a666-4787-8b9b-46ccd9137073.jpg?im_w=320"></img>
+                <div className="inspo_card2">
+                    <img src="https://a0.muscache.com/im/pictures/471ce643-a666-4787-8b9b-46ccd9137073.jpg?im_w=320" className="inspo_img"></img>
                     <p>Tampa</p>
                     <p>205 miles away</p>
                 </div>
-                <div className="trip_card">
-                    <img src="https://a0.muscache.com/im/pictures/aef20929-0d6a-40e7-8ac9-321ff0edf8c9.jpg?im_w=320"></img>
+                <div className="inspo_card3">
+                    <img src="https://a0.muscache.com/im/pictures/aef20929-0d6a-40e7-8ac9-321ff0edf8c9.jpg?im_w=320" className="inspo_img"></img>
                     <p>Sevierville</p>
                     <p>725 miles away</p>
                 </div>
-                <div className="trip_card">
-                    <img src="https://a0.muscache.com/im/pictures/2c0232e1-1dfe-4979-8e9c-04a7217b2c7c.jpg?im_w=320"></img>
+                <div className="inspo_card4">
+                    <img src="https://a0.muscache.com/im/pictures/2c0232e1-1dfe-4979-8e9c-04a7217b2c7c.jpg?im_w=320" className="inspo_img"></img>
                     <p>Atlanta</p>
                     <p>606 miles away</p>
                 </div>

@@ -1,7 +1,6 @@
 const express = require('express');
-// const { idle_in_transaction_session_timeout } = require('pg/lib/defaults');
 const router = express.Router();
-const apiRouter = require('./api/index');
+const apiRouter = require('./api');
 
 router.use('/api', apiRouter);
 

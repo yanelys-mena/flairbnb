@@ -27,7 +27,6 @@ export const restoreUser = () => async dispatch => {
 
 // call the API to login then set the session user from the response which includes id, username, email, dates
 export const login = ({ email, password }) => async (dispatch) => {
-    console.log(email, password)
     const response = await csrfFetch('/api/session', {
         method: 'POST',
         body: JSON.stringify({
@@ -42,7 +41,6 @@ export const login = ({ email, password }) => async (dispatch) => {
 
 
 export const signup = ({ username, email, password }) => async (dispatch) => {
-    console.log(username, email, password)
     const response = await csrfFetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({

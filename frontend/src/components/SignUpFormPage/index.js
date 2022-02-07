@@ -5,7 +5,7 @@ import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 
 
-const SignUpFormPage = () => {
+const SignupFormPage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [username, setUsername] = useState('');
@@ -93,4 +93,4 @@ const SignUpFormPage = () => {
     )
 };
 
-export default SignUpFormPage;
+export default SignupFormPage;

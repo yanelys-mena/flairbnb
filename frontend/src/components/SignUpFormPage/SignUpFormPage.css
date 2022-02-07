@@ -1,6 +1,6 @@
 .formDiv {
     width: 40%; 
-    margin: 0 auto;
+    margin: 100px auto 0 auto;
     height: 400px;
     display: flex;
     flex-direction: column;

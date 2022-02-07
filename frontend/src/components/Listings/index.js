@@ -8,8 +8,8 @@ import ListingDetail from '../ListingDetail';
 const Listings = () => {
     const listingId = useParams();
     const dispatch = useDispatch();
-    const listings = useSelector((state) => state.listings.entries);
-    // listings.forEach(listing => console.log(listing));
+    const listingsObj = useSelector((state) => state.listings.entries);
+    const listings = Object.values(listingsObj);
 
     useEffect(() => {
         dispatch(getListings());

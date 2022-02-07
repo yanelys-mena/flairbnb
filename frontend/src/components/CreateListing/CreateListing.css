@@ -5,8 +5,14 @@ margin-top: 100px;
 .createListingForm{
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
 }
 
 .createListingForm > label > input{
+    border: black solid 1px;
+}
+
+.createListing_btn {
     border: black solid 1px;
 }

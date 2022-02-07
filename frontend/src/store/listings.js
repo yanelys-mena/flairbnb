@@ -1,4 +1,4 @@
-// import { csrfFetch } from './csrf';
+import { csrfFetch } from './csrf';
 
 const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
@@ -30,22 +30,69 @@ export const getListings = () => async (dispatch) => {
 
 export const createNewListing = (formValue) => async (dispatch) => {
 
-    console.log('RECEIVED IN THUNK', formValue)
-    // const response = await fetch('/api/listings/create-listing');
-    // const newListing = await response.json();
-    // console.log('THINK NEW LISTING')
-    // dispatch(loadListings(newListing));
-    // return newListing;
+    console.log('RECEIVED IN THUNK', formValue);
+
+    const {
+        userId,
+        name,
+        listingType,
+        guests,
+        beds,
+        bedrooms,
+        bathrooms,
+        description,
+        address,
+        city,
+        state,
+        country,
+        lat,
+        lng,
+        price
+    } = formValue;
+
+    const response = await csrfFetch('/api/listings/create-listing', {
+        method: 'POST',
+        body: JSON.stringify({
+            userId,
+            name,
+            listingType,
+            guests,
+            beds,
+            bedrooms,
+            bathrooms,
+            description,
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            price
+        })
+    });
+    const newListing = await response.json();
+    console.log('THUNK NEW LISTING', newListing.newListing)
+    // dispatch(createListing(newListing));
+    return newListing;
 };
 
 
-const initialState = {};
+const initialState = { entries: {}, isLoading: true };
 
 const listingsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_LISTINGS:
-            return { ...state, entries: [...action.listings] };
+            newState = { ...state };
+            const entries = {};
+            action.listings.forEach(listing => entries[listing.id] = listing);
+            newState.entries = entries;
+            return newState;
+        // return { ...state, entries: [...action.listings] };
+        case CREATE_LISTING:
+            newState = { ...state }
+            newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
+            return newState;
         default:
             return state;
     }

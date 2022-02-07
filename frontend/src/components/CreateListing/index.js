@@ -10,17 +10,18 @@ const CreateListing = () => {
 
     const [name, setName] = useState('');
     const [listingType, setListingType] = useState('');
-    const [guests, setGuests] = useState();
-    const [beds, setBeds] = useState();
-    const [bedrooms, setBedrooms] = useState();
+    const [guests, setGuests] = useState('');
+    const [beds, setBeds] = useState('');
+    const [bedrooms, setBedrooms] = useState('');
+    const [bathrooms, setBathrooms] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
-    const [lat, setLat] = useState();
-    const [lng, setLng] = useState();
-    const [price, setPrice] = useState();
+    const [lat, setLat] = useState('');
+    const [lng, setLng] = useState('');
+    const [price, setPrice] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,6 +32,7 @@ const CreateListing = () => {
             guests,
             beds,
             bedrooms,
+            bathrooms,
             description,
             address,
             city,
@@ -41,6 +43,7 @@ const CreateListing = () => {
             price
         };
 
+        dispatch(createNewListing(newArticle));
 
         console.log(newArticle)
     }
@@ -73,29 +76,39 @@ const CreateListing = () => {
                 <label>
                     guests:
                     <input
-                        type="text"
+                        type="number"
                         name="guests"
                         placeholder="guests"
                         value={guests}
-                        onChange={(e) => setGuests(e.target.value)} />
+                        onChange={(e) => setGuests(Number(e.target.value))} />
                 </label>
                 <label>
                     beds:
                     <input
-                        type="text"
+                        type="number"
                         name="beds"
                         placeholder="beds"
                         value={beds}
-                        onChange={(e) => setBeds(e.target.value)} />
+                        onChange={(e) => setBeds(Number(e.target.value))} />
                 </label>
                 <label>
                     bedrooms:
                     <input
-                        type="text"
+                        type="number"
                         name="bedrooms"
                         placeholder="bedrooms"
                         value={bedrooms}
-                        onChange={(e) => setBedrooms(e.target.value)} />
+                        onChange={(e) => setBedrooms(Number(e.target.value))} />
+                </label>
+                <label>
+                    bathrooms:
+                    <input
+                        type="number"
+                        step="any"
+                        name="bathrooms"
+                        placeholder="bathrooms"
+                        value={bathrooms}
+                        onChange={(e) => setBathrooms(Number(e.target.value))} />
                 </label>
                 <label>
                     description:
@@ -145,33 +158,36 @@ const CreateListing = () => {
                 <label>
                     lat:
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         name="lat"
                         placeholder="lat"
                         value={lat}
-                        onChange={(e) => setLat(e.target.value)} />
+                        onChange={(e) => setLat(Number(e.target.value))} />
                 </label>
 
                 <label>
                     lng:
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         name="lng"
                         placeholder="lng"
                         value={lng}
-                        onChange={(e) => setLng(e.target.value)} />
+                        onChange={(e) => setLng(Number(e.target.value))} />
                 </label>
 
                 <label>
                     price:
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         name="price"
                         placeholder="price"
                         value={price}
-                        onChange={(e) => setPrice(e.target.value)} />
+                        onChange={(e) => setPrice(Number(e.target.value))} />
                 </label>
-
+                <button type="submit" className="createListing_btn">Sign Up</button>
 
             </form>
 

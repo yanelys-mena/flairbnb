@@ -1,6 +1,7 @@
 // import { csrfFetch } from './csrf';
 
 const GET_LISTINGS = 'listings/getListings';
+const CREATE_LISTING = 'listings/create-listing'
 
 //action creator that takes in listings
 const loadListings = (listings) => {
@@ -10,6 +11,15 @@ const loadListings = (listings) => {
     }
 }
 
+//action creator that creates a single listing
+const createListing = (newListing) => {
+    return {
+        type: GET_LISTINGS,
+        newListing
+    }
+}
+
+
 //thunk middleware fetch api and then dispatch to reducer.
 export const getListings = () => async (dispatch) => {
     const response = await fetch('/api/listings');
@@ -17,6 +27,17 @@ export const getListings = () => async (dispatch) => {
     dispatch(loadListings(listings.listings));
     return listings;
 };
+
+export const createNewListing = (formValue) => async (dispatch) => {
+
+    console.log('RECEIVED IN THUNK', formValue)
+    // const response = await fetch('/api/listings/create-listing');
+    // const newListing = await response.json();
+    // console.log('THINK NEW LISTING')
+    // dispatch(loadListings(newListing));
+    // return newListing;
+};
+
 
 const initialState = {};
 

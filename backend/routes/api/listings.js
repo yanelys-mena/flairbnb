@@ -17,4 +17,50 @@ router.get(
 );
 
 
+
+router.post(
+    '/create-listing',
+    asyncHandler(async (req, res, next) => {
+        const {
+            userId,
+            name,
+            listingType,
+            guests,
+            beds,
+            bedrooms,
+            description,
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            price
+        } = req.body;
+
+        const newListing = await Listing.create({
+            userId,
+            name,
+            listingType,
+            guests,
+            beds,
+            bedrooms,
+            description,
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            price
+        })
+        return res.json({
+            newListing
+        });
+    })
+);
+
+
+
+
 module.exports = router;

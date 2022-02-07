@@ -1,3 +1,12 @@
 .createListingPage{
 margin-top: 100px;
 }
+
+.createListingForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.createListingForm > label > input{
+    border: black solid 1px;
+}

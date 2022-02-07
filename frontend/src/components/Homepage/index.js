@@ -9,7 +9,7 @@ const Homepage = () => {
             <div className="home_largeimg">
                 <div className="largeimg_card">
                     <img className="image" src="https://a0.muscache.com/im/pictures/21c2735e-a734-40f8-9f60-9ac299c4394c.jpg?im_w=960"></img>
-                    <div class="largeimg_overlay">
+                    <div className="largeimg_overlay">
                         <p>Not sure where to go? Perfect.</p>
                         <button href="/"><p>I'm flexible</p></button>
                     </div>

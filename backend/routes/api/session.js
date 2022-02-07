@@ -24,7 +24,6 @@ router.post(
     '/',
     asyncHandler(async (req, res, next) => {
         const { email, password } = req.body;
-        console.log('//////', email, password)
         const user = await User.login({ email, password });
 
         if (!user) {

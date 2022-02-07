@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Listings from "./components/Listings";
-import Host from "./components/Host";
+import CreateListings from "./components/CreateListing";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -26,11 +26,11 @@ function App() {
           <Route path="/signup">
             <SignUpFormPage />
           </Route>
-          <Route path="/host">
-            <Host />
-          </Route>
           <Route path="/listings">
             <Listings />
+          </Route>
+          <Route path="/create-listing">
+            <CreateListings />
           </Route>
         </Switch>
       )}

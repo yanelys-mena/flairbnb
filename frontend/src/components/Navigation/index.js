@@ -33,7 +33,7 @@ function Navigation({ isLoaded }) {
                     <NavLink exact to="/">   <img src="https://live.staticflickr.com/65535/51863889297_75048f090d_w.jpg"></img></NavLink> </li>
                 <div className='navMiddleLinks'>
                     <li>  <NavLink exact to="/listings">Places to stay</NavLink> </li>
-                    <li>  <NavLink exact to="/host">Host an Experience</NavLink> </li>
+                    <li>  <NavLink exact to="/create-listing">Host an Experience</NavLink> </li>
                 </div>
                 {isLoaded && sessionLinks}
             </ul >

@@ -6,8 +6,6 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { Listing } = require('../../db/models');
 const router = express.Router();
 
-console.log('/////', 'LISTINGS ROUTER');
-
 router.get(
     '/',
     asyncHandler(async (req, res, next) => {

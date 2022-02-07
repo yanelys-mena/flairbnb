@@ -241,6 +241,22 @@ module.exports = {
         lng: -147.47931483804564,
         price: 649.00,
       },
+      {
+        userId: 4,
+        name: "Boho Tropical Oasis Little Havana",
+        listingType: 'Entire home',
+        guests: 3,
+        beds: 1,
+        bedrooms: 1,
+        bathrooms: 1,
+        description: "Private Guest House located a couple blocks from Miami's Historic Little Havana. Our neighbors are quiet so you will have no issues sleeping in. We live in the main house, but when our Guest House is rented we only use the front yard so you'll have full privacy. You'll have fast Wi-Fi, private parking & be just a couple blocks from all the fun on Calle 8. Restaurants, bars, LIVE music, ice-cream shops, and dancing. Our dog thinks she's the Queen of this Land, so no other pets will be allowed.",
+        city: 'Miami',
+        state: 'Florida',
+        country: 'United States',
+        lat: 64.78361273829887,
+        lng: -147.47931483804564,
+        price: 94.00,
+      },
 
 
 

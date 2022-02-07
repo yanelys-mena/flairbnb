@@ -25,9 +25,7 @@ function LoginForm() {
         setErrors([]);
         setEmail('demo@demo.com');
         setPassword('password');
-        // const demoEmail = 'demo@demo.com';
-        // const demoPw = 'password'
-        return dispatch(sessionActions.login({ email, password })).catch(
+        return dispatch(sessionActions.demoLogin()).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -71,16 +69,6 @@ function LoginForm() {
                 </label>
                 <button type="submit">Log In</button>
                 <button type="submit" onClick={handleDemoLogin}>Demo Login</button>
-                {/* <form onSubmit={handleDemoLogin}>
-
-                    <button type="submit" onClick={() => ({
-                        setEmail(demo)
-                        setPassword('password')
-
-                    })}>Demo Login</button>
-                </form> */}
-
-
             </form>
         </>
     );

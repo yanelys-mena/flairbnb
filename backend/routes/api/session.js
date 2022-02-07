@@ -24,6 +24,7 @@ router.post(
     '/',
     asyncHandler(async (req, res, next) => {
         const { email, password } = req.body;
+        console.log('//////', email, password)
         const user = await User.login({ email, password });
 
         if (!user) {
@@ -40,25 +41,6 @@ router.post(
     })
 );
 
-// router.post(
-//     '/',
-//     asyncHandler(async (req, res, next) => {
-//         const { credential, password } = req.body;
-//         const user = await User.login({ credential, password });
-
-//         if (!user) {
-//             const err = new Error('Login failed');
-//             err.status = 401;
-//             err.title = 'Login failed';
-//             err.errors = ['The provided credentials were invalid.'];
-//             return next(err);
-
-//         } else {
-//             await setTokenCookie(res, user);
-//             return res.json({ user });
-//         }
-//     })
-// );
 // User Logout API Route
 //removing jwt token
 router.delete(

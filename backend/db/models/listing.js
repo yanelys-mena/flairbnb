@@ -18,10 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER
   }, {});
   Listing.associate = function (models) {
-    Listing.hasMany(models.Review, { foreignKey: 'listingId' });
-    Listing.hasMany(models.Booking, { foreignKey: 'listingId' });
     Listing.belongsTo(models.User, { foreignKey: 'userId' });
-    Listing.hasMany(models.Amenity, { foreignKey: 'listingId' });
+    Listing.hasMany(models.Image, { foreignKey: 'listingId' });
+
   };
   return Listing;
 };

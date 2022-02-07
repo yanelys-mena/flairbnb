@@ -11,14 +11,16 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Users' }
+        references: {
+          model: 'Users'
+        }
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       listingType: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: false,
       },
       guests: {
@@ -43,13 +45,11 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false,
       },
       city: {
         type: Sequelize.STRING,
         allowNull: false,
-
       },
       state: {
         type: Sequelize.STRING,
@@ -74,10 +74,14 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
+
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
+
       }
     });
   },

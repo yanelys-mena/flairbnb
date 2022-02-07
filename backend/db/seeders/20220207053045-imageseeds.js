@@ -305,11 +305,54 @@ module.exports = {
         listingId: 15,
         url: 'https://a0.muscache.com/im/pictures/497292dc-dd23-4732-943d-9d87ca7749ef.jpg?im_w=1200'
       },
+      {
+        listingId: 16,
+        url: 'https://a0.muscache.com/im/pictures/1a1c5fb1-5c09-4008-be7a-b120d10a160f.jpg?im_w=1200'
+      },
+      {
+        listingId: 16,
+        url: 'https://a0.muscache.com/im/pictures/32b21339-f52f-44f2-8e02-db36b30beddc.jpg?im_w=1200'
+      },
+      {
+        listingId: 16,
+        url: 'https://a0.muscache.com/im/pictures/cb1b6512-e84f-4226-bb9e-c85c90a32858.jpg?im_w=960'
+      },
+      {
+        listingId: 16,
+        url: 'https://a0.muscache.com/im/pictures/6c6d1f8a-797e-430c-ac35-f78a36e9bc50.jpg?im_w=1200'
+      },
+      {
+        listingId: 16,
+        url: 'https://a0.muscache.com/im/pictures/02144446-c773-45a2-837d-ad99a01bc71d.jpg?im_w=1200'
+      },
+      {
+        listingId: 17,
+        url: 'https://a0.muscache.com/im/pictures/2ad32f65-5c21-4a51-a02a-d2aa6da773b8.jpg?im_w=1200'
+      },
+      {
+        listingId: 17,
+        url: 'https://a0.muscache.com/im/pictures/9a4f3629-4c40-42df-8720-2671e3d4ebe4.jpg?im_w=1200'
+      },
+      {
+        listingId: 17,
+        url: 'https://a0.muscache.com/im/pictures/ab5e9bcc-a7bf-48c7-8283-447a96d03d91.jpg?im_w=960'
+      },
+      {
+        listingId: 17,
+        url: 'https://a0.muscache.com/im/pictures/34642afc-f943-4a6f-a755-b6c2f3956355.jpg?im_w=1200'
+      },
+      {
+        listingId: 17,
+        url: 'https://a0.muscache.com/im/pictures/c41c5364-c84d-4b7f-b580-7e4b0dfd6a73.jpg?im_w=1200'
+      },
     ], {});
+
   },
 
   down: (queryInterface, Sequelize) => {
 
+
     return queryInterface.bulkDelete('Images', null, {});
+
   }
 };

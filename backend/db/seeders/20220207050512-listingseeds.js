@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-    return queryInterface.bulkInsert('Listing', [
+    return queryInterface.bulkInsert('Listings', [
       {
         userId: 2,
         name: 'Cozy Alaskan Log Cabin',
@@ -99,7 +99,7 @@ module.exports = {
         bedrooms: 1,
         bathrooms: 1,
         description: "- Calm in the crazy - sanctuary for seclusion.... Suite of three beautifully furnished rooms set among the trees. Just minutes from downtown, this secluded property is an urban retreat like no other. The treehouse provides an intimate, simple and restful retreat for 2 people. The treehouse is the subject of innumerable articles, blogs, Treehouse Master and Today Show.",
-        address: "891 Henry Lane",
+        address: "500 Shery Lane",
         city: 'Atlanta',
         state: 'Georgia',
         country: 'United States',
@@ -116,7 +116,7 @@ module.exports = {
         bedrooms: 1,
         bathrooms: 1,
         description: "Soak up the sun and unwind in the abundant outdoor living space which blends seamlessly with the interior of this stunning ground-level retreat. The home is constructed with architectural cedar poles and the living space is open air, allowing you to enjoy the natural world around you. Both the bedroom and kitchen are enclosed. The space is decorated in an exotic, Modern-meets-Indonesian style. Note: Depending on the time of year, there can be mosquitos and bugs in the outside spaces.",
-        address: "891 Henry Lane",
+        address: "1402 Henry Lane",
         city: 'Captain Cook',
         state: 'Hawaii',
         country: 'United States',
@@ -184,7 +184,7 @@ module.exports = {
         bedrooms: 4,
         bathrooms: 3,
         description: "Visual appeal and striking style runs through every inch of this fashionable home, located in Miami’s buzzing Design District. Sculpted seating rings the leafy plunge pool, with vivid art and cutting-edge furnishings adding the extra touch to the artful dining and relaxation areas. The home is just moments from a range of fine restaurants, galleries, waterfront parks and sunset promenades. Copyright © Luxury Retreats. All rights reserved.",
-        address: "1901 Miami Beach Drive",
+        address: "5024 Miami Beach Drive",
         city: 'Miami',
         state: 'Florida',
         country: 'United States',
@@ -218,6 +218,7 @@ module.exports = {
         bedrooms: 6,
         bathrooms: 5.5,
         description: "Hidden beneath a veil of lush foliage, this modern-contemporary oasis resides in the heart of Miami, minutes from the Design District, Wynwood, and downtown core. After a morning workout in the home gym, cool off in the pool. Then, curl up under a shady tree with a good book. Take that special someone out for a stroll along South Beach and audition the dozens of oceanview restaurants at dinner.",
+        address: "500 Villa Avenue",
         city: 'Miami',
         state: 'Florida',
         country: 'United States',
@@ -234,6 +235,7 @@ module.exports = {
         bedrooms: 4,
         bathrooms: 3,
         description: "Enjoy our Tiki house centrally located, where friends and family can gather comfortably. The Tiki house is surrounded by over 40 mature palm trees, tropical vegetation and a high privacy fence. Our outdoor entertaining area, hosts a massive Tiki hut with all the essentials including:heated, salt pool,outdoor bathroom, TV’s,fridge, Weber grill,and guesthouse. Close to restaurants, nightlife, and shopping. Minutes from downtown Brickell, Miami Beach, University of Miami, stadiums and hospitals.",
+        address: '900 Brickell Ave',
         city: 'Miami',
         state: 'Florida',
         country: 'United States',
@@ -250,6 +252,7 @@ module.exports = {
         bedrooms: 1,
         bathrooms: 1,
         description: "Private Guest House located a couple blocks from Miami's Historic Little Havana. Our neighbors are quiet so you will have no issues sleeping in. We live in the main house, but when our Guest House is rented we only use the front yard so you'll have full privacy. You'll have fast Wi-Fi, private parking & be just a couple blocks from all the fun on Calle 8. Restaurants, bars, LIVE music, ice-cream shops, and dancing. Our dog thinks she's the Queen of this Land, so no other pets will be allowed.",
+        address: '4012 Calle Ocho Avenue',
         city: 'Miami',
         state: 'Florida',
         country: 'United States',
@@ -257,7 +260,40 @@ module.exports = {
         lng: -147.47931483804564,
         price: 94.00,
       },
-
+      {
+        userId: 4,
+        name: "Idyllic, Romantic Beachfront Apartment in Malibu",
+        listingType: 'Entire home',
+        guests: 2,
+        beds: 1,
+        bedrooms: 1,
+        bathrooms: 1,
+        description: "Fall asleep to the sound of ocean waves in this charming beachfront apartment. The light, airy home features open-plan living and a wall of windows to maximize the amazing views. Enjoy drinks on the deck and a sunset over the water—it's pure bliss.",
+        address: '1441 Ocean Avenue',
+        city: 'Malibu',
+        state: 'California',
+        country: 'United States',
+        lat: 64.78361273829887,
+        lng: -147.47931483804564,
+        price: 475.00,
+      },
+      {
+        userId: 4,
+        name: "The Barnhouse - Ski House near Hunter and Windham",
+        listingType: 'Entire home',
+        guests: 8,
+        beds: 4,
+        bedrooms: 4,
+        bathrooms: 3,
+        description: "The Hunter Barnhouse is a place to slow down, indulge in personal nostalgia, drink a glass (or two) of wine, and let your mind disconnect and wander. A place designed for friends and family. For good food and good conversation. There's hiking in the summer, skiing in the winter, mountain fresh air and dark, starry nights. This is a house, and you can treat it as such. But if you let go, and give in to the energy of a space created with love, this will feel like home.",
+        address: '1401 Johnson Avenue',
+        city: 'Jewett',
+        state: 'New York',
+        country: 'United States',
+        lat: 64.78361273829887,
+        lng: -147.47931483804564,
+        price: 475.00,
+      },
 
 
     ], {});
@@ -266,7 +302,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
 
-    return queryInterface.bulkDelete('Listing', null, {});
+    return queryInterface.bulkDelete('Listings', null, {});
 
   }
 };

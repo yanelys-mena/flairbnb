@@ -35,8 +35,6 @@ function LoginForm() {
 
     return (
         <>
-
-
             <div className="Welcome">
                 <h2> Welcome to Flairbnb </h2>
             </div>

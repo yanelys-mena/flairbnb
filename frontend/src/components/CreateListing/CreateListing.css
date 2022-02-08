@@ -27,7 +27,17 @@ margin-top: 100px;
     background-color: white;
 }
 
-.guestsButton {
+.guestsButtons {
+    display: flex;
+    align-items: center;
+}
+
+.bedsButtons {
+    display: flex;
+    align-items: center;
+}
+
+.bedroomButtons {
     display: flex;
     align-items: center;
 }

@@ -13,7 +13,7 @@ const CreateListing = () => {
     const [listingType, setListingType] = useState('');
     const [guests, setGuests] = useState(1);
     const [beds, setBeds] = useState('');
-    const [bedrooms, setBedrooms] = useState('');
+    const [bedrooms, setBedrooms] = useState(0);
     const [bathrooms, setBathrooms] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
@@ -69,8 +69,51 @@ const CreateListing = () => {
     const handleGuestDecrement = (e) => {
         e.preventDefault();
 
-        setGuests((guests) => guests - 1)
+        setGuests((guests) => {
+            if (guests > 1) {
+                return guests - 1
+            } else {
+                return guests
+            }
+        })
+    };
+
+    const handleBedsIncrement = (e) => {
+        e.preventDefault();
+        setBeds((beds) => beds + 1)
     }
+
+    const handleBedsDecrement = (e) => {
+        e.preventDefault();
+
+        setBeds((beds) => {
+            if (beds > 1) {
+                return beds - 1
+            } else {
+                return beds
+            }
+        })
+    }
+
+
+    const handleBedroomIncrement = (e) => {
+        e.preventDefault();
+        setBedrooms((bedrooms) => bedrooms + 1)
+    }
+
+    const handleBedroomDecrement = (e) => {
+        e.preventDefault();
+
+        setBedrooms((bedrooms) => {
+            if (bedrooms > 1) {
+                return bedrooms - 1
+            } else {
+                return bedrooms
+            }
+        })
+    };
+
+
 
 
     return (
@@ -100,7 +143,7 @@ const CreateListing = () => {
                 </label>
                 <label>
                     guests:
-                    <div className="guestsButton">
+                    <div className="guestsButtons">
                         <button
                             onClick={handleGuestIncrement}
                             className="increment">
@@ -117,21 +160,36 @@ const CreateListing = () => {
                 </label>
                 <label>
                     beds:
-                    <input
-                        type="number"
-                        name="beds"
-                        placeholder="beds"
-                        value={beds}
-                        onChange={(e) => setBeds(Number(e.target.value))} />
+                    <div className="bedsButtons">
+                        <button
+                            onClick={handleBedsIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
+                        </button>
+                        <p>{guests}</p>
+                        <button
+                            onClick={handleBedsDecrement}
+                            className="decrement">
+                            <i className="fas fa-minus"></i>
+                        </button>
+                    </div>
                 </label>
+
                 <label>
                     bedrooms:
-                    <input
-                        type="number"
-                        name="bedrooms"
-                        placeholder="bedrooms"
-                        value={bedrooms}
-                        onChange={(e) => setBedrooms(Number(e.target.value))} />
+                    <div className="bedroomButtons">
+                        <button
+                            onClick={handleBedroomIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
+                        </button>
+                        <p>{bedrooms}</p>
+                        <button
+                            onClick={handleBedroomDecrement}
+                            className="decrement">
+                            <i className="fas fa-minus"></i>
+                        </button>
+                    </div>
                 </label>
                 <label>
                     bathrooms:
@@ -142,6 +200,7 @@ const CreateListing = () => {
                         placeholder="bathrooms"
                         value={bathrooms}
                         onChange={(e) => setBathrooms(Number(e.target.value))} />
+
                 </label>
                 <label>
                     description:

@@ -141,7 +141,9 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
         }
     });
 
-    res.json({ images });
+    const urlArray = images.map(ele => ele.url)
+
+    res.json({ urlArray });
 
 }));
 

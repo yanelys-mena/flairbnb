@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { loadImages } from '../../store/images';
+import { loadImages } from '../../store/images';
 import './ListingDetail.css';
 
 const ListingDetail = () => {
@@ -9,8 +9,11 @@ const ListingDetail = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
+    useEffect(() => {
+        console.log(listingId)
+        dispatch(loadImages(listingId));
 
-
+    }, []);
 
 
     if (listing) {

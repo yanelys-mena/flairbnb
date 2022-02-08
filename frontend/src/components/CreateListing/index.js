@@ -4,7 +4,6 @@ import { createNewListing } from '../../store/listings';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
-
 const CreateListing = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
@@ -25,20 +24,12 @@ const CreateListing = () => {
     const [price, setPrice] = useState('');
     const [errors, setErrors] = useState([]);
 
-
-    useEffect(() => {
-        console.log('GUEST COUNT', guests)
-    }, [guests])
-
-    if (!sessionUser) return (
-        <Redirect to="/signup" />
-    );
-
-    const userId = sessionUser.id;
+    if (!sessionUser) return <Redirect to="/" />;
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const userId = sessionUser.id;
         const newArticle = {
             userId,
             name,
@@ -58,6 +49,8 @@ const CreateListing = () => {
         };
 
         dispatch(createNewListing(newArticle));
+
+        <Redirect to="/listings"></Redirect>
     }
 
     const handleGuestIncrement = (e) => {
@@ -129,14 +122,12 @@ const CreateListing = () => {
         })
     };
 
+
     return (
+
         <div className='createListingPage'>
-
-
-
-
-            This is where you create a listing
-            <Link to="/listings">Exit</Link>
+            <h2> A new hosting journey starts here</h2>
+            <p>Every Experience idea is reviewed by a small team at Airbnb. <br></br>If your idea meets quality standards, you’ll get to add dates and start hosting.</p>
             <form
                 onSubmit={handleSubmit}
                 className="createListingForm"
@@ -159,74 +150,76 @@ const CreateListing = () => {
                         placeholder="select listing type"
                         onChange={(e) => setListingType(e.target.value)} />
                 </label>
-                <label>
-                    guests:
-                    <div className="guestsButtons">
+                <div className="form_buttons">
+                    <label>
+                        guests:
+                        <div className="guestsButtons">
 
-                        <button
-                            onClick={handleGuestDecrement}
-                            className="decrement">
-                            <i className="fas fa-minus"></i>
-                        </button>
-                        <p>{guests}</p>
-                        <button
-                            onClick={handleGuestIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                    </div>
+                            <button
+                                onClick={handleGuestDecrement}
+                                className="decrement">
+                                <i className="fas fa-minus"></i>
+                            </button>
+                            <p>{guests}</p>
+                            <button
+                                onClick={handleGuestIncrement}
+                                className="increment">
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </div>
 
-                </label>
-                <label>
-                    beds:
-                    <div className="bedsButtons">
-                        <button
-                            onClick={handleBedsDecrement}
-                            className="decrement">
-                            <i className="fas fa-minus"></i>
-                        </button>
-                        <p>{beds}</p>
-                        <button
-                            onClick={handleBedsIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </label>
+                    </label>
+                    <label>
+                        beds:
+                        <div className="bedsButtons">
+                            <button
+                                onClick={handleBedsDecrement}
+                                className="decrement">
+                                <i className="fas fa-minus"></i>
+                            </button>
+                            <p>{beds}</p>
+                            <button
+                                onClick={handleBedsIncrement}
+                                className="increment">
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </label>
 
-                <label>
-                    bedrooms:
-                    <div className="bedroomButtons">
-                        <button
-                            onClick={handleBedroomDecrement}
-                            className="decrement">
-                            <i className="fas fa-minus"></i>
-                        </button>
-                        <p>{bedrooms}</p>
-                        <button
-                            onClick={handleBedroomIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </label>
-                <label>
-                    bathrooms:
-                    <div className="bathroomsButtons">
-                        <button
-                            onClick={handleBathroomsDecrement}
-                            className="decrement">
-                            <i className="fas fa-minus"></i>
-                        </button>
-                        <p>{bathrooms}</p>
-                        <button
-                            onClick={handleBathroomsIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                    </div>
+                    <label>
+                        bedrooms:
+                        <div className="bedroomButtons">
+                            <button
+                                onClick={handleBedroomDecrement}
+                                className="decrement">
+                                <i className="fas fa-minus"></i>
+                            </button>
+                            <p>{bedrooms}</p>
+                            <button
+                                onClick={handleBedroomIncrement}
+                                className="increment">
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </label>
+                    <label>
+                        bathrooms:
+                        <div className="bathroomsButtons">
+                            <button
+                                onClick={handleBathroomsDecrement}
+                                className="decrement">
+                                <i className="fas fa-minus"></i>
+                            </button>
+                            <p>{bathrooms}</p>
+                            <button
+                                onClick={handleBathroomsIncrement}
+                                className="increment">
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </div>
 
-                </label>
+                    </label>
+                </div>
                 <label>
                     description:
                     <input
@@ -304,12 +297,15 @@ const CreateListing = () => {
                         value={price}
                         onChange={(e) => setPrice(Number(e.target.value))} />
                 </label>
-                <button type="submit" className="createListing_btn">Sign Up</button>
+                <button type="submit" className="create_btn">Create</button>
 
             </form>
 
         </div >
     )
 };
+
+
+
 
 export default CreateListing;

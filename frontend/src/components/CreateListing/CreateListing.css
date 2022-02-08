@@ -1,20 +1,52 @@
 .createListingPage{
-margin-top: 100px;
+margin: 80px auto 150px auto;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 80%;
+}
+
+.createListingPage > h2 {
+    font-weight: 500;
+    font-size: 50px;
+    margin-bottom: -15px;
+   
+}
+
+.createListingPage > p {
+    font-weight: 200;
+    font-size: 20px;
+
 }
 
 .createListingForm{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 0 auto;
     width: 60%;
 }
 
-.createListingForm > label > input{
+.createListingForm > label > input, .createListingForm > label {
+    width: 100%;
+    margin: 10px;
+}
+.createListingForm > label > input {
     border: black solid 1px;
+    height: 40px;
+    border: #D3D3D3 1.5px solid;
+    width: 100%;
+    border-radius:5px;
+    color: gray;
+    margin-bottom: 20px;
 }
 
-.createListing_btn {
-    border: black solid 1px;
+
+.form_buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .increment, .decrement {
@@ -26,6 +58,7 @@ margin-top: 100px;
     color: gray;
     background-color: white;
 }
+
 
 .guestsButtons {
     display: flex;
@@ -44,4 +77,22 @@ margin-top: 100px;
 .bathroomsButtons {
     display: flex;
     align-items: center;
+}
+
+
+.create_btn {
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 103%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.create_btn  > button:hover{
+    cursor: pointer;
 }

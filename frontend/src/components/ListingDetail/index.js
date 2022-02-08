@@ -1,17 +1,31 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { loadImages } from '../../store/images';
+// import { loadImages } from '../../store/images';
 import './ListingDetail.css';
 
 const ListingDetail = () => {
     const { listingId } = useParams();
+    const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
-    console.log('USE SELECTOR', listing);
-    const images = loadImages(listingId);
-    // console.log('IN COMPONENT', images.images);
 
-    // if (!sessionUser) return <Redirect to="/signup" />;
+    const loadImages = async (listingId) => {
+
+        const response = await fetch(`/api/listings/images/${listingId}`)
+
+        const images = await response.json();
+
+        return images;
+    };
+
+    const images = loadImages(listingId);
+
+    console.log('FETCH ', images)
+
+    // console.log('IN COMONENT', images)
+
+
     if (listing) {
         return (
             <div className='detailPage'>
@@ -25,7 +39,7 @@ const ListingDetail = () => {
                 </div>
                 <div>
                     <p>Hosted by {sessionUser.username}</p>
-                    <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed ·  {listing.bathrooms} bath</p>
+                    <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
                 </div>
 
 

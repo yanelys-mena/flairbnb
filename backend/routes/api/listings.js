@@ -143,7 +143,6 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
 
     res.json({ images });
 
-
 }));
 
 module.exports = router;

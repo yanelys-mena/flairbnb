@@ -12,7 +12,7 @@ const CreateListing = () => {
     const [listingType, setListingType] = useState('');
     const [guests, setGuests] = useState(1);
     const [beds, setBeds] = useState(1);
-    const [bedrooms, setBedrooms] = useState(0);
+    const [bedrooms, setBedrooms] = useState(1);
     const [bathrooms, setBathrooms] = useState(1);
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
@@ -127,32 +127,35 @@ const CreateListing = () => {
 
         <div className='createListingPage'>
             <h2> A new hosting journey starts here</h2>
-            <p>Every Experience idea is reviewed by a small team at Airbnb. <br></br>If your idea meets quality standards, you’ll get to add dates and start hosting.</p>
+            <p>Every Experience idea is reviewed by a small team at Airbnb. If your idea meets quality standards, you’ll get to add dates and start hosting.</p>
             <form
                 onSubmit={handleSubmit}
                 className="createListingForm"
             >
                 <label>
-                    name:
+                    <p>Create your title</p>
                     <input
                         type="text"
                         name="name"
                         value={name}
-                        placeholder="name"
+                        placeholder="Lovely 3-bedroom vacation home
+                        with pool"
                         onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label>
-                    listingType:
+                    <p>Space Type</p>
+                    What kind of space will guests have? *entire home, private room, shared room
                     <input
                         type="text"
                         value={listingType}
                         name="listingType"
-                        placeholder="select listing type"
+                        placeholder=" entire home, private room, shared room "
                         onChange={(e) => setListingType(e.target.value)} />
+
                 </label>
                 <div className="form_buttons">
-                    <label>
-                        guests:
+                    <label className="form_buttons_label">
+                        <p>Guests</p>
                         <div className="guestsButtons">
 
                             <button
@@ -169,8 +172,8 @@ const CreateListing = () => {
                         </div>
 
                     </label>
-                    <label>
-                        beds:
+                    <label className="form_buttons_label">
+                        <p>Beds</p>
                         <div className="bedsButtons">
                             <button
                                 onClick={handleBedsDecrement}
@@ -186,8 +189,8 @@ const CreateListing = () => {
                         </div>
                     </label>
 
-                    <label>
-                        bedrooms:
+                    <label className="form_buttons_label">
+                        <p>Bedrooms</p>
                         <div className="bedroomButtons">
                             <button
                                 onClick={handleBedroomDecrement}
@@ -202,8 +205,8 @@ const CreateListing = () => {
                             </button>
                         </div>
                     </label>
-                    <label>
-                        bathrooms:
+                    <label className="form_buttons_label">
+                        <p>Bathrooms</p>
                         <div className="bathroomsButtons">
                             <button
                                 onClick={handleBathroomsDecrement}
@@ -221,7 +224,7 @@ const CreateListing = () => {
                     </label>
                 </div>
                 <label>
-                    description:
+                    <p>Create your description</p>
                     <input
                         type="text"
                         name="description"
@@ -230,7 +233,7 @@ const CreateListing = () => {
                         onChange={(e) => setDescription(e.target.value)} />
                 </label>
                 <label>
-                    address:
+                    <p>Where's your place located?</p>
                     <input
                         type="text"
                         name="address"

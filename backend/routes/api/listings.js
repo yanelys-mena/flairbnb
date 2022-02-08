@@ -133,6 +133,17 @@ router.post(
     })
 );
 
+router.get('/images/:listingId', asyncHandler(async (req, res) => {
+    const listingId = req.params.listingId
+    const images = await Image.findAll({
+        where: {
+            listingId
+        }
+    });
 
+    res.json({ images });
+
+
+}));
 
 module.exports = router;

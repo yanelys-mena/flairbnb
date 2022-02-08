@@ -1,12 +1,15 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { loadImages } from '../../store/images';
 import './ListingDetail.css';
 
 const ListingDetail = () => {
     const { listingId } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
-    console.log('USE SELECTOR', listing)
+    console.log('USE SELECTOR', listing);
+    const images = loadImages(listingId);
+    // console.log('IN COMPONENT', images.images);
 
     // if (!sessionUser) return <Redirect to="/signup" />;
     if (listing) {

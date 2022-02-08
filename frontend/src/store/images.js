@@ -1,6 +1,24 @@
 import { csrfFetch } from './csrf';
 
+const LOAD_IMAGES = 'listings/load-images'
 const UPLOAD_IMAGES = 'listings/upload-images'
+
+const imageLoader = (images) => {
+    return {
+        type: LOAD_IMAGES,
+        images
+    }
+};
+
+export const loadImages = async (listingId) => {
+
+    const images = await fetch(`/api/listings/images/${listingId}`).then((image) =>
+        image.json());
+
+    // const images = response.json();
+    console.log('thunk', images)
+};
+
 
 //action creator for 5 images
 const uploadFive = (images) => {

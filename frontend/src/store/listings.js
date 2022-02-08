@@ -76,7 +76,7 @@ export const createNewListing = (formValue) => async (dispatch) => {
 
 
 export const restoreListings = () => async dispatch => {
-    const response = await fetch('/api/listings');
+    const response = await csrfFetch('/api/listings');
     const listings = await response.json();
     dispatch(loadListings(listings.listings));
     return listings;

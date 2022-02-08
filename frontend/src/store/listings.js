@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
 const UPLOAD_IMAGES = 'listings/upload-images'
+
 //action creator that takes in listings
 const loadListings = (listings) => {
     return {
@@ -14,27 +15,18 @@ const loadListings = (listings) => {
 //action creator that creates a single listing
 const createListing = (newListing) => {
     return {
-        type: GET_LISTINGS,
+        type: CREATE_LISTING,
         newListing
     }
 };
 
-//thunx middleware for adding 5 images
-export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, imageFive, listingId }) => async (dispatch) => {
-
-    const response = await csrfFetch('/api/listings/upload-images', {
-        method: 'POST',
-        body: JSON.stringify({
-            imageOne, imageTwo, imageThree, imageFour, imageFive, listingId: Number(listingId)
-        })
-    });
-    const newImages = await response.JSON();
-    console.log(newImages)
-    // const newImages = response.JSON();
-    // console.log('+++IMAGES RETURNED', newImages)
-
+//action creator for 5 images
+const uploadFive = (images) => {
+    return {
+        type: UPLOAD_IMAGES,
+        images
+    }
 }
-
 //thunk middleware fetch api and then dispatch to reducer.
 export const getListings = () => async (dispatch) => {
     const response = await fetch('/api/listings');
@@ -85,9 +77,27 @@ export const createNewListing = (formValue) => async (dispatch) => {
     });
     const newListing = await response.json();
     console.log('THUNK NEW LISTING', newListing.newListing)
-    // dispatch(createListing(newListing));
+    dispatch(createListing(newListing.newListing));
     return newListing;
 };
+
+
+//thunx middleware for adding 5 images
+export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, imageFive, listingId }) => async (dispatch) => {
+
+    const response = await csrfFetch('/api/listings/upload-images', {
+        method: 'POST',
+        body: JSON.stringify({
+            imageOne, imageTwo, imageThree, imageFour, imageFive, listingId: Number(listingId)
+        })
+    });
+    const newImages = await response.JSON();
+    console.log(newImages)
+    // const newImages = response.JSON();
+    // console.log('+++IMAGES RETURNED', newImages)
+
+}
+
 
 
 const initialState = { entries: {}, isLoading: true };
@@ -110,5 +120,6 @@ const listingsReducer = (state = initialState, action) => {
             return state;
     }
 };
+
 
 export default listingsReducer;

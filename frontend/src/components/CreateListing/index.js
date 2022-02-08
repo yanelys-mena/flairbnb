@@ -30,7 +30,7 @@ const CreateListing = () => {
     const [listingId, setListingId] = useState('');
 
 
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/signup" />;
 
     const handleSubmit = async (e) => {
 

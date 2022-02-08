@@ -136,9 +136,11 @@ router.post(
             listingId,
             url: imageFive
         });
-        return res.json({
+
+        const newImages = {
             newImageOne, newImageTwo, newImageThree, newImageFour, newImageFive
-        });
+        }
+        return res.json({ newImages })
     })
 );
 

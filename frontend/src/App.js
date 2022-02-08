@@ -5,7 +5,7 @@ import Homepage from "./components/Homepage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Listings from "./components/Listings";
 import ListingDetail from "./components/ListingDetail";
-
+import { restoreListings } from "./store/listings";
 import CreateListings from "./components/CreateListing";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -15,6 +15,8 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(restoreListings())
+
   }, [dispatch]);
 
   return (

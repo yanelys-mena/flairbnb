@@ -1,5 +1,7 @@
 import { csrfFetch } from './csrf';
 
+
+
 const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
 
@@ -68,16 +70,22 @@ export const createNewListing = (formValue) => async (dispatch) => {
         })
     });
     const newListing = await response.json();
-    console.log('THUNK NEW LISTING', newListing.newListing)
     dispatch(createListing(newListing.newListing));
     return newListing;
+};
+
+
+export const restoreListings = () => async dispatch => {
+    const response = await fetch('/api/listings');
+    const listings = await response.json();
+    dispatch(loadListings(listings.listings));
+    return listings;
 };
 
 
 const initialState = { entries: {}, isLoading: true };
 
 const listingsReducer = (state = initialState, action) => {
-    console.log('REDUCER', action)
     let newState;
     switch (action.type) {
         case GET_LISTINGS:

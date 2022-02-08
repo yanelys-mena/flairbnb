@@ -27,7 +27,6 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
 const initialState = { entries: {} };
 
 const imagesReducer = (state = initialState, action) => {
-    console.log('REDUCER IMAGES', action.images)
     let newState;
     switch (action.type) {
         case UPLOAD_IMAGES:

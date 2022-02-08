@@ -1,16 +1,40 @@
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import './ListingDetail.css';
 
 const ListingDetail = () => {
-    const listingId = useParams();
-    console.log(listingId.listingId)
+    const { listingId } = useParams();
+    const sessionUser = useSelector((state) => state.session.user);
+    const listing = useSelector((state) => state.listings.entries[listingId]);
+    console.log('USE SELECTOR', listing)
 
-    return (
-        <div className='detailPage'>
-            LISTING DETAIL
-            <li>{listingId.listingId}</li>
-        </div>
-    )
+    // if (!sessionUser) return <Redirect to="/signup" />;
+    if (listing) {
+        return (
+            <div className='detailPage'>
+
+                <div className='text'>
+                    <h2>{listing.name}</h2>
+                    <p>{listing.city}, {listing.state}, {listing.country} </p>
+                </div>
+                <div className="images">
+
+                </div>
+                <div>
+                    <p>Hosted by {sessionUser.username}</p>
+                    <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed ·  {listing.bathrooms} bath</p>
+                </div>
+
+
+                LISTING DETAIL
+                <li>{listingId.listingId} · </li>
+            </div>
+
+        )
+    } else {
+        return (<p>nada</p>)
+    }
+
 };
 
 export default ListingDetail;

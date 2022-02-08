@@ -4,9 +4,10 @@ import { csrfFetch } from './csrf';
 const LOAD_IMAGES = 'listings/load-images'
 const UPLOAD_IMAGES = 'listings/upload-images'
 
-const imageLoader = (images) => {
+const imageLoader = (listingId, images) => {
     return {
         type: LOAD_IMAGES,
+        listingId,
         images
     }
 };
@@ -42,27 +43,26 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
     return newImages.newImages;
 };
 
-const initialState = { entries: {} };
+const initialState = {};
 
 const imagesReducer = (state = initialState, action) => {
 
     console.log('reducer images', action.images);
-
-
     let newState;
     switch (action.type) {
-        case UPLOAD_IMAGES:
+        case LOAD_IMAGES:
             newState = { ...state }
-            newState.entries = {
-                ...newState,
-                [action.images.newImageOne.id]: action.images
+            newState = {
+                ...newState, [action.listingId]: action.images
             }
-            return newState;
-        // case LOAD_IMAGES:
-        //     newState.entries = { ...state }
+            return newState
+        // case UPLOAD_IMAGES:
+        //     newState = { ...state }
         //     newState.entries = {
-        //         ...newState, [action.images.newImageOne.id]: bindActionCreators.images
+        //         ...newState,
+        //         [action.images.newImageOne.id]: action.images
         //     }
+        //     return newState;
         default:
             return state;
     }

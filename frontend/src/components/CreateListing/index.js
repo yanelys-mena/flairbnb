@@ -2,7 +2,7 @@ import './CreateListing.css';
 import { useEffect, useState } from 'react';
 import { createNewListing } from '../../store/listings';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 const CreateListing = () => {
@@ -35,7 +35,6 @@ const CreateListing = () => {
     );
 
     const userId = sessionUser.id;
-
 
 
     const handleSubmit = (e) => {
@@ -130,12 +129,14 @@ const CreateListing = () => {
         })
     };
 
-
-
-
     return (
         <div className='createListingPage'>
+
+
+
+
             This is where you create a listing
+            <Link to="/listings">Exit</Link>
             <form
                 onSubmit={handleSubmit}
                 className="createListingForm"
@@ -299,7 +300,7 @@ const CreateListing = () => {
                         type="number"
                         step="any"
                         name="price"
-                        placeholder="price"
+                        placeholder="$00"
                         value={price}
                         onChange={(e) => setPrice(Number(e.target.value))} />
                 </label>

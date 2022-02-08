@@ -2,7 +2,6 @@ import { csrfFetch } from './csrf';
 
 const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
-const UPLOAD_IMAGES = 'listings/upload-images'
 
 //action creator that takes in listings
 const loadListings = (listings) => {
@@ -20,13 +19,6 @@ const createListing = (newListing) => {
     }
 };
 
-//action creator for 5 images
-const uploadFive = (images) => {
-    return {
-        type: UPLOAD_IMAGES,
-        images
-    }
-}
 //thunk middleware fetch api and then dispatch to reducer.
 export const getListings = () => async (dispatch) => {
     const response = await fetch('/api/listings');
@@ -82,29 +74,10 @@ export const createNewListing = (formValue) => async (dispatch) => {
 };
 
 
-//thunx middleware for adding 5 images
-export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, imageFive, listingId }) => async (dispatch) => {
-
-    const response = await csrfFetch('/api/listings/upload-images', {
-        method: 'POST',
-        body: JSON.stringify({
-            imageOne, imageTwo, imageThree, imageFour, imageFive, listingId: Number(listingId)
-        })
-    });
-    console.log('THUNK RESPONSE', response)
-
-    const newImages = await response.json();
-    console.log('THUNK JSON', newImages)
-    // const newImages = response.JSON();
-    // console.log('+++IMAGES RETURNED', newImages)
-
-}
-
-
-
 const initialState = { entries: {}, isLoading: true };
 
 const listingsReducer = (state = initialState, action) => {
+    console.log('REDUCER', action)
     let newState;
     switch (action.type) {
         case GET_LISTINGS:
@@ -113,7 +86,6 @@ const listingsReducer = (state = initialState, action) => {
             action.listings.forEach(listing => entries[listing.id] = listing);
             newState.entries = entries;
             return newState;
-        // return { ...state, entries: [...action.listings] };
         case CREATE_LISTING:
             newState = { ...state }
             newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }

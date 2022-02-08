@@ -1,7 +1,9 @@
 import './CreateListing.css';
 import './ImageUpload.css';
 import { useState } from 'react';
-import { createNewListing, uploadFiveImages } from '../../store/listings';
+import { createNewListing } from '../../store/listings';
+import { uploadFiveImages } from '../../store/images';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
 

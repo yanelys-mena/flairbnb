@@ -1,0 +1,42 @@
+.imageForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto 0 auto;
+    width: 60%;
+}
+
+.imageForm > label > input, .imageForm > label{
+    width: 100%;
+    margin: 10px;
+}
+
+.imageForm > label > p {
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 10px;
+
+}
+
+.imageForm > label > input {
+    height: 40px;
+    border: #D3D3D3 1.5px solid;
+    width: 100%;
+    border-radius:5px;
+    color: black;
+    margin-bottom: 20px;
+
+}
+
+.imageForm > .image_btn {
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 103%;
+    margin: 15px;
+    border-radius: 5px;
+}

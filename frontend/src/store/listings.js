@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
-
+const UPLOAD_IMAGES = 'listings/upload-images'
 //action creator that takes in listings
 const loadListings = (listings) => {
     return {
@@ -17,8 +17,23 @@ const createListing = (newListing) => {
         type: GET_LISTINGS,
         newListing
     }
-}
+};
 
+//thunx middleware for adding 5 images
+export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, imageFive, listingId }) => async (dispatch) => {
+
+    const response = await csrfFetch('/api/listings/upload-images', {
+        method: 'POST',
+        body: JSON.stringify({
+            imageOne, imageTwo, imageThree, imageFour, imageFive, listingId: Number(listingId)
+        })
+    });
+    const newImages = await response.JSON();
+    console.log(newImages)
+    // const newImages = response.JSON();
+    // console.log('+++IMAGES RETURNED', newImages)
+
+}
 
 //thunk middleware fetch api and then dispatch to reducer.
 export const getListings = () => async (dispatch) => {
@@ -29,8 +44,6 @@ export const getListings = () => async (dispatch) => {
 };
 
 export const createNewListing = (formValue) => async (dispatch) => {
-
-    console.log('RECEIVED IN THUNK', formValue);
 
     const {
         userId,

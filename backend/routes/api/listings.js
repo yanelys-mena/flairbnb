@@ -4,6 +4,8 @@ const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Listing } = require('../../db/models');
+const { Image } = require('../../db/models');
+
 const router = express.Router();
 
 router.get(
@@ -104,6 +106,41 @@ router.post(
     })
 );
 
+
+
+router.post(
+    '/upload-images',
+    asyncHandler(async (req, res, next) => {
+        const {
+            imageOne, imageTwo, imageThree, imageFour, imageFive, listingId
+        } = req.body;
+
+        const newImageOne = await Image.create({
+            listingId,
+            url: imageOne
+        });
+
+        const newImageTwo = await Image.create({
+            listingId,
+            url: imageTwo
+        });
+        const newImageThree = await Image.create({
+            listingId,
+            url: imageThree
+        });
+        const newImageFour = await Image.create({
+            listingId,
+            url: imageFour
+        });
+        const newImageFive = await Image.create({
+            listingId,
+            url: imageFive
+        });
+        return res.json({
+            newImageOne, newImageTwo, newImageThree, newImageFour, newImageFive
+        });
+    })
+);
 
 
 

@@ -36,18 +36,21 @@ text-align: center;
 .createListingForm > label > p {
     font-weight: 500;
     font-size: 22px;
+    margin-bottom: 10px;
 
 }
 .createListingForm > label > input {
-    border: black solid 1px;
     height: 40px;
     border: #D3D3D3 1.5px solid;
     width: 100%;
     border-radius:5px;
-    color: gray;
+    color: black;
     margin-bottom: 20px;
 }
 
+.description{
+    height: 50px;
+}
 
 .form_buttons {
     display: flex;
@@ -99,6 +102,25 @@ font-size: 20px;
 }
 
 
+.address {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    grid-gap: 15px;
+    margin-bottom: 10px;
+    padding: 0 10px 0 30px;
+}
+
+.address > label > input {
+    height: 40px;
+    width: 100%;
+    border: #D3D3D3 1.5px solid;
+    border-radius:5px;
+    color: black;
+
+}
+
+
 .create_btn {
     background: linear-gradient(
         to bottom right,
@@ -108,7 +130,7 @@ font-size: 20px;
     font-weight: 500;
     height: 45px;
     width: 103%;
-    margin-bottom: 15px;
+    margin: 15px;
     border-radius: 5px;
 }
 

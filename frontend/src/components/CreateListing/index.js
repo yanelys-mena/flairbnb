@@ -1,12 +1,14 @@
 import './CreateListing.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { createNewListing } from '../../store/listings';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 
 const CreateListing = () => {
     const dispatch = useDispatch();
-    const userId = useSelector((state) => state.session.user.id);
+    const sessionUser = useSelector((state) => state.session.user);
+    console.log(sessionUser)
 
     const [name, setName] = useState('');
     const [listingType, setListingType] = useState('');
@@ -22,6 +24,16 @@ const CreateListing = () => {
     const [lat, setLat] = useState('');
     const [lng, setLng] = useState('');
     const [price, setPrice] = useState('');
+    const [errors, setErrors] = useState([]);
+
+
+
+    if (!sessionUser) return (
+        <Redirect to="/signup" />
+    );
+
+    const userId = sessionUser.id;
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -14,6 +14,50 @@ router.get(
     })
 );
 
+const validateCreateListing = [
+    check('name')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a name for your listing.'),
+    check('listingType')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a listing type.'),
+    check('guests')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide the number of guests to host.'),
+    check('beds')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('bedrooms')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('bathrooms')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('address')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('city')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('state')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('country')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('lat')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('lng')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a '),
+    check('price')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a ')
+];
 
 
 router.post(

@@ -32,7 +32,7 @@ const CreateListing = () => {
     if (!sessionUser) return <Redirect to="/signup" />;
 
     const handleSubmit = async (e) => {
-
+        console.log(errors)
         e.preventDefault();
         const validateErrors = [];
         if (name.length < 1) validateErrors.push('Please include a title for your listing.');
@@ -45,7 +45,6 @@ const CreateListing = () => {
             setErrors(validateErrors);
             return;
         }
-
 
         const userId = sessionUser.id;
         const newListing = {
@@ -67,6 +66,7 @@ const CreateListing = () => {
         };
 
         const listingSuccess = await dispatch(createNewListing(newListing))
+
 
         if (listingSuccess) {
             setListingId(listingSuccess.newListing.id);

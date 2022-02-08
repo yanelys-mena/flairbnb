@@ -2,7 +2,7 @@ import './CreateListing.css';
 
 import './ImageUpload.css';
 import { uploadFiveImages } from '../../store/images';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createNewListing } from '../../store/listings';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,11 +16,34 @@ function UploadImages({ listingId }) {
     const [imageThree, setImageThree] = useState('');
     const [imageFour, setImageFour] = useState('');
     const [imageFive, setImageFive] = useState('');
-    console.log(listingId);
+    const [errors, setErrors] = useState([]);
+
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        console.log('errirs', imageOne,
+            imageTwo,
+            imageThree,
+            imageFour,
+            imageFive)
+    }, [imageOne,
+        imageTwo,
+        imageThree,
+        imageFour,
+        imageFive,])
+
+
     const handleImageSubmit = async (e) => {
+
         e.preventDefault();
+
+        const validateErrors = [];
+        if (imageOne.length < 1 || imageTwo.length < 1 || imageThree.length < 1 || imageFour.length < 1 || imageFive.length < 1) validateErrors.push('Please upload five images.')
+        if (validateErrors.length > 0) {
+            setErrors(validateErrors);
+            return;
+        }
+
         const newImages = await dispatch(uploadFiveImages(
             {
                 imageOne,
@@ -72,6 +95,7 @@ function UploadImages({ listingId }) {
                     value={imageFive}
                     onChange={(e) => setImageFive(e.target.value)} />
             </label>
+            {errors && errors.map((error) => <li key={error}>{error}</li>)}
             <button
                 type="submit"
                 className="image_btn">Upload</button>

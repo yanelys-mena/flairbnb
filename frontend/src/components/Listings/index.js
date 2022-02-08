@@ -1,6 +1,6 @@
 import './Listings.css'
 import { useEffect } from 'react';
-import { Route, Switch, useParams, NavLink } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getListings } from '../../store/listings';
 import ListingDetail from '../ListingDetail';
@@ -20,16 +20,10 @@ const Listings = () => {
             <h3>This is the Listings Page</h3>
             {listings && listings.map(listing =>
                 <div key={listing.id}>
-                    <NavLink to={`/listings/${listing.id}`} key={listing.id}>{listing.name}</NavLink>
+                    <Link to={`/listings/${listing.id}`} key={listing.id}>{listing.name}</Link>
                 </div>
 
             )}
-
-            <Switch>
-                <Route path="/listings/:listingId">
-                    <ListingDetail ></ListingDetail>
-                </Route>
-            </Switch>
         </div>
     )
 };

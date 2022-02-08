@@ -6,12 +6,10 @@ const ListingDetail = () => {
     console.log(listingId.listingId)
 
     return (
-        <>
+        <div className='detailPage'>
             LISTING DETAIL
             <li>{listingId.listingId}</li>
-
-        </>
-        // <li>{id}</li>
+        </div>
     )
 };
 

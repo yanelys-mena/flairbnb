@@ -4,6 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Listings from "./components/Listings";
+import ListingDetail from "./components/ListingDetail";
+
 import CreateListings from "./components/CreateListing";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -25,6 +27,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUpFormPage />
+          </Route>
+          <Route path="/listings/:listingId">
+            <ListingDetail ></ListingDetail>
           </Route>
           <Route path="/listings">
             <Listings />

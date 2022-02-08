@@ -11,16 +11,11 @@ const imageLoader = (images) => {
 };
 
 
-// export const loadImages = (listingId) => async (dispatch) => {
-
-//     const response = await csrfFetch(`/api/listings/images/${listingId}`)
-
-//     const images = await response.json();
-
-//     return images;
-// };
-
-
+export const loadImages = (listingId) => async (dispatch) => {
+    const response = await fetch(`/api/listings/images/{listingId}`);
+    const images = await response.json();
+    console.log(images)
+};
 
 
 //action creator for 5 images

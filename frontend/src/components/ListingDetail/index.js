@@ -10,20 +10,7 @@ const ListingDetail = () => {
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
 
-    const loadImages = async (listingId) => {
 
-        const response = await fetch(`/api/listings/images/${listingId}`)
-
-        const images = await response.json();
-
-        return images;
-    };
-
-    const images = loadImages(listingId);
-
-    console.log('FETCH ', images)
-
-    // console.log('IN COMONENT', images)
 
 
     if (listing) {
@@ -37,7 +24,7 @@ const ListingDetail = () => {
                 <div className="images">
 
                 </div>
-                <div>
+                <div className="buttomSection">
                     <p>Hosted by {sessionUser.username}</p>
                     <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
                 </div>

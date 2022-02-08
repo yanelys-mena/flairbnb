@@ -12,9 +12,9 @@ const CreateListing = () => {
     const [name, setName] = useState('');
     const [listingType, setListingType] = useState('');
     const [guests, setGuests] = useState(1);
-    const [beds, setBeds] = useState('');
+    const [beds, setBeds] = useState(1);
     const [bedrooms, setBedrooms] = useState(0);
-    const [bathrooms, setBathrooms] = useState('');
+    const [bathrooms, setBathrooms] = useState(1);
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -113,6 +113,23 @@ const CreateListing = () => {
         })
     };
 
+    const handleBathroomsIncrement = (e) => {
+        e.preventDefault();
+        setBathrooms((bedrooms) => bedrooms + .5)
+    }
+
+    const handleBathroomsDecrement = (e) => {
+        e.preventDefault();
+
+        setBathrooms((bedrooms) => {
+            if (bedrooms > 1) {
+                return bedrooms - .5
+            } else {
+                return bedrooms
+            }
+        })
+    };
+
 
 
 
@@ -144,16 +161,17 @@ const CreateListing = () => {
                 <label>
                     guests:
                     <div className="guestsButtons">
-                        <button
-                            onClick={handleGuestIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                        <p>{guests}</p>
+
                         <button
                             onClick={handleGuestDecrement}
                             className="decrement">
                             <i className="fas fa-minus"></i>
+                        </button>
+                        <p>{guests}</p>
+                        <button
+                            onClick={handleGuestIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
                         </button>
                     </div>
 
@@ -162,15 +180,15 @@ const CreateListing = () => {
                     beds:
                     <div className="bedsButtons">
                         <button
-                            onClick={handleBedsIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                        <p>{guests}</p>
-                        <button
                             onClick={handleBedsDecrement}
                             className="decrement">
                             <i className="fas fa-minus"></i>
+                        </button>
+                        <p>{beds}</p>
+                        <button
+                            onClick={handleBedsIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
                         </button>
                     </div>
                 </label>
@@ -179,27 +197,33 @@ const CreateListing = () => {
                     bedrooms:
                     <div className="bedroomButtons">
                         <button
-                            onClick={handleBedroomIncrement}
-                            className="increment">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                        <p>{bedrooms}</p>
-                        <button
                             onClick={handleBedroomDecrement}
                             className="decrement">
                             <i className="fas fa-minus"></i>
+                        </button>
+                        <p>{bedrooms}</p>
+                        <button
+                            onClick={handleBedroomIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
                         </button>
                     </div>
                 </label>
                 <label>
                     bathrooms:
-                    <input
-                        type="number"
-                        step="any"
-                        name="bathrooms"
-                        placeholder="bathrooms"
-                        value={bathrooms}
-                        onChange={(e) => setBathrooms(Number(e.target.value))} />
+                    <div className="bathroomsButtons">
+                        <button
+                            onClick={handleBathroomsDecrement}
+                            className="decrement">
+                            <i className="fas fa-minus"></i>
+                        </button>
+                        <p>{bathrooms}</p>
+                        <button
+                            onClick={handleBathroomsIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
+                        </button>
+                    </div>
 
                 </label>
                 <label>

@@ -91,8 +91,10 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
             imageOne, imageTwo, imageThree, imageFour, imageFive, listingId: Number(listingId)
         })
     });
-    const newImages = await response.JSON();
-    console.log(newImages)
+    console.log('THUNK RESPONSE', response)
+
+    const newImages = await response.json();
+    console.log('THUNK JSON', newImages)
     // const newImages = response.JSON();
     // console.log('+++IMAGES RETURNED', newImages)
 

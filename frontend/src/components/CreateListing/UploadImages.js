@@ -20,19 +20,6 @@ function UploadImages({ listingId }) {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log('errirs', imageOne,
-            imageTwo,
-            imageThree,
-            imageFour,
-            imageFive)
-    }, [imageOne,
-        imageTwo,
-        imageThree,
-        imageFour,
-        imageFive,])
-
-
     const handleImageSubmit = async (e) => {
 
         e.preventDefault();
@@ -53,7 +40,7 @@ function UploadImages({ listingId }) {
                 imageFive,
                 listingId
             }));
-        history.push('/listings')
+        // history.push('/listings')
     }
 
     return (

@@ -13,10 +13,10 @@ const imageLoader = (listingId, images) => {
 };
 
 //action creator for 5 images
-const uploadFive = (images) => {
+const uploadFive = (listingId, urls) => {
     return {
         type: UPLOAD_IMAGES,
-        images
+        listingId, urls
     }
 };
 
@@ -39,15 +39,14 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
         })
     });
     const newImages = await response.json();
-    dispatch(uploadFive(newImages.newImages));
-    return newImages.newImages;
+    const urls = newImages.urlArray;
+    dispatch(uploadFive(listingId, urls));
+    return urls;
 };
 
 const initialState = {};
 
 const imagesReducer = (state = initialState, action) => {
-
-    console.log('reducer images', action.images);
     let newState;
     switch (action.type) {
         case LOAD_IMAGES:
@@ -56,13 +55,12 @@ const imagesReducer = (state = initialState, action) => {
                 ...newState, [action.listingId]: action.images
             }
             return newState
-        // case UPLOAD_IMAGES:
-        //     newState = { ...state }
-        //     newState.entries = {
-        //         ...newState,
-        //         [action.images.newImageOne.id]: action.images
-        //     }
-        //     return newState;
+        case UPLOAD_IMAGES:
+            newState = { ...state }
+            newState = {
+                ...newState, [action.listingId]: action.urls
+            }
+            return newState;
         default:
             return state;
     }

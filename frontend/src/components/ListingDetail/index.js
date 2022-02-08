@@ -9,8 +9,10 @@ const ListingDetail = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
+    const imageUrls = useSelector((state) => state.images[listingId]);
+    console.log('///', imageUrls)
     useEffect(() => {
-        console.log(listingId)
+
         dispatch(loadImages(listingId));
 
     }, []);
@@ -19,19 +21,19 @@ const ListingDetail = () => {
     if (listing) {
         return (
             <div className='detailPage'>
-
                 <div className='text'>
                     <h2>{listing.name}</h2>
                     <p>{listing.city}, {listing.state}, {listing.country} </p>
                 </div>
                 <div className="images">
-
+                    {imageUrls && imageUrls.map((url, idx) => {
+                        return <img className={`image-${idx}`} src={url} key={idx}></img>
+                    })}
                 </div>
-                <div className="buttomSection">
+                <div className="bottomSection">
                     <p>Hosted by {sessionUser.username}</p>
                     <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
                 </div>
-
 
                 LISTING DETAIL
                 <li>{listingId.listingId} · </li>

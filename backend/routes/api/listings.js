@@ -127,9 +127,9 @@ router.post(
             url: imageFive
         });
 
-        const newImages = { newImageOne, newImageTwo, newImageThree, newImageFour, newImageFive };
+        const urlArray = [newImageOne.url, newImageTwo.url, newImageThree.url, newImageFour.url, newImageFive.url];
 
-        return res.json({ newImages })
+        return res.json({ urlArray })
     })
 );
 

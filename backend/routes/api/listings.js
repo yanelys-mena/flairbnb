@@ -23,47 +23,37 @@ const validateCreateListing = [
     check('listingType')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a listing type.'),
-    check('guests')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide the number of guests to host.'),
-    check('beds')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
-    check('bedrooms')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
-    check('bathrooms')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
     check('description')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide a description.'),
     check('address')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide an address.'),
     check('city')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide a city.'),
     check('state')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide a state.'),
     check('country')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide a country.'),
     check('lat')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide a latitude.'),
     check('lng')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a '),
+        .withMessage('Please provide longtitude.'),
     check('price')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a ')
+        .withMessage('Please provide a pricer per night.'),
+    handleValidationErrors
 ];
 
 
 router.post(
     '/create-listing',
+    validateCreateListing,
     asyncHandler(async (req, res, next) => {
         const {
             userId,

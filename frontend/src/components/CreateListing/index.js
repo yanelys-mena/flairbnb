@@ -1,16 +1,13 @@
 import './CreateListing.css';
-import './ImageUpload.css';
 import { useState } from 'react';
 import { createNewListing } from '../../store/listings';
-import { uploadFiveImages } from '../../store/images';
-
+import UploadImages from './UploadImages';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const CreateListing = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const history = useHistory();
 
     const [page, setPage] = useState(1);
     const [name, setName] = useState('');
@@ -37,6 +34,19 @@ const CreateListing = () => {
     const handleSubmit = async (e) => {
 
         e.preventDefault();
+        const validateErrors = [];
+        if (name.length < 1) validateErrors.push('Please include a title for your listing.');
+        if (listingType.length < 1) validateErrors.push('Please include a space type for your listing.');
+        if (description.length < 1) validateErrors.push('Please include a description for your listing.');
+        if (address.length < 1 || city.length < 1 || country.length < 1 || state.length < 1) validateErrors.push('Please include a full address.');
+        if (lat.length < 1 || lng.length < 1) validateErrors.push('Please include a latitude and longitude.');
+        if (price.length < 1) validateErrors.push('Please include a price.');
+        if (validateErrors.length > 0) {
+            setErrors(validateErrors);
+            return;
+        }
+
+
         const userId = sessionUser.id;
         const newListing = {
             userId,
@@ -60,7 +70,6 @@ const CreateListing = () => {
 
         if (listingSuccess) {
             setListingId(listingSuccess.newListing.id);
-            // history.push('/listings')
             setPage(2);
         }
     }
@@ -137,11 +146,12 @@ const CreateListing = () => {
 
     return (
         <div>
-            {page === 2 && <Image listingId={listingId} />}
+            {page === 2 && <UploadImages listingId={listingId} />}
             {page === 1 &&
                 <div className='createListingPage'>
                     <h2> A new hosting journey starts here</h2>
                     <p>Every Experience idea is reviewed by a small team at Airbnb. If your idea meets quality standards, you’ll get to add dates and start hosting.</p>
+
                     <form
                         onSubmit={handleSubmit}
                         className="createListingForm">
@@ -314,6 +324,7 @@ const CreateListing = () => {
                                 value={price}
                                 onChange={(e) => setPrice(Number(e.target.value))} />
                         </label>
+                        {errors && errors.map((error, idx) => <li key={idx} className="errorLi">{error}</li>)}
                         <button type="submit" className="create_btn">Create</button>
                     </form>
 
@@ -321,79 +332,9 @@ const CreateListing = () => {
 
             }
         </div>
-
-
     )
 };
 
-
-function Image({ listingId }) {
-    const [imageOne, setImageOne] = useState('');
-    const [imageTwo, setImageTwo] = useState('');
-    const [imageThree, setImageThree] = useState('');
-    const [imageFour, setImageFour] = useState('');
-    const [imageFive, setImageFive] = useState('');
-    console.log(listingId);
-    const dispatch = useDispatch();
-
-    const handleImageSubmit = async (e) => {
-        e.preventDefault();
-        const newImages = await dispatch(uploadFiveImages(
-            {
-                imageOne,
-                imageTwo,
-                imageThree,
-                imageFour,
-                imageFive,
-                listingId
-            }));
-        console.log(newImages);
-    }
-
-    return (
-        <form
-            onSubmit={handleImageSubmit}
-            className="imageForm"
-        >
-            <label>
-                <p>Upload 5 images</p>
-                Show your guests a preview of your awesome place!
-                <input
-                    type="text"
-                    name="image"
-                    placeholder="image url"
-                    value={imageOne}
-                    onChange={(e) => setImageOne(e.target.value)} />
-                <input
-                    type="text"
-                    name="image"
-                    placeholder="image url"
-                    value={imageTwo}
-                    onChange={(e) => setImageTwo(e.target.value)} />
-                <input
-                    type="text"
-                    name="image"
-                    placeholder="image url"
-                    value={imageThree}
-                    onChange={(e) => setImageThree(e.target.value)} />
-                <input
-                    type="text"
-                    name="image"
-                    placeholder="image url"
-                    value={imageFour}
-                    onChange={(e) => setImageFour(e.target.value)} />
-                <input
-                    type="text"
-                    name="image"
-                    placeholder="image url"
-                    value={imageFive}
-                    onChange={(e) => setImageFive(e.target.value)} />
-            </label>
-            <button type="submit" className="image_btn">Upload</button>
-        </form>
-
-    )
-}
 
 
 

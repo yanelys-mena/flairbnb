@@ -1,5 +1,5 @@
 import './CreateListing.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createNewListing } from '../../store/listings';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -8,11 +8,10 @@ import { Redirect } from 'react-router-dom';
 const CreateListing = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    console.log(sessionUser)
 
     const [name, setName] = useState('');
     const [listingType, setListingType] = useState('');
-    const [guests, setGuests] = useState('');
+    const [guests, setGuests] = useState(1);
     const [beds, setBeds] = useState('');
     const [bedrooms, setBedrooms] = useState('');
     const [bathrooms, setBathrooms] = useState('');
@@ -27,12 +26,16 @@ const CreateListing = () => {
     const [errors, setErrors] = useState([]);
 
 
+    useEffect(() => {
+        console.log('GUEST COUNT', guests)
+    }, [guests])
 
     if (!sessionUser) return (
         <Redirect to="/signup" />
     );
 
     const userId = sessionUser.id;
+
 
 
     const handleSubmit = (e) => {
@@ -56,9 +59,19 @@ const CreateListing = () => {
         };
 
         dispatch(createNewListing(newArticle));
-
-        console.log(newArticle)
     }
+
+    const handleGuestIncrement = (e) => {
+        e.preventDefault();
+        setGuests((guests) => guests + 1)
+    }
+
+    const handleGuestDecrement = (e) => {
+        e.preventDefault();
+
+        setGuests((guests) => guests - 1)
+    }
+
 
     return (
         <div className='createListingPage'>
@@ -72,27 +85,35 @@ const CreateListing = () => {
                     <input
                         type="text"
                         name="name"
-                        placeholder="name"
                         value={name}
+                        placeholder="name"
                         onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label>
                     listingType:
                     <input
                         type="text"
+                        value={listingType}
                         name="listingType"
                         placeholder="select listing type"
-                        value={listingType}
                         onChange={(e) => setListingType(e.target.value)} />
                 </label>
                 <label>
                     guests:
-                    <input
-                        type="number"
-                        name="guests"
-                        placeholder="guests"
-                        value={guests}
-                        onChange={(e) => setGuests(Number(e.target.value))} />
+                    <div className="guestsButton">
+                        <button
+                            onClick={handleGuestIncrement}
+                            className="increment">
+                            <i className="fas fa-plus"></i>
+                        </button>
+                        <p>{guests}</p>
+                        <button
+                            onClick={handleGuestDecrement}
+                            className="decrement">
+                            <i className="fas fa-minus"></i>
+                        </button>
+                    </div>
+
                 </label>
                 <label>
                     beds:

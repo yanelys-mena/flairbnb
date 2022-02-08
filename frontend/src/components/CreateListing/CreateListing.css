@@ -16,3 +16,18 @@ margin-top: 100px;
 .createListing_btn {
     border: black solid 1px;
 }
+
+.increment, .decrement {
+    border-radius: 25px;
+    width: 30px;
+    height: 30px;
+    border: solid gray 1px;
+    padding: 5px;
+    color: gray;
+    background-color: white;
+}
+
+.guestsButton {
+    display: flex;
+    align-items: center;
+}

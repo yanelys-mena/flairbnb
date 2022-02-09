@@ -25,6 +25,11 @@ const ListingDetail = () => {
 
     };
 
+    useEffect(() => {
+        dispatch(loadImages(listingId));
+
+    })
+
     if (listing) {
 
         const handleDelete = (e) => {

@@ -4,8 +4,8 @@ import { csrfFetch } from './csrf';
 
 const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
-const DELETE_LISTING = 'session/delete-listing';
-
+const DELETE_LISTING = 'listings/delete-listing';
+const UPDATE_LISTING = 'listings/update-listing'
 
 //action creator that takes in listings
 const loadListings = (listings) => {
@@ -30,6 +30,13 @@ const delete_listing = (deletedListing) => {
         deletedListing
     }
 };
+
+const update_listing = (updatedListing) => {
+    return {
+        type: UPDATE_LISTING,
+        updatedListing
+    }
+}
 
 //thunk middleware fetch api and then dispatch to reducer.
 export const getListings = () => async (dispatch) => {
@@ -93,6 +100,57 @@ export const restoreListings = () => async dispatch => {
 };
 
 
+export const updateListing = (formValue) => async (dispatch) => {
+
+    const {
+        userId,
+        name,
+        listingType,
+        guests,
+        beds,
+        bedrooms,
+        bathrooms,
+        description,
+        address,
+        city,
+        state,
+        country,
+        lat,
+        lng,
+        price
+    } = formValue;
+
+    const response = await csrfFetch('/api/listings/update-listing', {
+        method: 'PUT',
+        body: JSON.stringify({
+            userId,
+            name,
+            listingType,
+            guests,
+            beds,
+            bedrooms,
+            bathrooms,
+            description,
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            price
+        })
+    });
+
+    const updatedListing = await response.json();
+    console.log(
+        'THUNK UPDATE', updatedListing
+    )
+    // dispatch(update_listing(updatedListing));
+    // return newListing;
+};
+
+
+
 export const deleteListing = (listingId) => async dispatch => {
     const response = await csrfFetch('/api/listings/delete', {
         method: 'DELETE',
@@ -122,10 +180,13 @@ const listingsReducer = (state = initialState, action) => {
             newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
             return newState;
         case DELETE_LISTING:
-
             newState = { ...state }
             delete newState.entries[action.deletedListing]
             return newState;
+        // case UPDATE_LISTING:
+        //     newState = { ...state }
+        //     newState.entries = { ...newState.entries, [action.updatedListing.id]: action.updatedListing }
+        //     return newState;
         default:
             return state;
     }

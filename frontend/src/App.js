@@ -39,6 +39,9 @@ function App() {
           <Route path="/create-listing">
             <CreateListings />
           </Route>
+          <Route path="/listings/:listingId/edit-listing">
+            <CreateListings />
+          </Route>
         </Switch>
       )}
     </>

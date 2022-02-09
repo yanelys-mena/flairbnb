@@ -28,6 +28,11 @@ const ListingDetail = () => {
             history.push('/listings')
         };
 
+        const handleEdit = (e) => {
+            e.preventDefault();
+
+            history.push(`/listings/${listingId}/edit-listing`)
+        }
         return (
             <div className='detailPage'>
                 <div className='topDiv'>

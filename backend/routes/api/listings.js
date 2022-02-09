@@ -148,9 +148,21 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
 }));
 
 router.delete('/delete', asyncHandler(async (req, res) => {
+
     const { listingId } = req.body;
     const deletedListing = await Listing.findByPk(parseInt(listingId));
     if (deletedListing) {
+
+        const imagesToDelete = await Image.findAll({
+            where: {
+                listingId: deletedListing.id
+            }
+        });
+
+        if (imagesToDelete) {
+            imagesToDelete.forEach(image => image.destroy());
+        }
+
         deletedListing.destroy();
     };
     res.json({ deletedListing: deletedListing.id })

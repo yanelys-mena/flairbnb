@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadImages } from '../../store/images';
@@ -10,20 +10,25 @@ const ListingDetail = () => {
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const imageUrls = useSelector((state) => state.images[listingId]);
-    console.log('///', imageUrls)
+    const [auth, setAuth] = useState(false);
+
     useEffect(() => {
-
         dispatch(loadImages(listingId));
-
     }, []);
 
+    // console.log(sessionUser.id, listing.userId)
+    // if(sessionUser.id === listing.userId)
 
     if (listing) {
         return (
             <div className='detailPage'>
                 <div className='text'>
                     <h2>{listing.name}</h2>
-                    <p>{listing.city}, {listing.state}, {listing.country} </p>
+                    <ul>
+                        <li className="star">{<i className="fas fa-star"></i>} </li>
+                        <li >Reviews Coming Soon</li>
+                        <li className="test">{listing.city}, {listing.state}, {listing.country} </li>
+                    </ul>
                 </div>
                 <div className="images">
                     {imageUrls && imageUrls.map((url, idx) => {
@@ -31,13 +36,32 @@ const ListingDetail = () => {
                     })}
                 </div>
                 <div className="bottomSection">
-                    <p>Hosted by {sessionUser.username}</p>
-                    <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
+                    <div className="leftSec">
+                        <p>Hosted by {sessionUser.username}</p>
+                        <div className="leftSecInner">
+                            <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
+                            <hr></hr>
+                            <div className="descriptionDiv">
+                                <p>{listing.description}</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div className='rightSec'>
+                        <div className="bookingsDiv">
+                            <p>${listing.price} / night</p>
+                            <button disabled={true}
+                            >Bookings Coming Soon</button>
+                        </div>
+                    </div>
                 </div>
 
-                LISTING DETAIL
-                <li>{listingId.listingId} · </li>
-            </div>
+                <div className="reviewsDiv">
+                    <hr></hr>
+                    <p> REVIEWS TBD</p>
+                </div>
+            </div >
 
         )
     } else {

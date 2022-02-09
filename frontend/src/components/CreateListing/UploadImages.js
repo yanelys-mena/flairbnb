@@ -40,7 +40,7 @@ function UploadImages({ listingId }) {
                 imageFive,
                 listingId
             }));
-        // history.push('/listings')
+        history.push(`/listings/${listingId}`)
     }
 
     return (

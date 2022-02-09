@@ -3,32 +3,32 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getListings } from '../../store/listings';
-import { loadAllImages } from '../../store/images';
+import { loadCoverImages } from '../../store/images';
 import ListingDetail from '../ListingDetail';
+import ListingCard from './ListingCard';
 
 const Listings = () => {
     const listingId = useParams();
     const dispatch = useDispatch();
     const listingsObj = useSelector((state) => state.listings.entries);
-    const imageUrls = useSelector((state) => state.images);
-
+    const imageUrls = useSelector((state) => state.images.singles);
     const listings = Object.values(listingsObj);
 
     useEffect(() => {
         dispatch(getListings());
-        dispatch(loadAllImages())
+        dispatch(loadCoverImages())
     }, [dispatch])
 
 
     return (
         <div className="listingsPage">
-            <h3>This is the Listings Page</h3>
-            {listings && listings.map(listing =>
-                <div key={listing.id}>
-                    <Link to={`/listings/${listing.id}`} key={listing.id}>{listing.name}</Link>
-                </div>
+            <div className="leftSide">
+                <ListingCard />
+            </div>
+            <div className="rightSide">
+                <p>map goes here</p>
+            </div>
 
-            )}
         </div>
     )
 };

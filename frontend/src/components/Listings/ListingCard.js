@@ -13,14 +13,26 @@ const ListingCard = () => {
 
 
     return (
-
         <>
-            <p>this is a card</p>
             {listings && listings.map(listing =>
-                <div key={listing.id}>
-                    <Link to={`/listings/${listing.id}`} key={listing.id}>{listing.name}</Link>
-                </div>
+                <Link to={`/listings/${listing.id}`} key={listing.id}>
+                    <div className="listingCard" key={listing.id}>
+                        <div className="cardImage">
+                            <img src={imageUrls[listing.id]}></img>
+                        </div>
+                        <div className="cardInfo">
+                            <div>{listing.name}</div>
+                            <div className="cardInfoDetails"> <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p></div>
+                            <div className="review-price">
+                                <div className="reviews">
+                                    <div className="star">{<i className="fas fa-star"></i>}   Reviews Coming Soon</div>
+                                </div>
+                                <div className='price'> ${listing.price} / night</div>
 
+                            </div>
+                        </div>
+                    </div>
+                </Link>
             )}
         </>
     )

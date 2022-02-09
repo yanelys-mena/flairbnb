@@ -4,20 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 
-const EditListing = () => {
-    const { listingId } = useParams();
+const EditListing = ({ listingId }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-
-    const listing = useSelector((state) => listing.entries[listingId])
-
-    console.log(listingId)
+    const listing = useSelector((state) => state.listings.entries[listingId]);
+    console.log(listing);
 
 
 
     return (
         <div className="editListing">
             <p>This is the Listing Page</p>
+            <p>{listingId}</p>
 
         </div>
     )

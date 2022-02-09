@@ -102,7 +102,7 @@ const ListingDetail = () => {
                             <Reviews />
                         </div>
                     </div >}
-                {page === 2 && <EditListing />}
+                {page === 2 && <EditListing listingId={listingId} />}
             </>
 
         )

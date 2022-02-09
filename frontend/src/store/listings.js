@@ -208,8 +208,7 @@ const listingsReducer = (state = initialState, action) => {
             newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
             return newState;
         case DELETE_LISTING:
-            // newState = { ...state }
-            newState = { ...state, entries: { ...state.entries } }
+            newState = { ...state }
             delete newState.entries[action.deletedListing]
             return newState;
         // case UPDATE_LISTING:

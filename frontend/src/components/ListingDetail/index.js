@@ -19,13 +19,10 @@ const ListingDetail = () => {
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const [page, setPage] = useState(1);
 
-    useEffect(() => {
-        dispatch(loadImages(listingId));
-    }, []);
 
-    // useEffect(() => {
-    //     console.log(page)
-    // }, [page]);
+    const handlePage = () => {
+        setPage(1);
+    };
 
     if (listing) {
 
@@ -102,13 +99,11 @@ const ListingDetail = () => {
                             <Reviews />
                         </div>
                     </div >}
-                {page === 2 && <EditListing listingId={listingId} />}
+                {page === 2 && <EditListing listingId={listingId} handlePage={handlePage} />}
             </>
 
         )
 
-    } else {
-        return (<p>nada</p>)
     }
 
 };

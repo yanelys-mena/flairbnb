@@ -15,7 +15,6 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(restoreListings())
 
   }, [dispatch]);
 
@@ -30,16 +29,13 @@ function App() {
           <Route path="/signup">
             <SignUpFormPage />
           </Route>
-          <Route path="/listings/:listingId">
+          <Route exact path="/listings/:listingId">
             <ListingDetail ></ListingDetail>
           </Route>
           <Route path="/listings">
             <Listings />
           </Route>
           <Route path="/create-listing">
-            <CreateListings />
-          </Route>
-          <Route path="/listings/:listingId/edit-listing">
             <CreateListings />
           </Route>
         </Switch>

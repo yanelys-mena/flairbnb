@@ -166,4 +166,18 @@ router.delete('/delete', asyncHandler(async (req, res) => {
     res.json({ deletedListing })
 }));
 
+
+router.put('/:listingId/update-listing', asyncHandler(async (req, res) => {
+    console.log('///IN THE UPDATE ROUTER body', req.body);
+    const listingId = req.params.listingId
+    const listing = await Listing.findByPk(listingId);
+    console.log('LISTING', listing);
+    const updatedListing = await listing.update(req.body);
+    console.log('UPDATED LISTING', updatedListing);
+
+    return res.json(updatedListing);
+
+}));
+
+
 module.exports = router;

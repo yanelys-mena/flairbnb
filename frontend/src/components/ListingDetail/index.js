@@ -16,19 +16,37 @@ const ListingDetail = () => {
         dispatch(loadImages(listingId));
     }, []);
 
-    // console.log(sessionUser.id, listing.userId)
-    // if(sessionUser.id === listing.userId)
-
     if (listing) {
+
+        const handleDelete = (e) => {
+            e.preventDefault();
+            console.log('delete')
+        };
+
         return (
             <div className='detailPage'>
-                <div className='text'>
-                    <h2>{listing.name}</h2>
-                    <ul>
-                        <li className="star">{<i className="fas fa-star"></i>} </li>
-                        <li >Reviews Coming Soon</li>
-                        <li className="test">{listing.city}, {listing.state}, {listing.country} </li>
-                    </ul>
+                <div className='topDiv'>
+                    <div className="topText">
+                        <h2>{listing.name}</h2>
+                        <ul>
+                            <li className="star">{<i className="fas fa-star"></i>} </li>
+                            <li >Reviews Coming Soon</li>
+                            <li className="test">{listing.city}, {listing.state}, {listing.country} </li>
+                        </ul>
+                    </div>
+
+                    <div className="topButtons">
+                        {sessionUser.id === listing.userId && <div>
+                            <button
+                                className="user_btn">Edit</button>
+                            <button
+                                className="user_btn"
+                                onClick={handleDelete}
+                            >Delete</button>
+                        </div>}
+                    </div>
+
+
                 </div>
                 <div className="images">
                     {imageUrls && imageUrls.map((url, idx) => {
@@ -37,7 +55,7 @@ const ListingDetail = () => {
                 </div>
                 <div className="bottomSection">
                     <div className="leftSec">
-                        <p>Hosted by {sessionUser.username}</p>
+                        {/* <p>Hosted by {sessionUser.username}</p> */}
                         <div className="leftSecInner">
                             <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
                             <hr></hr>

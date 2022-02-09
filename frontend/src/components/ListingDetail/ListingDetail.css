@@ -4,10 +4,43 @@
     flex-direction: column;
     width: 70%;
 }
-.text > ul {
+
+.topDiv {
+    display: flex;
+    justify-content: space-between
+}
+.topText > ul {
     display: flex;
     justify-content: flex-start;
     margin-left: -40px;
+}
+
+
+.topText > ul > li {
+    padding-right: 10px;
+}
+
+.user_btn {
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 80px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.user_btn {
+    cursor: pointer;
+
+}
+
+.topButtons {
+    margin-top: 5px;
+    margin-right: 10px;
 }
 
 .star {
@@ -17,10 +50,6 @@
     color: black;
     font-weight: 400;
 
-}
-
-.text > ul > li {
-    padding-right: 10px;
 }
 
 .images {

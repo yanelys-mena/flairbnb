@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadImages } from '../../store/images';
+import { deleteListing } from '../../store/listings';
 import './ListingDetail.css';
+
 
 const ListingDetail = () => {
     const { listingId } = useParams();
+    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
@@ -21,6 +25,8 @@ const ListingDetail = () => {
         const handleDelete = (e) => {
             e.preventDefault();
             console.log('delete')
+            dispatch(deleteListing(listingId));
+            history.push('/listings')
         };
 
         return (

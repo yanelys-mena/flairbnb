@@ -147,4 +147,13 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
 
 }));
 
+router.delete('/delete', asyncHandler(async (req, res) => {
+    const { listingId } = req.body;
+    const deletedListing = await Listing.findByPk(parseInt(listingId));
+    if (deletedListing) {
+        deletedListing.destroy();
+    };
+    res.json({ deletedListing: deletedListing.id })
+}));
+
 module.exports = router;

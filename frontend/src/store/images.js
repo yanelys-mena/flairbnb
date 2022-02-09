@@ -78,6 +78,7 @@ const imagesReducer = (state = initialState, action) => {
             newState = {
                 ...newState, [action.listingId]: action.urls
             }
+            return newState;
         case LOAD_COVER_IMAGES:
             newState = { ...state }
             const singles = { ...action.images.getImages };

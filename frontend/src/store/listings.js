@@ -122,9 +122,9 @@ const listingsReducer = (state = initialState, action) => {
             newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
             return newState;
         case DELETE_LISTING:
-            console.log('DELETE ON REDUCER', action.deletedListing)
+
             newState = { ...state }
-            // delete newState.entries[action]
+            delete newState.entries[action.deletedListing]
             return newState;
         default:
             return state;

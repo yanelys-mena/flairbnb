@@ -14,7 +14,6 @@ const ListingDetail = () => {
     const sessionUser = useSelector((state) => state.session.user);
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const imageUrls = useSelector((state) => state.images[listingId]);
-    const [auth, setAuth] = useState(false);
 
     useEffect(() => {
         dispatch(loadImages(listingId));
@@ -42,14 +41,16 @@ const ListingDetail = () => {
                     </div>
 
                     <div className="topButtons">
-                        {sessionUser.id === listing.userId && <div>
+
+                        {sessionUser ? <> {sessionUser.id === listing.userId && <div>
                             <button
                                 className="user_btn">Edit</button>
                             <button
                                 className="user_btn"
                                 onClick={handleDelete}
                             >Delete</button>
-                        </div>}
+                        </div>}</> : <></>}
+
                     </div>
 
 

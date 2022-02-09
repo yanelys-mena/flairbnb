@@ -24,7 +24,7 @@ const createListing = (newListing) => {
 };
 
 //action creator for deleting a listing
-const delete_Listing = (deletedListing) => {
+const delete_listing = (deletedListing) => {
     return {
         type: DELETE_LISTING,
         deletedListing
@@ -101,14 +101,14 @@ export const deleteListing = (listingId) => async dispatch => {
         })
     });
     const deletedListing = await response.json();
-    dispatch(delete_Listing(deletedListing));
-    // return deletedListing;
+    dispatch(delete_listing(listingId));
+    return deletedListing;
 };
 
 const initialState = { entries: {}, isLoading: true };
 
 const listingsReducer = (state = initialState, action) => {
-    // console.log('LISTING REDUCER', action)
+    console.log('STATE REDUCER', action)
     let newState;
     switch (action.type) {
         case GET_LISTINGS:
@@ -122,10 +122,9 @@ const listingsReducer = (state = initialState, action) => {
             newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
             return newState;
         case DELETE_LISTING:
-            console.log('REDUCER DELETE', action.deletedListing)
-
+            console.log('DELETE ON REDUCER', action.deletedListing)
             newState = { ...state }
-            delete newState.entries[action.deletedListing]
+            // delete newState.entries[action]
             return newState;
         default:
             return state;

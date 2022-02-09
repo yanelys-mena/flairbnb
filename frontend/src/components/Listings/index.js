@@ -26,7 +26,7 @@ const Listings = () => {
                 <ListingCard />
             </div>
             <div className="rightSide">
-                <p>map goes here</p>
+                Map intergration coming soon.
             </div>
 
         </div>

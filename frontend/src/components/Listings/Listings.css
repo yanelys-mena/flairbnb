@@ -10,29 +10,43 @@
 }
 
 .leftSide {
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: column;
-
 }
- 
 
 
 .rightSide{
-    width: 40%;
+    width: 45%;
     background-color: palegoldenrod;
+    display: flex;
+    justify-content: center;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/222/065/original/abstract-city-map-with-pins-navigation-app-screen-template-vector.jpg); background-repeat: repeat-y;
 }
+
 
  
 .listingCard {
     border-top: 1px solid #D3D3D3;
     display: flex;
     justify-content: space-between;
-   height: 400px;
-   width: 100%;
+   height: 250px;
+   width: 90%;
    margin: 10px;
    padding-top: 30px;
 }
+
+.listingCard:hover {
+    cursor: pointer;
+}
+
+.title {
+    color: black;
+margin-left: 20px;
+font-size: 22px;
+font-weight: 500;
+}
+
 .cardImage {
     width: 40%;
 height: 100%;
@@ -64,6 +78,13 @@ height: 100%;
 
 }
 
+.cardInfoDetails {
+    font-size: 18px;
+    margin-left: 20px;
+    color: gray;
+    font-weight: 700;
+}
+
 
 .review-price {
     display: flex;
@@ -74,8 +95,9 @@ justify-content: flex-end;
 
 .reviews {
     align-self: flex-start;
-font-size: 20px;
+font-size: 18px;
 margin-left: 20px;
+color: black;
 
 }
 
@@ -83,9 +105,10 @@ margin-left: 20px;
 align-self: flex-end;
 margin-top: -10px;
 margin-right: 20px;
-
+color: black;
 font-size: 20px;
 font-weight: 500;
-
+margin-left: 20px;
+color: black;
 }
 

@@ -21,7 +21,7 @@ const ListingCard = () => {
                             <img src={imageUrls[listing.id]}></img>
                         </div>
                         <div className="cardInfo">
-                            <div>{listing.name}</div>
+                            <div className='title'>{listing.name}</div>
                             <div className="cardInfoDetails"> <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p></div>
                             <div className="review-price">
                                 <div className="reviews">

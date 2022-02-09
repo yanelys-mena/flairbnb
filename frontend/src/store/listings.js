@@ -164,7 +164,6 @@ export const deleteListing = (listingId) => async dispatch => {
 const initialState = { entries: {}, isLoading: true };
 
 const listingsReducer = (state = initialState, action) => {
-    console.log('LISTING REDUCER', action.deletedListing)
     let newState;
     switch (action.type) {
         case GET_LISTINGS:

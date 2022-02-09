@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_IMAGES = 'listings/load-images'
 const UPLOAD_IMAGES = 'listings/upload-images'
+const LOAD_ALL_IMAGES = '/listings/load-all-images';
 
 const imageLoader = (listingId, images) => {
     return {
@@ -19,6 +20,13 @@ const uploadFive = (listingId, urls) => {
         listingId, urls
     }
 };
+
+const loadSingleImages = (images) => {
+    return {
+        type: LOAD_ALL_IMAGES,
+        images
+    }
+}
 
 
 //thunk to fetch images
@@ -44,9 +52,20 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
     return urls;
 };
 
-const initialState = {};
+//action creator to load only ONE image for the listings page covers
+export const loadAllImages = () => async (dispatch) => {
+    const response = await fetch(`/api/listings/images`);
+    const images = await response.json();
+
+    dispatch(loadSingleImages(images));
+    return images;
+};
+
+
+const initialState = { singles: {} };
 
 const imagesReducer = (state = initialState, action) => {
+    console.log('REDUCER', action.images)
     let newState;
     switch (action.type) {
         case LOAD_IMAGES:
@@ -60,6 +79,10 @@ const imagesReducer = (state = initialState, action) => {
             newState = {
                 ...newState, [action.listingId]: action.urls
             }
+        case LOAD_ALL_IMAGES:
+            newState = { ...state }
+            const singles = { ...action.images.getImages };
+            newState.singles = singles;
             return newState;
         default:
             return state;

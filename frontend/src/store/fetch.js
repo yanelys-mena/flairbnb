@@ -25,3 +25,8 @@ fetch('/api/listings/105/update-listing', {
     })
 }).then(res => res.json()).then(data => console.log(data));
 
+
+fetch('/api/listings/images').then(res => res.json()).then(data => console.log(data));
+
+
+

@@ -147,6 +147,21 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
 
 }));
 
+router.get('/images', asyncHandler(async (req, res) => {
+    const images = await Image.findAll();
+
+    const getImages = {}
+    const mapping = images.map(ele => {
+        return getImages[ele.listingId] = ele.url
+    })
+
+
+    res.json({ getImages });
+
+}));
+
+
+
 router.delete('/delete', asyncHandler(async (req, res) => {
 
     const { listingId } = req.body;
@@ -168,12 +183,9 @@ router.delete('/delete', asyncHandler(async (req, res) => {
 
 
 router.put('/:listingId/update-listing', asyncHandler(async (req, res) => {
-    console.log('///IN THE UPDATE ROUTER body', req.body);
     const listingId = req.params.listingId
     const listing = await Listing.findByPk(listingId);
-    console.log('LISTING', listing);
     const updatedListing = await listing.update(req.body);
-    console.log('UPDATED LISTING', updatedListing);
 
     return res.json(updatedListing);
 

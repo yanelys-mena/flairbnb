@@ -15,13 +15,14 @@ const ListingDetail = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const imageUrls = useSelector((state) => state.images[listingId]);
+    const imageUrls = useSelector((state) => state.images[Number(listingId)]);
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const [page, setPage] = useState(1);
-
+    // console.log(imageUrls, Number(listingId))
 
     const handlePage = () => {
         setPage(1);
+
     };
 
     if (listing) {
@@ -104,6 +105,10 @@ const ListingDetail = () => {
 
         )
 
+    } else {
+        return (
+            <></>
+        )
     }
 
 };

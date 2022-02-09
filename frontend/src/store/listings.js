@@ -143,11 +143,9 @@ export const updateListing = (formValue) => async (dispatch) => {
     });
 
     const updatedListing = await response.json();
-    console.log(
-        'THUNK UPDATE', updatedListing
-    )
-    // dispatch(update_listing(updatedListing));
-    // return newListing;
+
+    dispatch(update_listing(updatedListing));
+    return updatedListing;
 };
 
 
@@ -211,10 +209,10 @@ const listingsReducer = (state = initialState, action) => {
             newState = { ...state }
             delete newState.entries[action.deletedListing]
             return newState;
-        // case UPDATE_LISTING:
-        //     newState = { ...state }
-        //     newState.entries = { ...newState.entries, [action.updatedListing.id]: action.updatedListing }
-        //     return newState;
+        case UPDATE_LISTING:
+            newState = { ...state }
+            newState.entries = { ...newState.entries, [action.updatedListing.id]: action.updatedListing }
+            return newState;
         default:
             return state;
     }

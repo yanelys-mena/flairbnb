@@ -9,6 +9,7 @@ import { getReviews } from '../../store/reviews';
 import EditListing from '../EditListing'
 import ReviewCard from '../ReviewCard';
 import './ListingDetail.css';
+import CreateReviewModal from '../CreateReviewModal';
 
 
 const ListingDetail = () => {
@@ -115,10 +116,15 @@ const ListingDetail = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="reviewsDiv" id="reviewsDiv" >
-                            {reviews.map(review => (
-                                <ReviewCard key={review.id} review={review} />
-                            ))}
+                        <div id="reviewsDiv">
+                            <div id="reviewButtons">
+                                <CreateReviewModal />
+                            </div>
+                            <div className="reviewsDiv" >
+                                {reviews.map(review => (
+                                    <ReviewCard key={review.id} review={review} />
+                                ))}
+                            </div>
                         </div>
                     </div >}
                 {page === 2 && <EditListing listingId={listingId} handlePage={handlePage} />}

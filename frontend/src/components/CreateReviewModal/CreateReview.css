@@ -1,0 +1,14 @@
+
+#addReviewButton {
+    background: linear-gradient(
+        to bottom right,
+        #E5204D, #D70965
+    );
+    color: white;
+    font-weight: 500;
+    height: 35px;
+    width: 10%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px; 
+}

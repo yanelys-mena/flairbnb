@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-
+border: solid 1px #d3d3d3;
     padding: 10px;
 }
 
@@ -21,7 +21,10 @@
     padding: 5px;
 }
 
-
+#editReview {
+    margin: 0;
+ 
+}
 
 .leftUserInfo > img {
     object-fit: cover;
@@ -46,15 +49,37 @@
    display: flex;
    justify-content: flex-start;
    width: 90%;
+
+}
+
+.userReview > span {
+    overflow-wrap: break-word;
+
 }
 
 .ratings {
-    padding: 5px;
-margin-right: 10px;
+    /* padding: 5px; */
+margin-right: 20px;
+display: flex;
+flex-direction: column;
+
 /* font-size: 20px; */
 }
 
-.ratings > .fa-star {
+.fa-star {
     color: #FFA534;
+    
 
+}
+
+.editReview {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #d3d3d3;
+}
+
+.editReview:hover {
+    color:black;
+    cursor: pointer;
 }

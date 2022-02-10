@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaEllipsisH } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import dayjs from "dayjs";
 import './Reviews.css';
@@ -26,11 +27,14 @@ const ReviewCard = ({ review }) => {
                             <div className="reviewDate"> {dayjs(review.createdAt).format("MMM YYYY")}</div>
                         </div>
                     </div>
-
                     <div className="ratings">
-                        {stars.map((star) => (
-                            <i className="fas fa-star" key={star}></i>
-                        ))}
+                        <FaEllipsisH className="editReview" />
+
+                        <div>
+                            {stars.map((star) => (
+                                <i className="fas fa-star" key={star}></i>
+                            ))}
+                        </div>
                     </div>
 
 

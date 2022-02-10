@@ -118,12 +118,16 @@ const ListingDetail = () => {
                             </div>
                         </div>
                         <div id="reviewsDiv">
-                            {(!reviews.find(review => review.userId === sessionUser.id) || !listing.userId === sessionUser.id) &&
+                            {sessionUser && <>
+                                {(!reviews.find(review => review.userId === sessionUser.id) || !listing.userId === sessionUser.id) &&
 
-                                <div id="reviewButtons">
-                                    <CreateReviewModal sessionId={sessionUser.id} listingId={listing.id} />
-                                </div>
-                            }
+                                    <div id="reviewButtons">
+                                        <CreateReviewModal sessionId={sessionUser.id} listingId={listing.id} />
+                                    </div>
+                                }
+                            </>}
+
+
                             <div className="reviewsDiv" >
                                 {reviews.map(review => (
                                     <ReviewCard key={review.id} review={review} />

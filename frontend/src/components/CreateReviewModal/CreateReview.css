@@ -12,3 +12,53 @@
     margin-bottom: 15px;
     border-radius: 5px; 
 }
+
+.createReviewDiv {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.createReviewForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+}
+
+
+.createReviewForm  > label >input{
+    border: #D3D3D3 1.5px solid;
+    width: 100%;
+    border-radius:5px;
+    color: gray;
+    margin-bottom: 15px;
+    }
+    
+
+    .createReviewForm  > label >input:focus{
+     color: black;
+     border: black 1.5px solid;
+        }
+    
+#reviewInput {
+ height: 80px;
+}
+
+    .createReviewForm  > button{
+        background: linear-gradient(
+            to bottom right,
+            #E5204D, #D70965
+        );
+        color: white;
+        font-weight: 500;
+        height: 45px;
+        width: 103%;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        }
+    
+    .createReviewForm  > button:hover{
+        cursor: pointer;
+    }
+

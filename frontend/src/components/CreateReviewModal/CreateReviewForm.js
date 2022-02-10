@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { FaStar } from 'react-icons/fa'
+import './CreateReview.css';
+
 
 function CreateReviewForm() {
     const dispatch = useDispatch();
@@ -8,56 +11,53 @@ function CreateReviewForm() {
     const [userReview, setUserReview] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // setErrors([]);
-        // return dispatch(sessionActions.login({ email, password })).catch(
-        //     async (res) => {
-        //         const data = await res.json();
-        //         if (data && data.errors) setErrors(data.errors);
-        //     }
-        // );
-    };
 
-    const handleDemoLogin = (e) => {
+
+    const handleSubmitReview = (e) => {
         e.preventDefault();
-        // setErrors([]);
-        // setEmail('demo@demo.com');
-        // setPassword('password');
-        // return dispatch(sessionActions.demoLogin()).catch(
-        //     async (res) => {
-        //         const data = await res.json();
-        //         if (data && data.errors) setErrors(data.errors);
-        //     }
-        // );
+        setErrors([]);
+
+        return dispatch(sessionActions.demoLogin()).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
     };
 
     return (
         <>
-            <div className="Welcome">
-                <h2> Create Review </h2>
+            <div className="createReviewDiv">
+                <h2> Share your experience </h2>
             </div>
             <form
-                className="loginForm"
-                onSubmit={handleSubmit} >
+                className="createReviewForm"
+                onSubmit={handleSubmitReview} >
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
                 <label>
-                    {/* Email */}
-                    <input
+                    {/* Rating */}
+                    <input type="radio" name="rating" id="ratingRadioButton"></input>
+                    {[...Array(5)].map((star) => (
+                        <FaStar />
+                    ))}
+
+                    {/* <input
+                        id="ratingInput"
                         type="text"
                         value={rating}
                         placeholder="rating"
                         onChange={(e) => setRating(e.target.value)}
                         required
-                    />
+                    /> */}
                 </label>
                 <label>
-                    {/* Password */}
+                    {/* Review */}
                     <input
+                        id="reviewInput"
                         type="text"
                         value={userReview}
                         placeholder="review"
@@ -65,8 +65,7 @@ function CreateReviewForm() {
                         required
                     />
                 </label>
-                <button type="submit">Log In</button>
-                <button type="submit" onClick={handleDemoLogin}>Demo Login</button>
+                <button type="submit">Submit</button>
             </form>
         </>
     );

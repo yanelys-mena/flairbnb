@@ -1,0 +1,20 @@
+
+.editReview {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #d3d3d3;
+    background-color: white;
+}
+
+.editReview:hover {
+    color:black;
+    cursor: pointer;
+}
+
+#reviewInput {
+    /* background-color: red; */
+
+    width: 100%;
+    resize: none;
+  }

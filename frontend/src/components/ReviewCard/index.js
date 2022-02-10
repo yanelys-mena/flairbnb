@@ -27,9 +27,9 @@ const ReviewCard = ({ review, sessionId, listingId }) => {
                         </div>
                     </div>
                     <div className="ratings">
-                        {/* <FaEllipsisH className="editReview" /> */}
-                        <EditReviewModal review={review} sessionId={sessionId} listingId={listingId} />
-
+                        {sessionId === review.userId &&
+                            <EditReviewModal review={review} sessionId={sessionId} listingId={listingId} />
+                        }
                         <div>
                             {stars.map((star) => (
                                 <i className="fas fa-star" key={star}></i>

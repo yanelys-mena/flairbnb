@@ -13,8 +13,7 @@ function EditReviewForm({ listingId, sessionId, review }) {
     const [newReview, setNewReview] = useState(review.review);
     const [errors, setErrors] = useState([]);
 
-
-    const handleSubmitReview = (e) => {
+    const handleEditReview = (e) => {
         e.preventDefault();
 
         const toEdit = {
@@ -24,16 +23,17 @@ function EditReviewForm({ listingId, sessionId, review }) {
             review: newReview
         }
         return dispatch(editReview(toEdit));
+
     };
 
     return (
         <>
-            <div className="createReviewDiv">
+            <div className="EditReviewDiv">
                 <h2> Update your review </h2>
             </div>
             <form
                 className="createReviewForm"
-                onSubmit={handleSubmitReview} >
+                onSubmit={handleEditReview} >
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
@@ -68,9 +68,8 @@ function EditReviewForm({ listingId, sessionId, review }) {
                 <div>
                     <label>
                         {/* Review */}
-                        <input
+                        <textarea
                             id="reviewInput"
-                            type="text"
                             value={newReview}
                             placeholder="Tell us about your experience..."
                             onChange={(e) => setNewReview(e.target.value)}

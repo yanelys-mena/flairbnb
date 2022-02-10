@@ -12,7 +12,7 @@ const ReviewCard = () => {
 
     const reviews = Object.values(allReviews);
 
-    console.log(reviews.forEach(ele => console.log(ele.review)))
+    console.log(reviews[0].User.username)
 
     useEffect(() => {
         dispatch(getReviews(listingId));
@@ -21,11 +21,21 @@ const ReviewCard = () => {
 
     return (
         <>
-            {reviews.map(review => {
-                <divc>
+            {reviews.map(review => (
+                <div className="reviewCard" key={review.id}>
+                    <div className="userInfo">
+                        <div>userIcon</div>
+                        <div className="reviewDate">
+                            {review.User.username}
+                            <div> {review.createdAt}</div>
+                        </div>
+                    </div>
 
+                    <div className="userReview">
+                        <span>{review.review}</span>
+                    </div>
                 </div>
-            })}
+            ))}
 
         </>
     )
@@ -34,7 +44,7 @@ const ReviewCard = () => {
 export default ReviewCard;
 
 /*
-REVIEWS DB should have: listingId, userId, username, rating(ingener), review, createdDate
+REVIEWS DB should have: listingId, userId, rating(ingener), review, createdDate
 1. set up model generate
 2. set up seed files
 Relationships: listing id and user id and user name references the users tabel

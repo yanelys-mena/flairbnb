@@ -161,5 +161,10 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-top: 50px;
     margin-bottom: 100px;
     border-top: #D3D3D3 solid 1px;
+    width: 100%;
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
 }
 

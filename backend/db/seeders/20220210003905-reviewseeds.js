@@ -94,7 +94,7 @@ module.exports = {
       },
       {
         listingId: 4,
-        userId: 5,
+        userId: 1,
         rating: 4,
         review: 'Amazing view, Dolphins, stingrays, crabs etc. Loved the front porch. Nice house. Great location. Definitely would stay here again.',
       },

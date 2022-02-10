@@ -6,7 +6,7 @@ import { getReviews } from '../../store/reviews';
 import dayjs from "dayjs";
 import './Reviews.css';
 
-const ReviewCard = () => {
+const ReviewCard = ({ reviews }) => {
     const dispatch = useDispatch();
     const { listingId } = useParams();
     const allReviews = useSelector((state) => state.reviews.entries);
@@ -19,7 +19,10 @@ const ReviewCard = () => {
     }, [dispatch])
     if (allReviews) {
 
+        // let stars = [];
+        // for (let i = 0; i < {review.rating}; i++) {
 
+        // }
         const reviews = Object.values(allReviews);
 
         return (

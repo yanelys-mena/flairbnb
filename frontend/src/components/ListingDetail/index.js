@@ -18,6 +18,10 @@ const ListingDetail = () => {
     const imageUrls = useSelector((state) => state.images[Number(listingId)]);
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const [page, setPage] = useState(1);
+    const allReviews = useSelector((state) => state.reviews.entries);
+    const reviews = Object.values(allReviews);
+
+    console.log(reviews)
 
     const handlePage = () => {
         setPage(1);
@@ -30,6 +34,10 @@ const ListingDetail = () => {
     }, [dispatch, listingId])
 
     if (listing) {
+
+
+        // const reviews = Object.values(allReviews);
+
 
         const handleDelete = (e) => {
             e.preventDefault();
@@ -100,7 +108,7 @@ const ListingDetail = () => {
                         </div>
 
                         <div className="reviewsDiv">
-                            <ReviewCard />
+                            <ReviewCard reviews={reviews} />
                         </div>
                     </div >}
                 {page === 2 && <EditListing listingId={listingId} handlePage={handlePage} />}

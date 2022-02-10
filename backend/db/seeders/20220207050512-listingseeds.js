@@ -294,7 +294,23 @@ module.exports = {
         lng: -147.47931483804564,
         price: 475.00,
       },
-
+      {
+        userId: 1,
+        name: "TYoung Wild & TREE(HOUSE) private hot tub",
+        listingType: 'Entire home',
+        guests: 4,
+        beds: 2,
+        bedrooms: 2,
+        bathrooms: 1,
+        description: "The treehouse is an eclectic 1956 airstream/Spartan hodgepodge created by a Vietnam vet . It shares the grounds with a beautiful designed interior space that we have nicknamed “the studio”. Located minutes to the airport and downtown. What could be better than falling asleep in the trees and waking up to birds singing around you--all within the city limits? This space is only for 2 guests. Although there are 2 beds more than 2 is nit an option. Your reset will be canceled immediately if more than 2 come onsite.",
+        address: '1401 Johnson Avenue',
+        city: 'Los Angeles',
+        state: 'California',
+        country: 'United States',
+        lat: 64.78361273829887,
+        lng: -147.47931483804564,
+        price: 245.00,
+      },
 
     ], {});
 

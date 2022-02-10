@@ -22,7 +22,6 @@ export const getReviews = (listingId) => async (dispatch) => {
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
-    console.log('REDUCER', action.reviews)
     let newState;
     switch (action.type) {
         case GET_REVIEWS:

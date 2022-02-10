@@ -3,26 +3,35 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getReviews } from '../../store/reviews'
+import './Reviews.css';
 
-const Reviews = () => {
+const ReviewCard = () => {
     const dispatch = useDispatch();
     const { listingId } = useParams();
-    const reviews = useSelector((state) => state.entries);
-    // console.log(reviews);
+    const allReviews = useSelector((state) => state.reviews.entries);
+
+    const reviews = Object.values(allReviews);
+
+    console.log(reviews.forEach(ele => console.log(ele.review)))
 
     useEffect(() => {
-        dispatch(getReviews(listingId))
-    }, [])
+        dispatch(getReviews(listingId));
+
+    }, [dispatch])
 
     return (
         <>
-            <p> REVIEWS TBD</p>
+            {reviews.map(review => {
+                <divc>
+
+                </div>
+            })}
 
         </>
     )
 };
 
-export default Reviews;
+export default ReviewCard;
 
 /*
 REVIEWS DB should have: listingId, userId, username, rating(ingener), review, createdDate

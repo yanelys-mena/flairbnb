@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { loadImages } from '../../store/images';
 import { deleteListing } from '../../store/listings';
 import EditListing from '../EditListing'
-import Reviews from '../Reviews';
+import ReviewCard from '../ReviewCard';
 import './ListingDetail.css';
 
 
@@ -82,7 +82,7 @@ const ListingDetail = () => {
                                 {/* <p>Hosted by {sessionUser.username}</p> */}
                                 <div className="leftSecInner">
                                     <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
-                                    <hr></hr>
+
                                     <div className="descriptionDiv">
                                         <p>{listing.description}</p>
                                     </div>
@@ -100,8 +100,7 @@ const ListingDetail = () => {
                         </div>
 
                         <div className="reviewsDiv">
-                            <hr></hr>
-                            <Reviews />
+                            <ReviewCard />
                         </div>
                     </div >}
                 {page === 2 && <EditListing listingId={listingId} handlePage={handlePage} />}

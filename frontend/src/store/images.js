@@ -28,6 +28,7 @@ const loadCovers = (images) => {
 }
 
 
+
 //thunk to fetch images
 export const loadImages = (listingId) => async (dispatch) => {
     const response = await fetch(`/api/listings/images/${listingId}`);
@@ -51,7 +52,7 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
     return urls;
 };
 
-//action creator to load only ONE image for the listings page coveRs
+
 export const loadCoverImages = () => async (dispatch) => {
     const response = await fetch(`/api/listings/images`);
     const images = await response.json();
@@ -61,7 +62,8 @@ export const loadCoverImages = () => async (dispatch) => {
 };
 
 
-const initialState = { singles: {} };
+
+const initialState = { entries: {} };
 
 const imagesReducer = (state = initialState, action) => {
     let newState;
@@ -79,10 +81,11 @@ const imagesReducer = (state = initialState, action) => {
             }
             return newState;
         case LOAD_COVER_IMAGES:
-            newState = { ...state }
-            const singles = { ...action.images.getImages };
-            newState.singles = singles;
-            return newState;
+            const entries = {};
+            action.images.forEach((images) => {
+                entries[images.id] = images
+            });
+            return { ...state, entries };
         default:
             return state;
     }

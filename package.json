@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/yanelys-mena/flairbnb/issues"
   },
-  "homepage": "https://github.com/yanelys-mena/flairbnb#readme"
+  "homepage": "https://github.com/yanelys-mena/flairbnb#readme",
+  "dependencies": {
+    "dayjs": "^1.10.7"
+  }
 }

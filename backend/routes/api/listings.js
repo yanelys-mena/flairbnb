@@ -169,18 +169,14 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
 
 }));
 
+
 router.get('/images', asyncHandler(async (req, res) => {
-    const images = await Image.findAll();
-
-    const getImages = {}
-    const mapping = images.map(ele => {
-        return getImages[ele.listingId] = ele.url
-    })
-
-
-    res.json({ getImages });
-
+    console.log('IN THE HANDLER FOR HET ALL IMAGES')
+    const images = await Image.findAll({
+    });
+    res.json(images)
 }));
+
 
 
 

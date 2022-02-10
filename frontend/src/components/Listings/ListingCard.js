@@ -5,17 +5,16 @@ import { useSelector } from 'react-redux';
 const ListingCard = () => {
 
     const listingsObj = useSelector((state) => state.listings.entries);
-    const imageUrls = useSelector((state) => state.images.singles);
+    const imageUrls = useSelector((state) => state.images.entries);
     const listings = Object.values(listingsObj);
-
-
     return (
         <>
             {listings && listings.map(listing =>
                 <Link to={`/listings/${listing.id}`} key={listing.id}>
                     <div className="listingCard" key={listing.id}>
                         <div className="cardImage">
-                            <img alt={listing.name} src={imageUrls[listing.id]}></img>
+                            {imageUrls &&
+                                <img alt={listing.name} src={Object.values(imageUrls).find(ele => ele.listingId === listing.id)?.url}></img>}
                         </div>
                         <div className="cardInfo">
                             <div className='title'>{listing.name}</div>

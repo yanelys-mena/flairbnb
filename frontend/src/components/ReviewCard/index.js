@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getReviews } from '../../store/reviews'
+import { getReviews } from '../../store/reviews';
+import dayjs from "dayjs";
 import './Reviews.css';
 
 const ReviewCard = () => {
     const dispatch = useDispatch();
     const { listingId } = useParams();
     const allReviews = useSelector((state) => state.reviews.entries);
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 
     useEffect(() => {
@@ -28,7 +30,7 @@ const ReviewCard = () => {
                             <img src='https://live.staticflickr.com/65535/51873432080_e4b48f571d.jpg'></img>
                             <div className="details">
                                 {review.User.username}
-                                <div className="reviewDate"> {review.createdAt}</div>
+                                <div className="reviewDate"> {dayjs(review.createdAt).format("MMM YYYY")}</div>
                             </div>
                         </div>
 

@@ -9,8 +9,6 @@ import ListingCard from './ListingCard';
 const Listings = () => {
     const listingId = useParams();
     const dispatch = useDispatch();
-    const listingsObj = useSelector((state) => state.listings.entries);
-    const listings = Object.values(listingsObj);
 
     useEffect(() => {
         dispatch(getListings());
@@ -24,7 +22,7 @@ const Listings = () => {
                 <ListingCard />
             </div>
             <div className="rightSide">
-                Map intergration coming soon.
+                Map integration coming soon.
             </div>
 
         </div>

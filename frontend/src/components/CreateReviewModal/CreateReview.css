@@ -16,6 +16,7 @@
 .createReviewDiv {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 80%;
 }
 
@@ -25,24 +26,38 @@
     justify-content: space-around;
     width: 80%;
 }
+#starRating {
+display: flex;
+justify-content: center;
+margin-bottom: 50px;
+
+}
+
+input[type="radio"] {
+    display: none;
+}
 
 
-.createReviewForm  > label >input{
+.ratingStars:hover {
+    cursor:pointer;
+    transition: color 200ms;
+}
+
+
+#reviewInput {
     border: #D3D3D3 1.5px solid;
     width: 100%;
     border-radius:5px;
     color: gray;
     margin-bottom: 15px;
-    }
-    
-
+}
     .createReviewForm  > label >input:focus{
      color: black;
      border: black 1.5px solid;
         }
     
 #reviewInput {
- height: 80px;
+ height: 100px;
 }
 
     .createReviewForm  > button{

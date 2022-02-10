@@ -120,6 +120,8 @@ width: 100%;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding-bottom: 80px;
+    border-bottom: #D3D3D3 solid 1px;
 }
 
 .leftSec {
@@ -187,8 +189,7 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 #reviewButtons {
  display: flex;
     justify-content: flex-end;
-    margin-top: 50px;
-    border-top: #D3D3D3 solid 1px;
+    /* margin-top: 50px; */
     width: 100%;
 
 }

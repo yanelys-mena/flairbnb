@@ -1,4 +1,6 @@
-//back end set up
+import { csrfFetch } from './csrf';
+
+
 const GET_REVIEWS = '/reviews/get-reviews';
 const CREATE_REVIEW = '/reviews/create-review';
 
@@ -12,7 +14,7 @@ const getAll = (reviews) => {
 };
 
 export const getReviews = (listingId) => async (dispatch) => {
-    const response = await fetch(`/api/listings/${listingId}/reviews`);
+    const response = await csrfFetch(`/api/listings/${listingId}/reviews`);
     if (response.ok) {
         const reviews = await response.json();
         dispatch(getAll(reviews))
@@ -31,20 +33,22 @@ const create = (review) => {
 
 export const createReview = (toCreate) => async (dispatch) => {
 
-    const response = await fetch(`/api/listings//reviews`, {
+    const response = await csrfFetch(`/api/reviews`, {
         method: 'POST',
-        body: JSON.stringify({ toCreate })
+        body: JSON.stringify(toCreate)
     });
 
     if (response.ok) {
         const review = await response.json();
         dispatch(create(review))
-    }
+    };
+    return;
 };
 
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
+    console.log('REDUCER', action)
     let newState;
     switch (action.type) {
         case GET_REVIEWS:
@@ -53,6 +57,11 @@ const reviewReducer = (state = initialState, action) => {
                 entries[review.id] = review
             });
             return { ...state, entries };
+        case CREATE_REVIEW:
+            newState = { ...state };
+            newState.entries = { ...newState.entries, [action.review.id]: action.review }
+            return newState;
+
         default:
             return state;
     };

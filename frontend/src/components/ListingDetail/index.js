@@ -36,7 +36,10 @@ const ListingDetail = () => {
 
     if (listing && allReviews) {
 
+
         const reviews = Object.values(allReviews);
+        // const check = reviews.find(review => review.userId === sessionUser.id);
+        // console.log('///', check)
 
         const ratings = [];
         for (let i = 0; i < reviews.length; i++) {
@@ -117,9 +120,12 @@ const ListingDetail = () => {
                             </div>
                         </div>
                         <div id="reviewsDiv">
-                            <div id="reviewButtons">
-                                <CreateReviewModal sessionId={sessionUser.id} listingId={listing.id} />
-                            </div>
+                            {!reviews.find(review => review.userId === sessionUser.id) &&
+
+                                <div id="reviewButtons">
+                                    <CreateReviewModal sessionId={sessionUser.id} listingId={listing.id} />
+                                </div>
+                            }
                             <div className="reviewsDiv" >
                                 {reviews.map(review => (
                                     <ReviewCard key={review.id} review={review} />

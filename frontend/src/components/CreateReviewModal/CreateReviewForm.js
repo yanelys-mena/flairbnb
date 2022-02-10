@@ -22,7 +22,7 @@ function CreateReviewForm({ listingId, sessionId }) {
             rating,
             review
         }
-        dispatch(createReview(toCreate));
+        return dispatch(createReview(toCreate));
     };
 
     return (

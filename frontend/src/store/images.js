@@ -1,4 +1,3 @@
-import { bindActionCreators } from 'redux';
 import { csrfFetch } from './csrf';
 
 const LOAD_IMAGES = 'listings/load-images'

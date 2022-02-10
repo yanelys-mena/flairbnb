@@ -1,9 +1,6 @@
 import './Listings.css'
-import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getListings } from '../../store/listings';
-import { loadCoverImages } from '../../store/images';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const ListingCard = () => {
 
@@ -18,7 +15,7 @@ const ListingCard = () => {
                 <Link to={`/listings/${listing.id}`} key={listing.id}>
                     <div className="listingCard" key={listing.id}>
                         <div className="cardImage">
-                            <img src={imageUrls[listing.id]}></img>
+                            <img alt={listing.name} src={imageUrls[listing.id]}></img>
                         </div>
                         <div className="cardInfo">
                             <div className='title'>{listing.name}</div>
@@ -33,7 +30,8 @@ const ListingCard = () => {
                         </div>
                     </div>
                 </Link>
-            )}
+            )
+            }
         </>
     )
 };

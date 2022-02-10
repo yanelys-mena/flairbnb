@@ -28,7 +28,7 @@ const ListingDetail = () => {
     useEffect(() => {
         dispatch(loadImages(listingId));
 
-    }, [])
+    }, [dispatch, listingId])
 
     if (listing) {
 

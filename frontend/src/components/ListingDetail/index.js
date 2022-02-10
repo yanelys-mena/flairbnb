@@ -18,7 +18,6 @@ const ListingDetail = () => {
     const imageUrls = useSelector((state) => state.images[Number(listingId)]);
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const [page, setPage] = useState(1);
-    // console.log(imageUrls, Number(listingId))
 
     const handlePage = () => {
         setPage(1);

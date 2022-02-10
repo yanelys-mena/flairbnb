@@ -1,13 +1,23 @@
 import './Listings.css'
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getReviews } from '../../store/reviews';
+import { useAvgRating } from '../../context/Rating';
 
-const ListingCard = () => {
+
+const ListingCard = ({ listingId }) => {
 
     const listingsObj = useSelector((state) => state.listings.entries);
     const imageUrls = useSelector((state) => state.images.entries);
     const listings = Object.values(listingsObj);
+    const dispatch = useDispatch();
+    const { avgRating, setAvgRating } = useAvgRating();
+
+
     return (
+
         <>
             {listings && listings.map(listing =>
                 <Link to={`/listings/${listing.id}`} key={listing.id}>
@@ -21,7 +31,9 @@ const ListingCard = () => {
                             <div className="cardInfoDetails"> <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p></div>
                             <div className="review-price">
                                 <div className="reviews">
-                                    <div className="star">{<i className="fas fa-star"></i>}   Reviews Coming Soon</div>
+                                    <div className="star">{<i className="fas fa-star"></i>} {avgRating}</div>
+                                    {/* {averageRating ? <li id="avgRating"> {averageRating} </li> : <li>No Reviews</li>} */}
+
                                 </div>
                                 <div className='price'> ${listing.price} / night</div>
 
@@ -33,6 +45,7 @@ const ListingCard = () => {
             }
         </>
     )
+
 };
 
 export default ListingCard;

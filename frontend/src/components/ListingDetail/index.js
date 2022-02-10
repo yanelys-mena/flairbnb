@@ -8,6 +8,7 @@ import { deleteListing } from '../../store/listings';
 import { getReviews } from '../../store/reviews';
 import EditListing from '../EditListing'
 import ReviewCard from '../ReviewCard';
+import { useAvgRating } from '../../context/Rating';
 import './ListingDetail.css';
 import CreateReviewModal from '../CreateReviewModal';
 
@@ -16,6 +17,7 @@ const ListingDetail = () => {
     const { listingId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
+    const { avgRating, setAvgRating } = useAvgRating();
     const sessionUser = useSelector((state) => state.session.user);
     const imageUrls = useSelector((state) => state.images[Number(listingId)]);
     const listing = useSelector((state) => state.listings.entries[listingId]);
@@ -33,21 +35,19 @@ const ListingDetail = () => {
     }, [dispatch])
 
 
-
     if (listing && allReviews) {
 
 
         const reviews = Object.values(allReviews);
-        // const check = reviews.find(review => review.userId === sessionUser.id);
-        // console.log('///', check)
 
         const ratings = [];
         for (let i = 0; i < reviews.length; i++) {
             ratings.push(reviews[i].rating)
         };
 
-        const averageRating = ratings.reduce((a, b) => a + b, 0) / reviews.length
+        const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(1);
 
+        // setAvgRating(averageRating);
 
         const handleDelete = (e) => {
             e.preventDefault();
@@ -69,7 +69,7 @@ const ListingDetail = () => {
                                 <h2>{listing.name}</h2>
                                 <ul>
                                     <li className="star">{<i className="fas fa-star"></i>} </li>
-                                    {averageRating ? <li id="avgRating"> {averageRating}.0 </li> : <li>No Reviews</li>}
+                                    {averageRating ? <li id="avgRating"> {averageRating} </li> : <li>No Reviews</li>}
 
                                     <li> · </li>
                                     <li id="reviewsLink"><Link to="#reviewsDiv">{reviews.length} reviews</Link>

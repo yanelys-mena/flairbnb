@@ -5,6 +5,8 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Listing } = require('../../db/models');
 const { Image } = require('../../db/models');
+const { Review } = require('../../db/models');
+const { User } = require('../../db/models')
 
 const router = express.Router();
 
@@ -15,6 +17,26 @@ router.get(
         return res.json({ listings })
     })
 );
+
+
+
+router.get(
+    '/:listingId/reviews',
+    asyncHandler(async (req, res) => {
+        console.log('////')
+        const { listingId } = req.params
+
+        const reviews = await Review.findAll({
+            where: {
+                listingId
+            },
+            include: [User]
+        });
+        return res.json(reviews);
+    })
+);
+
+
 
 const validateCreateListing = [
     check('name')

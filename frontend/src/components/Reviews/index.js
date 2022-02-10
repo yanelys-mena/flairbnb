@@ -1,9 +1,23 @@
-
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getReviews } from '../../store/reviews'
 
 const Reviews = () => {
+    const dispatch = useDispatch();
+    const { listingId } = useParams();
+    const reviews = useSelector((state) => state.entries);
+    // console.log(reviews);
+
+    useEffect(() => {
+        dispatch(getReviews(listingId))
+    }, [])
+
     return (
         <>
             <p> REVIEWS TBD</p>
+
         </>
     )
 };

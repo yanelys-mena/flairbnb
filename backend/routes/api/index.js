@@ -7,10 +7,12 @@ const { requireAuth } = require('../../utils/auth.js');
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
 const listingsRouter = require('./listings')
+const reviewsRouter = require('./reviews');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter)
 router.use('/listings', listingsRouter)
+router.use('/reviews', reviewsRouter)
 
 
 

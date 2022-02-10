@@ -1,6 +1,13 @@
 import './Homepage.css'
+import { useHistory } from 'react-router-dom';
 
 const Homepage = () => {
+    const history = useHistory();
+
+    const redirect = () => {
+        history.push('/listings')
+    };
+
     return (
         <main>
             <div className="home_search">
@@ -11,7 +18,7 @@ const Homepage = () => {
                     <img className="image" src="https://a0.muscache.com/im/pictures/21c2735e-a734-40f8-9f60-9ac299c4394c.jpg?im_w=960"></img>
                     <div className="largeimg_overlay">
                         <p>Not sure where to go? Perfect.</p>
-                        <button href="/"><p>I'm flexible</p></button>
+                        <button onClick={redirect}><p>I'm flexible</p></button>
                     </div>
 
                 </div>

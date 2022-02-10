@@ -1,11 +1,12 @@
 .formDiv {
     width: 40%; 
-    margin: 100px auto 0 auto;
+    margin: 100px auto 100px auto;
     height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
  justify-content: center;
+
 
 }
 

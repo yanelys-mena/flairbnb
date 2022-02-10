@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 
 const GET_REVIEWS = '/reviews/get-reviews';
 const CREATE_REVIEW = '/reviews/create-review';
+const EDIT_REVIEW = '/reviews/edit-review';
 
 //NOTE GET ALL REVIEWS
 
@@ -45,6 +46,32 @@ export const createReview = (toCreate) => async (dispatch) => {
     return;
 };
 
+//NOTE EDIT REVIEW
+
+const edit = (review) => {
+    return {
+        type: EDIT_REVIEW,
+        review
+    }
+};
+
+
+export const editReview = (toEdit) => async (dispatch) => {
+
+    const response = await csrfFetch(`/api/reviews`, {
+        method: 'PUT',
+        body: JSON.stringify(toEdit)
+    });
+
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(edit(review))
+    };
+    return;
+};
+
+
+
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
@@ -61,7 +88,10 @@ const reviewReducer = (state = initialState, action) => {
             newState = { ...state };
             newState.entries = { ...newState.entries, [action.review.id]: action.review }
             return newState;
-
+        case EDIT_REVIEW:
+            newState = { ...state };
+            newState.entries = { ...newState.entries, [action.review.id]: action.review }
+            return newState;
         default:
             return state;
     };

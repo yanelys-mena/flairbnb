@@ -5,12 +5,11 @@ import { FaEllipsisH } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import dayjs from "dayjs";
 import './Reviews.css';
+import EditReviewModal from '../EditReviewModal';
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ review, sessionId, listingId }) => {
     const dispatch = useDispatch();
-    const { listingId } = useParams();
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
     let stars = [];
     for (let i = 0; i < review.rating; i++) {
         stars.push(i);
@@ -28,7 +27,8 @@ const ReviewCard = ({ review }) => {
                         </div>
                     </div>
                     <div className="ratings">
-                        <FaEllipsisH className="editReview" />
+                        {/* <FaEllipsisH className="editReview" /> */}
+                        <EditReviewModal review={review} sessionId={sessionId} listingId={listingId} />
 
                         <div>
                             {stars.map((star) => (
@@ -47,9 +47,7 @@ const ReviewCard = ({ review }) => {
 
         </>
     )
-    // } else {
-    //     return (<></>)
-    // }
+
 };
 
 export default ReviewCard;

@@ -130,7 +130,7 @@ const ListingDetail = () => {
 
                             <div className="reviewsDiv" >
                                 {reviews.map(review => (
-                                    <ReviewCard key={review.id} review={review} />
+                                    <ReviewCard key={review.id} review={review} sessionId={sessionUser.id} listingId={listing.id} />
                                 ))}
                             </div>
                         </div>

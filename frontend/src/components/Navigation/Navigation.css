@@ -52,7 +52,11 @@ padding-top: 30px;
  
 .navMiddleLinks {
    display: flex;
-
+}
+.navMiddleLinks > li > a {
+   display: flex;
+padding-left: 10px;
+padding-bottom: 10px;
 }
 
 .dropdown > button:hover {

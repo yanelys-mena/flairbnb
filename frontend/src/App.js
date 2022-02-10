@@ -5,6 +5,7 @@ import Homepage from "./components/Homepage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Listings from "./components/Listings";
 import ListingDetail from "./components/ListingDetail";
+import Footer from "./components/Footer";
 import { restoreListings } from "./store/listings";
 import CreateListings from "./components/CreateListing";
 import * as sessionActions from "./store/session";
@@ -40,6 +41,8 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer></Footer>
+
     </>
   );
 }

@@ -26,9 +26,9 @@ const ReviewCard = () => {
                     <div className="reviewCard" key={review.id}>
                         <div className="userInfo">
                             <img src='https://live.staticflickr.com/65535/51873432080_e4b48f571d.jpg'></img>
-                            <div className="reviewDate">
+                            <div className="details">
                                 {review.User.username}
-                                <div> {review.createdAt}</div>
+                                <div className="reviewDate"> {review.createdAt}</div>
                             </div>
                         </div>
 

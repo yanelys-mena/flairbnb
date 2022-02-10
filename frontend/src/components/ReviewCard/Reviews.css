@@ -1,10 +1,43 @@
 .reviewCard {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: palegoldenrod;
+
+    padding: 10px;
 }
 
 .userInfo {
     width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+}
+
+
+
+.userInfo > img {
+    object-fit: cover;
+    height: 56px;
+    width: 56px;
+}
+
+.details {
+    padding-left: 10px;
+    color: black;
+    font-weight: 500;
+}
+
+.reviewDate {
+    color: gray;
+    font-weight: 300;
+
+}
+
+.userReview {
+    padding: 15px 10px 10px 10px;
+   display: flex;
+   justify-content: flex-start;
+   width: 90%;
 }

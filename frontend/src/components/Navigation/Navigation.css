@@ -17,32 +17,22 @@ nav a:hover {
 }
 
 nav {
-   /* width: 50%; */
    position: sticky;
    top: 0;
    z-index: 4;
    height: 40px;
-   /* margin-top: -20px;
-   margin-left: -20px;
-   margin-right: -10px;
+   display: flex;
+   justify-content: center;
 
-
-   max-width:none; */
-   /* height: 60px; */
 }
 
 
 .navBar{
    overflow: visible;
    display: flex;
-   width: 100%;
+   width: 85%;
    background-color: black;
-
-   /* position: fixed; */
-   /* top: -20px;
-   right:0; */
-/* left: 0; */
-padding-top: 30px;
+   padding-top: 15px;
    justify-content: space-between;
    font-size: 18px;
    height: 50px;
@@ -59,34 +49,50 @@ padding-left: 10px;
 padding-bottom: 10px;
 }
 
+
+.menu {
+   color: gray;
+   background-color: white;
+   margin-bottom: 10px;
+   border: white;
+   border-radius: 20px;
+   height: 40px;
+   width: 75px;
+   text-align: start;
+   padding-left: 10px;
+   font-size: 15px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+
+
+.fa-user-circle {
+color: gray;
+
+padding-right: 5px;
+font-size: 20px;
+}
+
 .dropdown > button:hover {
    cursor: pointer;
    }
    
-.dropdown > button {
-   color: gray;
-   background-color: white;
-   margin-right: 70px;
 
-   margin-bottom: 10px;
-   border: white;
-   border-radius: 20px;
-   height: 30px;
-   width: 60px;
-   text-align: start;
-   padding-left: 10px;
-   font-size: 15px;
-}
 
 .dropdown > ul {
-   z-index: 10;
+
    display: flex;
    flex-direction: column;
    position: absolute;
    background-color: white;
-   margin: 0 0 0 -140px;
+   margin: 0 0 0 -100px;
    border-radius: 20px;
-   width: 150px;
+   width: 120px;
+   height: fit-content;
+   background-color: red;
+
 
 }
 
@@ -120,7 +126,9 @@ border-radius: 10px;
 }
 
 .logout_btn {
-   border: none;background-color: transparent;
+   border-top: 1px solid #D3D3D3;
+   width: 100%;
+   background-color: transparent;
    color: black;
    font-family: 'Roboto', sans-serif;
    font-weight: 500;

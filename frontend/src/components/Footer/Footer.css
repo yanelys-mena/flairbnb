@@ -6,11 +6,14 @@ margin-bottom: -100px;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+align-items: center;
 }
 
 .bottomFooter {
 padding: 10px;
 color: black;
+border-top: solid #d3d3d3 1px;
+width: 95%;
 }
 
 .bottomFooter > a {

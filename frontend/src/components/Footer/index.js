@@ -9,10 +9,9 @@ const Footer = () => {
                 <li>listings</li>
                 <li>listings</li>
                 <li>listings</li>
-
             </ul>
             <div className="bottomFooter">
-                2022 Flairbnb · <a href="https://github.com/yanelys-mena/flairbnb">Read Me</a> · <a href="https://github.com/yanelys-mena/flairbnb">GitHub</a>
+                © 2022 Flairbnb · Yanelys Mena  ·  <a href="https://github.com/yanelys-mena/flairbnb#readme">Read Me</a> · <a href="https://github.com/yanelys-mena">GitHub</a>
             </div>
         </div>
     )

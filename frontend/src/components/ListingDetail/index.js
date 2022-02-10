@@ -118,7 +118,7 @@ const ListingDetail = () => {
                         </div>
                         <div id="reviewsDiv">
                             <div id="reviewButtons">
-                                <CreateReviewModal />
+                                <CreateReviewModal sessionId={sessionUser.id} listingId={listing.id} />
                             </div>
                             <div className="reviewsDiv" >
                                 {reviews.map(review => (

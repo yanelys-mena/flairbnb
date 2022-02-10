@@ -1,8 +1,9 @@
 //back end set up
-const CREATE_REVIEW = '/reviews/create-review';
 const GET_REVIEWS = '/reviews/get-reviews';
+const CREATE_REVIEW = '/reviews/create-review';
 
 //NOTE GET ALL REVIEWS
+
 const getAll = (reviews) => {
     return {
         type: GET_REVIEWS,
@@ -19,6 +20,28 @@ export const getReviews = (listingId) => async (dispatch) => {
 
 };
 
+//NOTE CREATE A REVIEW
+
+const create = (review) => {
+    return {
+        type: CREATE_REVIEW,
+        review
+    }
+};
+
+export const createReview = (toCreate) => async (dispatch) => {
+
+    const response = await fetch(`/api/listings//reviews`, {
+        method: 'POST',
+        body: JSON.stringify({ toCreate })
+    });
+
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(create(review))
+    }
+};
+
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
@@ -33,5 +56,7 @@ const reviewReducer = (state = initialState, action) => {
         default:
             return state;
     };
-}
+};
+
+
 export default reviewReducer;

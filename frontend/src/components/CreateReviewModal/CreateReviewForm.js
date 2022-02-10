@@ -1,29 +1,28 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa';
+import { createReview } from '../../store/reviews'
 import './CreateReview.css';
 
 
-function CreateReviewForm() {
+function CreateReviewForm({ listingId, sessionId }) {
     const dispatch = useDispatch();
     const [rating, setRating] = useState(null)
     const [hover, setHover] = useState(null)
-    const [userReview, setUserReview] = useState("");
+    const [review, setReview] = useState("");
     const [errors, setErrors] = useState([]);
-    console.log(rating)
 
 
     const handleSubmitReview = (e) => {
         e.preventDefault();
-        setErrors([]);
 
-        return dispatch(sessionActions.demoLogin()).catch(
-            async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            }
-        );
+        const toCreate = {
+            listingId,
+            userId: sessionId,
+            rating,
+            review
+        }
+        dispatch(createReview(toCreate));
     };
 
     return (
@@ -71,9 +70,9 @@ function CreateReviewForm() {
                         <input
                             id="reviewInput"
                             type="text"
-                            value={userReview}
+                            value={review}
                             placeholder="review"
-                            onChange={(e) => setUserReview(e.target.value)}
+                            onChange={(e) => setReview(e.target.value)}
                             required
                         />
                     </label>

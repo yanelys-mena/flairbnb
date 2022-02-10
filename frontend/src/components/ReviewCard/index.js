@@ -10,35 +10,39 @@ const ReviewCard = () => {
     const { listingId } = useParams();
     const allReviews = useSelector((state) => state.reviews.entries);
 
-    const reviews = Object.values(allReviews);
-
-    console.log(reviews[0].User.username)
 
     useEffect(() => {
         dispatch(getReviews(listingId));
 
     }, [dispatch])
+    if (allReviews) {
 
-    return (
-        <>
-            {reviews.map(review => (
-                <div className="reviewCard" key={review.id}>
-                    <div className="userInfo">
-                        <div>userIcon</div>
-                        <div className="reviewDate">
-                            {review.User.username}
-                            <div> {review.createdAt}</div>
+
+        const reviews = Object.values(allReviews);
+
+        return (
+            <>
+                {reviews.map(review => (
+                    <div className="reviewCard" key={review.id}>
+                        <div className="userInfo">
+                            <img src='https://live.staticflickr.com/65535/51873432080_e4b48f571d.jpg'></img>
+                            <div className="reviewDate">
+                                {review.User.username}
+                                <div> {review.createdAt}</div>
+                            </div>
+                        </div>
+
+                        <div className="userReview">
+                            <span>{review.review}</span>
                         </div>
                     </div>
+                ))}
 
-                    <div className="userReview">
-                        <span>{review.review}</span>
-                    </div>
-                </div>
-            ))}
-
-        </>
-    )
+            </>
+        )
+    } else {
+        return (<></>)
+    }
 };
 
 export default ReviewCard;

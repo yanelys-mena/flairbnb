@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   Listing.associate = function (models) {
     Listing.belongsTo(models.User, { foreignKey: 'userId' });
     Listing.hasMany(models.Image, { foreignKey: 'listingId' });
+    Listing.hasMany(models.Review, { foreignKey: 'listingId' });
 
   };
   return Listing;

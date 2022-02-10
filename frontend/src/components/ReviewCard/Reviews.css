@@ -8,6 +8,12 @@
 }
 
 .userInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftUserInfo {
     width: 40%;
     display: flex;
     justify-content: flex-start;
@@ -17,7 +23,7 @@
 
 
 
-.userInfo > img {
+.leftUserInfo > img {
     object-fit: cover;
     height: 56px;
     width: 56px;
@@ -40,4 +46,15 @@
    display: flex;
    justify-content: flex-start;
    width: 90%;
+}
+
+.ratings {
+    padding: 5px;
+margin-right: 10px;
+/* font-size: 20px; */
+}
+
+.ratings > .fa-star {
+    color: #FFA534;
+
 }

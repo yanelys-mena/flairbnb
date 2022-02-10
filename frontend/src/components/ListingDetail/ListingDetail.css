@@ -13,11 +13,29 @@
     display: flex;
     justify-content: flex-start;
     margin-left: -40px;
+
+}
+#avgRating{
+    color: black;
 }
 
+#location {
+    color: gray;
+font-weight: 500;
+text-decoration: underline;
+}
+
+#reviewsLink > a {
+    font-weight: 500;
+    text-decoration: underline;
+    color: black;
+
+}
 
 .topText > ul > li {
-    padding-right: 10px;
+    padding-right: 7px;
+    font-weight: 500;
+
 }
 
 .user_btn {

@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { loadImages } from '../../store/images';
 import { deleteListing } from '../../store/listings';
+import { getReviews } from '../../store/reviews';
 import EditListing from '../EditListing'
 import ReviewCard from '../ReviewCard';
 import './ListingDetail.css';
 
 
 const ListingDetail = () => {
-
     const { listingId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
@@ -19,24 +20,29 @@ const ListingDetail = () => {
     const listing = useSelector((state) => state.listings.entries[listingId]);
     const [page, setPage] = useState(1);
     const allReviews = useSelector((state) => state.reviews.entries);
-    const reviews = Object.values(allReviews);
-
-    console.log(reviews)
 
     const handlePage = () => {
         setPage(1);
-
     };
 
     useEffect(() => {
         dispatch(loadImages(listingId));
+        dispatch(getReviews(listingId));
 
-    }, [dispatch, listingId])
-
-    if (listing) {
+    }, [dispatch])
 
 
-        // const reviews = Object.values(allReviews);
+
+    if (listing && allReviews) {
+
+        const reviews = Object.values(allReviews);
+
+        const ratings = [];
+        for (let i = 0; i < reviews.length; i++) {
+            ratings.push(reviews[i].rating)
+        };
+
+        const averageRating = ratings.reduce((a, b) => a + b, 0) / reviews.length
 
 
         const handleDelete = (e) => {
@@ -50,7 +56,6 @@ const ListingDetail = () => {
             setPage(2);
         }
 
-
         return (
             <>
                 {page === 1 &&
@@ -60,8 +65,11 @@ const ListingDetail = () => {
                                 <h2>{listing.name}</h2>
                                 <ul>
                                     <li className="star">{<i className="fas fa-star"></i>} </li>
-                                    <li >Reviews Coming Soon</li>
-                                    <li className="test">{listing.city}, {listing.state}, {listing.country} </li>
+                                    <li> {averageRating}.0 </li>
+                                    <li> · </li>
+                                    <li id="reviewsLink"><Link to="#reviewsDiv">{reviews.length} reviews</Link>
+                                    </li>
+                                    <li id="location">{listing.city}, {listing.state}, {listing.country} </li>
                                 </ul>
                             </div>
 
@@ -106,9 +114,10 @@ const ListingDetail = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="reviewsDiv">
-                            <ReviewCard reviews={reviews} />
+                        <div className="reviewsDiv" id="reviewsDiv" >
+                            {reviews.map(review => (
+                                <ReviewCard key={review.id} review={review} />
+                            ))}
                         </div>
                     </div >}
                 {page === 2 && <EditListing listingId={listingId} handlePage={handlePage} />}

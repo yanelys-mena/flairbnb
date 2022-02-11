@@ -54,7 +54,7 @@ const ListingDetail = () => {
             e.preventDefault();
             setPage(2);
         }
-
+        console.log('AVERAGE NUM', averageRating)
         return (
             <>
                 {page === 1 &&
@@ -65,6 +65,7 @@ const ListingDetail = () => {
                                 <ul>
                                     <li className="star">{<i className="fas fa-star"></i>} </li>
                                     {averageRating ? <li id="avgRating"> {averageRating} </li> : <li>No Reviews</li>}
+
 
                                     <li> · </li>
                                     <li id="reviewsLink"><Link to="#reviewsDiv">{reviews.length} reviews</Link>

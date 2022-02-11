@@ -148,6 +148,11 @@ const EditListing = ({ listingId, handlePage }) => {
         }
     };
 
+    const handleListingType = (e, value) => {
+        e.preventDefault()
+        setListingType(value)
+    }
+
     return (
         <div className="editListing">
             <button
@@ -170,12 +175,9 @@ const EditListing = ({ listingId, handlePage }) => {
                 <label>
                     <p>Space Type</p>
                     What kind of space will guests have? *entire home, private room, shared room
-                    <input
-                        type="text"
-                        value={listingType}
-                        name="listingType"
-                        placeholder=" entire home, private room, shared room "
-                        onChange={updateListingType} />
+                    <button onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</button>
+                    <button onClick={(e) => handleListingType(e, 'private room')} value={listingType}>private room</button>
+                    <button onClick={(e) => handleListingType(e, 'shared room')} value={listingType}>shared room</button>
 
                 </label>
                 <div className="form_buttons">

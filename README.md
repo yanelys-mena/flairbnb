@@ -17,7 +17,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+  <a href="https://github.com/yanelys-mena/flairbnb">
+    <img src="https://live.staticflickr.com/65535/51876148264_67fd438285.jpg" alt="Logo" width="auto" height="auto">
+  </a>
 
 ### Built With
 * [React.js](https://reactjs.org/)

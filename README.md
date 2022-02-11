@@ -104,7 +104,7 @@ This is an example of how to list things you need to use the software and how to
 
 Yanelys Mena - yanelyshm@outlook.com
 
-Project Link: [https://github.com/github_username/flairbnb](https://github.com/github_username/flairbnb)
+Project Link: [https://github.com/yanelys-mena/flairbnb](https://github.com/github_username/flairbnb)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

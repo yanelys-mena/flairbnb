@@ -116,7 +116,8 @@ const reviewReducer = (state = initialState, action) => {
             newState.entries = { ...newState.entries, [action.updatedReview.id]: action.updatedReview }
             return newState;
         case DELETE_REVIEW:
-            newState = { ...state };
+            // newState = { ...state };
+            newState = { ...state, entries: { ...state.entries } }
             delete newState.entries[action.id];
             return newState;
         default:

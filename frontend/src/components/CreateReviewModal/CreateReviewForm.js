@@ -72,7 +72,7 @@ function CreateReviewForm({ listingId, sessionId }) {
                             id="reviewInput"
                             // type="text"
                             value={review}
-                            placeholder="review"
+                            placeholder="Tell us about your experience"
                             onChange={(e) => setReview(e.target.value)}
                             required
                         />

@@ -66,18 +66,7 @@ body{
     justify-content: center;
     align-items: center;
 
-}
-
-#modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* }
   
   #modal-background {
     position: fixed;
@@ -92,8 +81,8 @@ body{
     position: absolute;
     background-color:white;
   }
+ */
 
-  
 
 button:hover {
 cursor: pointer;

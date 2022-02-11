@@ -1,19 +1,17 @@
 <div id="top"></div>
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/yanelys-mena/flairbnb">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg" alt="Logo" width="auto" height="80">
   </a>
 
 <h3 align="center">Flairbnb</h3>
 
   <p align="center">
-    project_description
+    Flairbnb, an Airbnb clone, is an app that connects travelers to places they can stay. Hosts can view, create, edit, and delete their listings. Travelers can reserve a place and edit or cancel their bookings. After their stay, guests have the ability to create, read, edit, and delete a review and rating. 
+
     <br />
     <a href="https://github.com/github_username/flairbnb"><strong>Explore the docs »</strong></a>
     <br />
@@ -45,12 +43,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -59,8 +52,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
+<img src="https://live.staticflickr.com/65535/51876148264_67fd438285.jpg
+"> </img>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -137,32 +130,6 @@ This is an example of how to list things you need to use the software and how to
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/flairbnb/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -172,8 +139,3 @@ Project Link: [https://github.com/github_username/flairbnb](https://github.com/g
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/yanelysmena/
-[product-screenshot]: images/screenshot.png

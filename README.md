@@ -9,7 +9,7 @@
 
 
 <h3 align="center">Flairbnb</h3>
-  <a href="https://flairbnb-app.herokuapp.com/">
+  <a href="https://flairbnb-app.herokuapp.com/" target="blank">
     LIVE APP
   </a>
 

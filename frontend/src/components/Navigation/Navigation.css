@@ -113,8 +113,8 @@ border-radius: 20px;
 
 .navButtons {
    display: flex;
-   justify-content: space-between;
-   margin-right: 70px;
+      margin-right: 70px;
+align-items: center;
 
 }
 

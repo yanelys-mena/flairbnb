@@ -49,6 +49,7 @@ function CreateReviewForm({ listingId, sessionId }) {
                                     type="radio"
                                     name="rating"
                                     value={ratingVal}
+                                    placeholder="Tell us about your experience"
                                     onClick={() => setRating(ratingVal)}
                                 />
                                 <FaStar

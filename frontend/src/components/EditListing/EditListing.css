@@ -10,3 +10,24 @@
 .backToListing_btn:hover {
     cursor: pointer;
 }
+
+
+#spaceTypeBtnDiv {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    
+    }
+  
+    .spaceTypeBtn {
+        border-radius: 10px;
+        height: 40px;
+        width: 150px;
+        font-size: 14px;
+        color: black;
+        font-weight: 500;
+        background-color: white;
+        border: #D3D3D3 solid 1px;
+  
+    }

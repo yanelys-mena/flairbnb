@@ -153,12 +153,13 @@ const EditListing = ({ listingId, handlePage }) => {
         setListingType(value)
     }
 
+
     return (
         <div className="editListing">
             <button
                 onClick={handlePage}
                 className="backToListing_btn">Back to Listing</button>
-            <h2>Editing {listing.name}</h2>
+            <h2>Edit your Listing </h2>
             <form
                 onSubmit={handleSubmit}
                 className="createListingForm">
@@ -173,11 +174,15 @@ const EditListing = ({ listingId, handlePage }) => {
                         onChange={updateName} />
                 </label>
                 <label>
-                    <p>Space Type</p>
-                    What kind of space will guests have? *entire home, private room, shared room
-                    <button onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</button>
-                    <button onClick={(e) => handleListingType(e, 'private room')} value={listingType}>private room</button>
-                    <button onClick={(e) => handleListingType(e, 'shared room')} value={listingType}>shared room</button>
+                    <p>What kind of space will guests have? </p>
+                    <div id="spaceTypeBtnDiv">
+                        <button className="spaceTypeBtn" onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</button>
+                        <button className="spaceTypeBtn" onClick={(e) => handleListingType(e, 'private room')} value={listingType}>private room</button>
+                        <button className="spaceTypeBtn" onClick={(e) => handleListingType(e, 'shared room')}
+                            value={listingType}> shared room
+                        </button>
+                    </div>
+
 
                 </label>
                 <div className="form_buttons">
@@ -251,7 +256,7 @@ const EditListing = ({ listingId, handlePage }) => {
                     </label>
                 </div>
                 <label >
-                    <p>Create your description</p>
+                    <p>Update your description</p>
                     <input
                         type="text"
                         name="description"
@@ -332,7 +337,7 @@ const EditListing = ({ listingId, handlePage }) => {
                 <button type="submit" className="create_btn">Submit</button>
             </form>
 
-        </div>
+        </div >
     )
 };
 

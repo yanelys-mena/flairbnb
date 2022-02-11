@@ -11,17 +11,7 @@
 
   <p align="center">
     Flairbnb, an Airbnb clone, is an app that connects travelers to places they can stay. Hosts can view, create, edit, and delete their listings. Travelers can reserve a place and edit or cancel their bookings. After their stay, guests have the ability to create, read, edit, and delete a review and rating. 
-
-    <br />
-    <a href="https://github.com/github_username/flairbnb"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://flairbnb-app.herokuapp.com/">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/flairbnb/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/flairbnb/issues">Request Feature</a>
-  </p>
+    </p>
 </div>
 
 

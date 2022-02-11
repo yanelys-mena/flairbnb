@@ -1,27 +1,4 @@
 <div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -41,7 +18,7 @@
     <a href="https://github.com/github_username/flairbnb"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/flairbnb">View Demo</a>
+    <a href="https://flairbnb-app.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/github_username/flairbnb/issues">Report Bug</a>
     ·
@@ -84,22 +61,12 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `flairbnb`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 ### Built With
-
-* [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -116,24 +83,56 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/flairbnb.git
+   git clone https://github.com/yanelys-mena/flairbnb.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+
+2. Install dependencies from the root directory.
+    ```sh
+    cd frontend > npm install
+    ```
+    ```sh
+    cd backend > npm install
+    ```
+
+3. Create a POSTGRESQL user with CREATEDB and PASSWORD in PSQL.
+    ```sh
+      CREATE USER <name> WITH CREATEDB PASSWORD <'password'>
+    ```
+
+4. Create a .env file base on the .env.example given in the backend folder
+
+5. Enter your username and password information into you .env file along with your desired database name, a secured combination of characters for your JWT_SECRET, and your desired PORT (preferably 5000).
+
+6. Add the following proxy to your package.json file with your front end directory, replacing or keeping the 5000 port to match your PORT configuration found in your .env file.
+    ```sh
+      "proxy": "http://localhost:5000"
+    ```
+
+7. Create Database, Migrate, and Seed models.
+    ```sh
+      npx dotenv sequelize db:create
+    ```
+    ```sh
+      npx dotenv sequelize db:migrate
+    ```
+    ```sh
+      npx dotenv sequelize db:seed:all
+    ```
+8. Start the services in the back end directory.
+    ```sh
+      npm start
+    ```
+9. Start the services in the front end directory, which should open the project in your default broswer. If not naviagte to <a href="http://localhost:3000">http://localhost:3000</a>
+    ```sh
+      npm start
+    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -164,33 +163,6 @@ See the [open issues](https://github.com/github_username/flairbnb/issues) for a 
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -201,30 +173,7 @@ Project Link: [https://github.com/github_username/flairbnb](https://github.com/g
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/flairbnb.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/flairbnb/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/flairbnb.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/flairbnb/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/flairbnb.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/flairbnb/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/flairbnb.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/flairbnb/issues
-[license-shield]: https://img.shields.io/github/license/github_username/flairbnb.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/flairbnb/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://www.linkedin.com/in/yanelysmena/
 [product-screenshot]: images/screenshot.png

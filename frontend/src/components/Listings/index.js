@@ -21,7 +21,7 @@ const Listings = () => {
 
 
     return (
-        <div className="listingsPage">
+        <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
                 <ListingCard listingId={listingId} />
             </div>

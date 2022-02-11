@@ -5,7 +5,7 @@ const Homepage = () => {
     const history = useHistory();
 
     const redirect = () => {
-        history.push('/listings')
+        history.push('/listings#listingsPage')
     };
 
     return (

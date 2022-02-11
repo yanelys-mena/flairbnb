@@ -28,11 +28,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="https://live.staticflickr.com/65535/51876148264_67fd438285.jpg
-"> </img>
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 * [React.js](https://reactjs.org/)
@@ -44,8 +39,6 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 

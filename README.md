@@ -7,7 +7,11 @@
     <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg" alt="Logo" width="auto" height="80">
   </a>
 
+
 <h3 align="center">Flairbnb</h3>
+  <a href="https://flairbnb-app.herokuapp.com/">
+    LIVE APP
+  </a>
 
   <p align="center">
     Flairbnb, an Airbnb clone, is an app that connects travelers to places they can stay. Hosts can view, create, edit, and delete their listings. Travelers can reserve a place and edit or cancel their bookings. After their stay, guests have the ability to create, read, edit, and delete a review and rating. 

@@ -67,9 +67,9 @@ function CreateReviewForm({ listingId, sessionId }) {
                 <div>
                     <label>
                         {/* Review */}
-                        <input
+                        <textarea
                             id="reviewInput"
-                            type="text"
+                            // type="text"
                             value={review}
                             placeholder="review"
                             onChange={(e) => setReview(e.target.value)}

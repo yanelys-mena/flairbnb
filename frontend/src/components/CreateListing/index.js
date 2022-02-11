@@ -145,8 +145,12 @@ const CreateListing = () => {
 
 
     return (
-        <div>
-            {page === 2 && <UploadImages listingId={listingId} />}
+        <>
+            {page === 2 &&
+                <div className="imagePage">
+                    <UploadImages listingId={listingId} />
+                </div>
+            }
             {page === 1 &&
                 <div className='createListingPage'>
                     <h2> A new hosting journey starts here</h2>
@@ -331,7 +335,7 @@ const CreateListing = () => {
                 </div >
 
             }
-        </div>
+        </>
     )
 };
 

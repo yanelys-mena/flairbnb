@@ -23,13 +23,12 @@ div .home_largeimg {
     align-items: center;
     background-color: black;
     width: 100%;
-height: 80vh;
-margin-bottom: 55px;
-    /* height: 850px; */
+    height: 80vh;
+    margin-bottom: 55px;
+
 }
 
 div .largeimg_card {
-    /* position: relative; */
     height: 90%;
     width: 80%;
 }
@@ -47,11 +46,6 @@ div .largeimg_card {
     flex-direction: column;
     align-items: center;
     margin-top: -250px;
-    /* margin-left: 12px;
-    position: absolute;
-    z-index: 1;
-    bottom: 70px;
-    right: 500px; */
 }
 
 .largeimg_overlay > p {

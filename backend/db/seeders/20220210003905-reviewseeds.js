@@ -122,7 +122,31 @@ module.exports = {
         listingId: 5,
         userId: 5,
         rating: 2,
-        review: 'This place was an absolute dream! The pictures do not even do it justice. The house practically sits in the ocean, the master bedroom has a million dollar view. The house is cozy, inviting, and absolutely stunning. I will be returning again for sure!',
+        review: 'This stay was absolutely incredible. Alisa is an absolute charmer and is wonderfully skilled at holding fun conversations and is a very thoughtful host. There were many little touches, such as coconut oil in the room and colloidal silver for travel ailments. I highly recommend purchasing meals through them as well! They are delicious and Alisa and fam really care about the quality of their food. We had an incredibly healing, restorative time here!',
+      },
+      {
+        listingId: 9,
+        userId: 4,
+        rating: 2,
+        review: 'Alisa and Richard were very engaging hosts. We had a lot of good conversations over a spectacular dinner, made by Alisa. It was a joy to spend time with them and their three children.',
+      },
+      {
+        listingId: 9,
+        userId: 3,
+        rating: 2,
+        review: 'Very beautiful loving environment. Learned so much about living off grid and how it can be non stressful. Food is delicious and very nutritional definitely enjoy the wonderful home made bread. Everything was delicious. The stay was wonderful for us. Anyone who likes to tent camp, backpack get off the path will love staying here.',
+      },
+      {
+        listingId: 9,
+        userId: 2,
+        rating: 2,
+        review: 'The house has gorgeous views and everything you need to have a wonderful Boulder vacation We were six adults and we spent most of our time on the deck when were not in downtown Boulder. The kitchen is well stocked if you want to cook.',
+      },
+      {
+        listingId: 9,
+        userId: 1,
+        rating: 2,
+        review: 'We had a wonderful time here. The owners friend showed us around, gave us some great hiking suggestions, and checked in on us via text. We felt very welcomed. The house itself is absolutely beautiful, and the porch with tan incredible view was my favorite part of the house. The hammock overlooking the mountains was the perfect touch.',
       },
     ], {});
 

@@ -24,6 +24,7 @@ const ListingDetail = () => {
     const [page, setPage] = useState(1);
     const allReviews = useSelector((state) => state.reviews.entries);
 
+    // const [useSta]
     const handlePage = () => {
         setPage(1);
     };
@@ -39,7 +40,7 @@ const ListingDetail = () => {
 
 
         const reviews = Object.values(allReviews);
-
+        console.log('////review', reviews)
         const ratings = [];
         for (let i = 0; i < reviews.length; i++) {
             ratings.push(reviews[i].rating)
@@ -130,7 +131,7 @@ const ListingDetail = () => {
 
                             <div className="reviewsDiv" >
                                 {reviews.map(review => (
-                                    <ReviewCard key={review.id} review={review} sessionId={sessionUser.id} listingId={listing.id} />
+                                    <ReviewCard key={review.id} review={review} listingId={listing.id} />
                                 ))}
                             </div>
                         </div>

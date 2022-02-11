@@ -7,8 +7,23 @@ import dayjs from "dayjs";
 import './Reviews.css';
 import EditReviewModal from '../EditReviewModal';
 
-const ReviewCard = ({ review, sessionId, listingId }) => {
+const ReviewCard = ({ review, listingId }) => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector((state) => state.session.user);
+    const [sessionId, setSessionId] = useState();
+
+    // if (sessionUser) {
+
+    //     setSessionId(sessionUser.id)
+    // }
+
+    useEffect(() => {
+        if (sessionUser) {
+
+            setSessionId(sessionUser.id)
+        }
+    }, [])
+
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let stars = [];
     for (let i = 0; i < review.rating; i++) {
@@ -28,9 +43,9 @@ const ReviewCard = ({ review, sessionId, listingId }) => {
                     </div>
                     <div className="ratings">
                         {sessionId === review.userId &&
-                            <EditReviewModal review={review} sessionId={sessionId} listingId={listingId} />
+                            <EditReviewModal review={review} listingId={listingId} />
                         }
-                        <div>
+                        <div id="reviewstar_star">
                             {stars.map((star) => (
                                 <i className="fas fa-star" key={star}></i>
                             ))}

@@ -4,6 +4,7 @@ import { csrfFetch } from './csrf';
 const GET_REVIEWS = '/reviews/get-reviews';
 const CREATE_REVIEW = '/reviews/create-review';
 const EDIT_REVIEW = '/reviews/edit-review';
+const DELETE_REVIEW = '/reviews/delete-review';
 
 //NOTE GET ALL REVIEWS
 
@@ -48,19 +49,20 @@ export const createReview = (toCreate) => async (dispatch) => {
 
 //NOTE EDIT REVIEW
 
-const edit = (review) => {
+const edit = (updatedReview) => {
     return {
         type: EDIT_REVIEW,
-        review
+        updatedReview
     }
 };
 
 
 export const editReview = (toEdit) => async (dispatch) => {
+    const { reviewId, listingId, userId, rating, review } = toEdit;
 
     const response = await csrfFetch(`/api/reviews`, {
         method: 'PUT',
-        body: JSON.stringify(toEdit)
+        body: JSON.stringify({ reviewId, listingId, userId, rating, review })
     });
 
     if (response.ok) {
@@ -70,6 +72,27 @@ export const editReview = (toEdit) => async (dispatch) => {
     return;
 };
 
+
+
+//NOTE DELETE REVIEW
+
+const deleteRev = (id) => {
+    return {
+        type: DELETE_REVIEW,
+        id
+    }
+};
+
+
+export const deleteReview = (reviewId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews`, {
+        method: 'DELETE',
+        body: JSON.stringify({ id: reviewId })
+    });
+    const deletedReview = await response.json();
+    dispatch(deleteRev(deletedReview))
+    return;
+};
 
 
 const initialState = {};
@@ -90,7 +113,11 @@ const reviewReducer = (state = initialState, action) => {
             return newState;
         case EDIT_REVIEW:
             newState = { ...state };
-            newState.entries = { ...newState.entries, [action.review.id]: action.review }
+            newState.entries = { ...newState.entries, [action.updatedReview.id]: action.updatedReview }
+            return newState;
+        case DELETE_REVIEW:
+            newState = { ...state };
+            delete newState.entries[action.id];
             return newState;
         default:
             return state;

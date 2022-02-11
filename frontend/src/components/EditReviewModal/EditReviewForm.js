@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from 'react-icons/fa';
-import { editReview } from '../../store/reviews'
+import { editReview, deleteReview } from '../../store/reviews'
 import './EditReview.css';
 
 
-function EditReviewForm({ listingId, sessionId, review }) {
+function EditReviewForm({ listingId, review, setShowModal }) {
     const dispatch = useDispatch();
-    // const userReview = useSelector((state) => state.reviews.entries[sessionId]);
+    const sessionUser = useSelector((state) => state.session.user);
+    const [sessionId, setSessionId] = useState();
+    useEffect(() => {
+        if (sessionUser) {
+
+            setSessionId(sessionUser.id)
+        }
+    }, [])
+
+
     const [rating, setRating] = useState(review.rating)
     const [hover, setHover] = useState(null)
     const [newReview, setNewReview] = useState(review.review);
@@ -17,13 +26,20 @@ function EditReviewForm({ listingId, sessionId, review }) {
         e.preventDefault();
 
         const toEdit = {
+            reviewId: review.id,
             listingId,
             userId: review.userId,
             rating,
             review: newReview
         }
+        setShowModal(false)
         return dispatch(editReview(toEdit));
+    };
 
+    const handleDeleteReview = (e) => {
+        e.preventDefault();
+        setShowModal(false)
+        return dispatch(deleteReview(review.id));
     };
 
     return (
@@ -78,6 +94,7 @@ function EditReviewForm({ listingId, sessionId, review }) {
                     </label>
                 </div>
                 <button type="submit">Submit</button>
+                <div className="deleteButton"><button onClick={handleDeleteReview}>Delete my review instead.</button></div>
             </form>
         </>
     );

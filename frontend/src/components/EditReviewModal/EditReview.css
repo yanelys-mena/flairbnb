@@ -18,3 +18,15 @@
     width: 100%;
     resize: none;
   }
+
+  #reviewInput:hover {
+    /* background-color: red; */
+    color: black;
+    border: black 1.5px solid;
+ 
+  }
+
+  .deleteButton {
+    display: flex;
+    justify-content: center;
+  }

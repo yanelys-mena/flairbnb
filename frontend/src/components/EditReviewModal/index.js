@@ -14,7 +14,7 @@ function EditReviewModal({ sessionId, listingId, review }) {
             <button className="editReview" onClick={() => setShowModal(true)}> <FaEllipsisH /></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditReviewForm sessionId={sessionId} listingId={listingId} review={review} />
+                    <EditReviewForm sessionId={sessionId} listingId={listingId} review={review} setShowModal={setShowModal} />
 
                 </Modal>
             )}

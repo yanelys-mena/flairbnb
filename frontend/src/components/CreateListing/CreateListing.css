@@ -1,142 +1,142 @@
 .createListingPage{
-margin: 80px auto 150px auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 80%;
-}
-
-.imagePage {
-    height: 100vh;
-}
-
-.createListingPage > h2 {
-    font-weight: 500;
-    font-size: 50px;
-    margin-bottom: 0px;
-   
-}
-
-.createListingPage > p {
-    font-weight: 200;
-    font-size: 17px;
-width: 45%;
-text-align: center;
-}
-
-.createListingForm{
+    margin: 80px auto 150px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
-    width: 60%;
-}
-
-.createListingForm > label > input, .createListingForm > label {
-    width: 100%;
-    margin: 10px;
-}
-.createListingForm > label > p {
+    width: 80%;
+    }
+    
+    .imagePage {
+        height: 100vh;
+    }
+    
+    .createListingPage > h2 {
+        font-weight: 500;
+        font-size: 50px;
+        margin-bottom: 0px;
+       
+    }
+    
+    .createListingPage > p {
+        font-weight: 200;
+        font-size: 17px;
+    width: 45%;
+    text-align: center;
+    }
+    
+    .createListingForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: 60%;
+    }
+    
+    .createListingForm > label > input, .createListingForm > label {
+        width: 100%;
+        margin: 10px;
+    }
+    .createListingForm > label > p {
+        font-weight: 500;
+        font-size: 22px;
+        margin-bottom: 10px;
+    
+    }
+    .createListingForm > label > input {
+        height: 40px;
+        border: #D3D3D3 1.5px solid;
+        width: 100%;
+        border-radius:5px;
+        color: black;
+        margin-bottom: 20px;
+    }
+    
+    .description{
+        height: 50px;
+    }
+    
+    .form_buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .form_buttons_label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form_buttons_label > p {
     font-weight: 500;
-    font-size: 22px;
-    margin-bottom: 10px;
-
-}
-.createListingForm > label > input {
-    height: 40px;
-    border: #D3D3D3 1.5px solid;
-    width: 100%;
-    border-radius:5px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-.description{
-    height: 50px;
-}
-
-.form_buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.form_buttons_label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form_buttons_label > p {
-font-weight: 500;
-font-size: 20px;
-}
-
-.increment, .decrement {
-    border-radius: 25px;
-    width: 30px;
-    height: 30px;
-    border: solid gray 1px;
-    padding: 5px;
-    color: gray;
-    background-color: white;
-    margin: 10px;
-}
-
-
-.guestsButtons {
-    display: flex;
-    align-items: center;
-}
-
-.bedsButtons {
-    display: flex;
-    align-items: center;
-}
-
-.bedroomButtons {
-    display: flex;
-    align-items: center;
-}
-.bathroomsButtons {
-    display: flex;
-    align-items: center;
-}
-
-
-.address {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    grid-gap: 15px;
-    margin-bottom: 10px;
-    padding: 0 10px 0 30px;
-}
-
-.address > label > input {
-    height: 40px;
-    width: 100%;
-    border: #D3D3D3 1.5px solid;
-    border-radius:5px;
-    color: black;
-
-}
-
-
-.create_btn {
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
-    color: white;
-    font-weight: 500;
-    height: 45px;
-    width: 103%;
-    margin: 15px;
-    border-radius: 5px;
-}
-
-.create_btn  > button:hover{
-    cursor: pointer;
-}
+    font-size: 20px;
+    }
+    
+    .increment, .decrement {
+        border-radius: 25px;
+        width: 30px;
+        height: 30px;
+        border: solid gray 1px;
+        padding: 5px;
+        color: gray;
+        background-color: white;
+        margin: 10px;
+    }
+    
+    
+    .guestsButtons {
+        display: flex;
+        align-items: center;
+    }
+    
+    .bedsButtons {
+        display: flex;
+        align-items: center;
+    }
+    
+    .bedroomButtons {
+        display: flex;
+        align-items: center;
+    }
+    .bathroomsButtons {
+        display: flex;
+        align-items: center;
+    }
+    
+    
+    .address {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        grid-gap: 15px;
+        margin-bottom: 10px;
+        padding: 0 10px 0 30px;
+    }
+    
+    .address > label > input {
+        height: 40px;
+        width: 100%;
+        border: #D3D3D3 1.5px solid;
+        border-radius:5px;
+        color: black;
+    
+    }
+    
+    
+    .create_btn {
+        background: linear-gradient(
+            to bottom right,
+            #E5204D, #D70965
+        );
+        color: white;
+        font-weight: 500;
+        height: 45px;
+        width: 103%;
+        margin: 15px;
+        border-radius: 5px;
+    }
+    
+    .create_btn  > button:hover{
+        cursor: pointer;
+    }

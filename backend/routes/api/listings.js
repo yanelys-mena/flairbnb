@@ -23,7 +23,6 @@ router.get(
 router.get(
     '/:listingId/reviews',
     asyncHandler(async (req, res) => {
-        console.log('////')
         const { listingId } = req.params
 
         const reviews = await Review.findAll({

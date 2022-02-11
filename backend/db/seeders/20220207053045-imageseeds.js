@@ -345,6 +345,26 @@ module.exports = {
         listingId: 17,
         url: 'https://a0.muscache.com/im/pictures/c41c5364-c84d-4b7f-b580-7e4b0dfd6a73.jpg?im_w=1200'
       },
+      {
+        listingId: 18,
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-50374296/original/ec90f99b-8a38-4be5-9d28-e1f60bbbc08d.jpeg?im_w=1200'
+      },
+      {
+        listingId: 18,
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-50374296/original/ec90f99b-8a38-4be5-9d28-e1f60bbbc08d.jpeg?im_w=1200'
+      },
+      {
+        listingId: 18,
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-50374296/original/1dbeca31-0538-4dd0-9868-fa110d7ea3e7.jpeg?im_w=1440'
+      },
+      {
+        listingId: 18,
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-50374296/original/f5431c6e-8701-4145-901f-2d0b00ee5f38.jpeg?im_w=1440'
+      },
+      {
+        listingId: 18,
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-50374296/original/fcac4f1c-3c17-4fe6-91b6-b3bf312d8381.jpeg?im_w=1440'
+      },
     ], {});
 
   },

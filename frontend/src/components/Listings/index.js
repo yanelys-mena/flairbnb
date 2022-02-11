@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getListings } from '../../store/listings';
 import { loadCoverImages } from '../../store/images';
 import { getReviews } from '../../store/reviews';
-
 import ListingCard from './ListingCard';
 
 const Listings = () => {
-    const listingId = useParams();
     const dispatch = useDispatch();
-
+    const listingsObj = useSelector((state) => state.listings.entries);
+    const listings = Object.values(listingsObj);
+    console.log(listings)
 
     useEffect(() => {
         dispatch(getListings());
@@ -23,7 +23,8 @@ const Listings = () => {
     return (
         <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
-                <ListingCard listingId={listingId} />
+                {listings && listings.map(listing => <ListingCard key={listing.id} listing={listing} />)}
+
             </div>
             <div className="rightSide">
                 Map integration coming soon.

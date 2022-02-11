@@ -8,7 +8,6 @@ import { deleteListing } from '../../store/listings';
 import { getReviews } from '../../store/reviews';
 import EditListing from '../EditListing'
 import ReviewCard from '../ReviewCard';
-import { useAvgRating } from '../../context/Rating';
 import './ListingDetail.css';
 import CreateReviewModal from '../CreateReviewModal';
 
@@ -17,7 +16,6 @@ const ListingDetail = () => {
     const { listingId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-    const { avgRating, setAvgRating } = useAvgRating();
     const sessionUser = useSelector((state) => state.session.user);
     const imageUrls = useSelector((state) => state.images[Number(listingId)]);
     const listing = useSelector((state) => state.listings.entries[listingId]);
@@ -40,7 +38,6 @@ const ListingDetail = () => {
 
 
         const reviews = Object.values(allReviews);
-        console.log('////review', reviews)
         const ratings = [];
         for (let i = 0; i < reviews.length; i++) {
             ratings.push(reviews[i].rating)

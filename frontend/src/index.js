@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ModalProvider } from "./context/Modal.js";
-import { RatingProvider } from "./context/Rating.js";
 
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
@@ -25,11 +24,9 @@ function Root() {
   return (
     <Provider store={store}>
       <ModalProvider>
-        <RatingProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </RatingProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
 
       </ModalProvider>
     </Provider>

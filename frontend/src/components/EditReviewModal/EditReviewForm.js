@@ -94,7 +94,11 @@ function EditReviewForm({ listingId, review, setShowModal }) {
                     </label>
                 </div>
                 <button type="submit">Submit</button>
-                <div className="deleteButton"><button onClick={handleDeleteReview}>Delete my review instead.</button></div>
+                <div className="deleteButton">
+                    <button
+                        id="deleteButton"
+                        onClick={handleDeleteReview}>Delete my review instead.</button>
+                </div>
             </form>
         </>
     );

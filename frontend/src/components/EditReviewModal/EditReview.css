@@ -14,7 +14,7 @@
 
 #reviewInput {
     /* background-color: red; */
-
+  font-size: 14px;
     width: 100%;
     resize: none;
   }
@@ -23,10 +23,21 @@
     /* background-color: red; */
     color: black;
     border: black 1.5px solid;
+
+    /* cols="200" disabled="disabled" style="width:500px; */
  
   }
 
-  .deleteButton {
+  .deleteButton{
     display: flex;
     justify-content: center;
+
   }
+
+  .deleteButton > button {
+    padding: 10px;
+    font-size: 14px;
+    text-decoration: underline;
+    background-color: transparent;
+  };
+

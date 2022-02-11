@@ -7,6 +7,27 @@
     width: 80%;
 }
 
+textarea {
+    width: 100%;
+    resize: none;
+    height: 150px;
+    border-radius: 15px;
+    border: #D3D3D3 solid 1px;
+    font-size: 15px;
+    padding: 15px;
+}
+
+textarea:focus {
+    width: 100%;
+    padding: 15px;
+
+    resize: none;
+    height: 150px;
+    border-radius: 15px;
+    border: #D3D3D3 solid 1px;
+    font-size: 15px;
+}
+
 .backToListing_btn:hover {
     cursor: pointer;
 }

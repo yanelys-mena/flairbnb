@@ -174,8 +174,7 @@ const CreateListing = () => {
                                 onChange={(e) => setName(e.target.value)} />
                         </label>
                         <label>
-                            <p>Space Type</p>
-                            What kind of space will guests have? *entire home, private room, shared room
+                            <p> What kind of space will guests have? </p>
                             <div id='spaceTypeBtnDiv'>
                                 <button
                                     className="spaceTypeBtn"
@@ -259,8 +258,8 @@ const CreateListing = () => {
                             </label>
                         </div>
                         <label >
-                            <p>Create your description</p>
-                            <input
+                            <p>Tell us about your place</p>
+                            <textarea
                                 type="text"
                                 name="description"
                                 placeholder="description"

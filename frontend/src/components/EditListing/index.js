@@ -257,7 +257,7 @@ const EditListing = ({ listingId, handlePage }) => {
                 </div>
                 <label >
                     <p>Update your description</p>
-                    <input
+                    <textarea
                         type="text"
                         name="description"
                         placeholder="description"

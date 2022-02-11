@@ -25,6 +25,12 @@ function EditReviewForm({ listingId, review, setShowModal }) {
     const handleEditReview = (e) => {
         e.preventDefault();
 
+        const validateErrors = [];
+        if (!rating) validateErrors.push('Please add a rating');
+        if (newReview.length < 10) validateErrors.push('Please add a review');
+
+        setErrors(validateErrors);
+
         const toEdit = {
             reviewId: review.id,
             listingId,

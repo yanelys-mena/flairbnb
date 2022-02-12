@@ -42,7 +42,7 @@ const ListingDetail = () => {
             ratings.push(reviews[i].rating)
         };
         console.log('sessionuserid', sessionUser.id)
-        const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(2);
+        const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length);
 
         const handleDelete = (e) => {
             e.preventDefault();
@@ -63,7 +63,7 @@ const ListingDetail = () => {
                                 <h2>{listing.name}</h2>
                                 <ul>
                                     <li className="star">{<i className="fas fa-star"></i>} </li>
-                                    {averageRating ? <li id="avgRating"> {averageRating} </li> : <li>No Reviews</li>}
+                                    {averageRating ? <li id="avgRating"> {averageRating}.toFixed(2) </li> : <li>No Reviews</li>}
 
 
                                     <li> · </li>

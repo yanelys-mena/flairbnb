@@ -1,9 +1,6 @@
 import './Listings.css'
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReviews } from '../../store/reviews';
 
 
 const ListingCard = ({ listing }) => {
@@ -25,7 +22,7 @@ const ListingCard = ({ listing }) => {
         };
     }
 
-    const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(2);
+    const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length);
     console.log(averageRating)
 
     return (
@@ -43,13 +40,16 @@ const ListingCard = ({ listing }) => {
                         <div className="bottomSec">
                             <div className="reviews">
 
-                                <span>
-                                    <i className="fas fa-star"></i>
+                                < span >
+                                    {averageRating > 0 ? <i className="fas fa-star"></i> : ""}
                                 </span>
-                                <span id="avgRatingText">{averageRating ? averageRating : 0}</span>
+                                <span id="avgRatingText">
+                                    {averageRating ? averageRating.toFixed(2) : ""}
+                                </span>
                                 <span id='reviewAmount'>
-                                    ({reviews.length} reviews)
+                                    {averageRating > 0 ? <>({reviews.length} reviews)</> : ""}
                                 </span>
+
 
                             </div>
                             <div className='price'> ${listing.price} / night</div>

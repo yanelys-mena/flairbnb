@@ -86,7 +86,7 @@ height: 100%;
 }
 
 
-.review-price {
+.bottomSec {
     display: flex;
     display: flex; 
 justify-content: flex-end;
@@ -98,6 +98,8 @@ justify-content: flex-end;
 font-size: 18px;
 margin-left: 20px;
 color: black;
+display: flex;
+align-items: flex-end;
 
 }
 
@@ -112,3 +114,25 @@ margin-left: 20px;
 color: black;
 }
 
+.fa-star {
+    color: #FF385C;
+    margin-bottom: 3px;
+}
+
+.reviews > span {
+    font-weight: 500;
+}
+
+#avgRatingText {
+       padding-left: 5px;
+
+
+}
+
+#reviewAmount{
+    font-weight: 300;
+    color: gray;
+    font-size: 15px;
+
+    padding-left: 10px;
+}

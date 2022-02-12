@@ -7,22 +7,26 @@ import { getReviews } from '../../store/reviews';
 
 
 const ListingCard = ({ listing }) => {
-    // const listingsObj = useSelector((state) => state.listings.entries);
     const imageUrls = useSelector((state) => state.images.entries);
-    // const listings = Object.values(listingsObj);
     const dispatch = useDispatch();
-    // const allReviews = useSelector((state) => state.reviews.entries);
 
-    // if (allReviews) {
-    //     const reviews = Object.values(allReviews);
-    //     const ratings = [];
-    //     for (let i = 0; i < reviews.length; i++) {
-    //         ratings.push(reviews[i].rating)
-    //     };
+    let reviews;
 
-    //     console.log(reviews)
-    //     const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(1);
-    // }
+    if (listing.Reviews) {
+        reviews = listing.Reviews
+    } else {
+        reviews = [];
+    }
+
+    const ratings = [];
+    if (reviews) {
+        for (let i = 0; i < reviews.length; i++) {
+            ratings.push(reviews[i].rating)
+        };
+    }
+
+    const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(2);
+    console.log(averageRating)
 
     return (
 
@@ -36,15 +40,22 @@ const ListingCard = ({ listing }) => {
                     <div className="cardInfo">
                         <div className='title'>{listing.name}</div>
                         <div className="cardInfoDetails"> <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p></div>
-                        <div className="review-price">
+                        <div className="bottomSec">
                             <div className="reviews">
-                                <div className="star">{<i className="fas fa-star"></i>} { }</div>
-                                {/* {averageRating ? <li id="avgRating"> {averageRating} </li> : <li>No Reviews</li>} */}
+
+                                <span>
+                                    <i className="fas fa-star"></i>
+                                </span>
+                                <span id="avgRatingText">{averageRating ? averageRating : 0}</span>
+                                <span id='reviewAmount'>
+                                    ({reviews.length} reviews)
+                                </span>
 
                             </div>
                             <div className='price'> ${listing.price} / night</div>
 
                         </div>
+
                     </div>
                 </div>
             </Link>

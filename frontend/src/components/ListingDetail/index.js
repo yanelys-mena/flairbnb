@@ -42,7 +42,7 @@ const ListingDetail = () => {
             ratings.push(reviews[i].rating)
         };
 
-        const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(1);
+        const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(2);
 
         const handleDelete = (e) => {
             e.preventDefault();

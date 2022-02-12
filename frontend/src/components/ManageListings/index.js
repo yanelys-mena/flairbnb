@@ -23,7 +23,7 @@ const ManageListings = () => {
     return (
         <div id="manageListingsPage">
             {Object.values(userListings).map(listing => {
-                return < MyListingCard listing={listing} />
+                return < MyListingCard key={listing.id} listing={listing} />
             })}
         </div>
     )

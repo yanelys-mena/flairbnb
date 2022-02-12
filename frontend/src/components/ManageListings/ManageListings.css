@@ -25,6 +25,7 @@ border-radius: 15px;
 
   #myListingCard > article {
       display: flex;
+      color: black;
       justify-content: space-between;
   }
 

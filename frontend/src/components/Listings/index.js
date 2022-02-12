@@ -2,19 +2,21 @@ import './Listings.css'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getListings } from '../../store/listings';
+// import { getListings } from '../../store/listings';
+import { getAllListings } from '../../store/listings';
+
 import { loadCoverImages } from '../../store/images';
 import { getReviews } from '../../store/reviews';
 import ListingCard from './ListingCard';
 
 const Listings = () => {
     const dispatch = useDispatch();
-    const listingsObj = useSelector((state) => state.listings.entries);
-    const listings = Object.values(listingsObj);
-    console.log(listings)
+    const id = useSelector((state) => state.session?.user?.id);
+    const listings = useSelector((state) => state.listings);
+
 
     useEffect(() => {
-        dispatch(getListings());
+        dispatch(getAllListings());
         dispatch(loadCoverImages());
 
     }, [dispatch])
@@ -23,7 +25,8 @@ const Listings = () => {
     return (
         <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
-                {listings && listings.map(listing => <ListingCard key={listing.id} listing={listing} />)}
+
+                {Object.values(listings).map(listing => <ListingCard key={listing.id} listing={listing} />)}
 
             </div>
             <div className="rightSide">

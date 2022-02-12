@@ -4,6 +4,11 @@ const LOAD_IMAGES = 'listings/load-images'
 const UPLOAD_IMAGES = 'listings/upload-images'
 const LOAD_COVER_IMAGES = '/listings/load-cover-images';
 
+
+
+
+
+//NOTE Load specific images
 const imageLoader = (listingId, images) => {
     return {
         type: LOAD_IMAGES,
@@ -12,24 +17,7 @@ const imageLoader = (listingId, images) => {
     }
 };
 
-//action creator for 5 images
-const uploadFive = (listingId, urls) => {
-    return {
-        type: UPLOAD_IMAGES,
-        listingId, urls
-    }
-};
 
-const loadCovers = (images) => {
-    return {
-        type: LOAD_COVER_IMAGES,
-        images
-    }
-}
-
-
-
-//thunk to fetch images
 export const loadImages = (listingId) => async (dispatch) => {
     const response = await fetch(`/api/listings/images/${listingId}`);
     const images = await response.json();
@@ -37,7 +25,16 @@ export const loadImages = (listingId) => async (dispatch) => {
     dispatch(imageLoader(listingId, urls))
 };
 
-//thunx middleware for adding 5 images
+
+
+//NOTE upload five images
+const uploadFive = (listingId, urls) => {
+    return {
+        type: UPLOAD_IMAGES,
+        listingId, urls
+    }
+};
+
 export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, imageFive, listingId }) => async (dispatch) => {
 
     const response = await csrfFetch('/api/listings/upload-images', {
@@ -52,6 +49,13 @@ export const uploadFiveImages = ({ imageOne, imageTwo, imageThree, imageFour, im
     return urls;
 };
 
+//NOTE load cover images
+const loadCovers = (images) => {
+    return {
+        type: LOAD_COVER_IMAGES,
+        images
+    }
+}
 
 export const loadCoverImages = () => async (dispatch) => {
     const response = await fetch(`/api/listings/images`);
@@ -60,6 +64,7 @@ export const loadCoverImages = () => async (dispatch) => {
     dispatch(loadCovers(images));
     return images;
 };
+
 
 
 

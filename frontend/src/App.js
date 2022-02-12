@@ -10,6 +10,7 @@ import { restoreListings } from "./store/listings";
 import CreateListings from "./components/CreateListing";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import ManageListings from './components/ManageListings';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path="/create-listing">
             <CreateListings />
+          </Route>
+          <Route path="/manage-listings">
+            <ManageListings />
           </Route>
         </Switch>
       )}

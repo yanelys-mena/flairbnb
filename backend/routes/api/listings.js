@@ -19,6 +19,17 @@ router.get(
 );
 
 
+router.get(
+    '/get-all-listings',
+    asyncHandler(async (req, res, next) => {
+        const listings = await Listing.findAll({
+            include: [
+                User, Image, Review,
+            ]
+        });
+        return res.json(listings)
+    })
+);
 
 router.get(
     '/:listingId/reviews',

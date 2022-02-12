@@ -98,7 +98,6 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
-    console.log('REDUCER', action)
     let newState;
     switch (action.type) {
         case GET_REVIEWS:

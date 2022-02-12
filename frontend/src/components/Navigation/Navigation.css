@@ -111,6 +111,11 @@ background-color: #D3D3D3;
 border-radius: 20px;
 }
 
+#manageListings {
+   color: black;
+   margin-left: 0px;
+}
+
 .navButtons {
    display: flex;
       margin-right: 70px;

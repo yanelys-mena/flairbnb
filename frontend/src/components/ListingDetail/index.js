@@ -41,7 +41,7 @@ const ListingDetail = () => {
         for (let i = 0; i < reviews.length; i++) {
             ratings.push(reviews[i].rating)
         };
-
+        console.log('sessionuserid', sessionUser.id)
         const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length).toFixed(2);
 
         const handleDelete = (e) => {
@@ -54,7 +54,6 @@ const ListingDetail = () => {
             e.preventDefault();
             setPage(2);
         }
-        console.log('AVERAGE NUM', averageRating)
         return (
             <>
                 {page === 1 &&
@@ -117,7 +116,7 @@ const ListingDetail = () => {
                         </div>
                         <div id="reviewsDiv">
                             {sessionUser && <>
-                                {(!reviews.find(review => review.userId === sessionUser.id) || !listing.userId === sessionUser.id) &&
+                                {(!(reviews.find(review => review.userId === sessionUser.id)) && !(listing.userId === sessionUser.id)) &&
 
                                     <div id="reviewButtons">
                                         <CreateReviewModal sessionId={sessionUser.id} listingId={listing.id} />

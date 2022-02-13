@@ -32,7 +32,6 @@ const CreateListing = () => {
     if (!sessionUser) return <Redirect to="/signup" />;
 
     const handleSubmit = async (e) => {
-        console.log(errors)
         e.preventDefault();
         const validateErrors = [];
         if (name.length < 1) validateErrors.push('Please include a title for your listing.');

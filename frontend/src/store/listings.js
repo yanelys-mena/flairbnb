@@ -190,29 +190,28 @@ export const deleteListing = (listingId) => async dispatch => {
 
 
 
-const initialState = { entries: {}, isLoading: true };
+const initialState = {};
 
 const listingsReducer = (state = initialState, action) => {
-    console.log('redicer', action.listings)
     let newState;
     switch (action.type) {
         case GET_LISTINGS:
-            newState = { ...state };
             const entries = {};
             action.listings.forEach(listing => entries[listing.id] = listing);
-            newState.entries = entries;
-            return newState;
+            // newState.entries = entries;
+            return { ...state, ...entries };
         case CREATE_LISTING:
             newState = { ...state }
-            newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
+            // newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }
+            newState[action.newListing.id] = action.newListing
             return newState;
         case DELETE_LISTING:
             newState = { ...state }
-            delete newState.entries[action.deletedListing]
+            delete newState[action.deletedListing]
             return newState;
         case UPDATE_LISTING:
             newState = { ...state }
-            newState.entries = { ...newState.entries, [action.updatedListing.id]: action.updatedListing }
+            newState[action.updatedListing.id] = action.updatedListing
             return newState;
         case LISTING_IMAGE_TEST:
             const allListings = {};

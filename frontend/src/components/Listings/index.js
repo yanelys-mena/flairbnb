@@ -2,7 +2,6 @@ import './Listings.css'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getListings } from '../../store/listings';
 import { getAllListings } from '../../store/listings';
 
 import { loadCoverImages } from '../../store/images';
@@ -20,7 +19,6 @@ const Listings = () => {
         dispatch(loadCoverImages());
 
     }, [dispatch])
-
 
     return (
         <div className="listingsPage" id="listingsPage">

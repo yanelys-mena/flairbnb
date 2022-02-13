@@ -36,7 +36,6 @@ router.delete('/', asyncHandler(async (req, res) => {
 
     const toDelete = await Review.findByPk(id);
     const deletedReview = await toDelete.destroy();
-    console.log(toDelete.id)
     res.json(toDelete.id);
 }));
 

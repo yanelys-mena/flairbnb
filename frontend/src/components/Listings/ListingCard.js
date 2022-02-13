@@ -23,7 +23,6 @@ const ListingCard = ({ listing }) => {
     }
 
     const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length);
-    console.log(averageRating)
 
     return (
 

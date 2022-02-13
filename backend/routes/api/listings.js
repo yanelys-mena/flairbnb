@@ -181,7 +181,6 @@ router.get('/images/:listingId', asyncHandler(async (req, res) => {
 
 
 router.get('/images', asyncHandler(async (req, res) => {
-    console.log('IN THE HANDLER FOR HET ALL IMAGES')
     const images = await Image.findAll({
     });
     res.json(images)

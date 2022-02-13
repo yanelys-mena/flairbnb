@@ -18,7 +18,7 @@ const ListingDetail = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const imageUrls = useSelector((state) => state.images[Number(listingId)]);
-    const listing = useSelector((state) => state.listings.entries[listingId]);
+    const listing = useSelector((state) => state.listings[listingId]);
     const [page, setPage] = useState(1);
     const allReviews = useSelector((state) => state.reviews.entries);
 
@@ -41,7 +41,6 @@ const ListingDetail = () => {
         for (let i = 0; i < reviews.length; i++) {
             ratings.push(reviews[i].rating)
         };
-        console.log('sessionuserid', sessionUser.id)
         const averageRating = (ratings.reduce((a, b) => a + b, 0) / reviews.length);
 
         const handleDelete = (e) => {

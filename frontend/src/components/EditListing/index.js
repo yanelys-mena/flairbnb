@@ -8,7 +8,7 @@ import { updateListing } from '../../store/listings';
 const EditListing = ({ listingId, handlePage }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const listing = useSelector((state) => state.listings.entries[listingId]);
+    const listing = useSelector((state) => state.listings[listingId]);
 
     const [name, setName] = useState(listing.name);
     const [listingType, setListingType] = useState(listing.listingType);

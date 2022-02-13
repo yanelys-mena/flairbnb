@@ -196,10 +196,8 @@ const listingsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_LISTINGS:
-            const entries = {};
-            action.listings.forEach(listing => entries[listing.id] = listing);
-            // newState.entries = entries;
-            return { ...state, ...entries };
+            action.listings.forEach(listing => newState[listing.id] = listing);
+            return { ...state, ...newState };
         case CREATE_LISTING:
             newState = { ...state }
             // newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }

@@ -8,7 +8,7 @@ import MyListingCard from './MyListingsCard';
 const ManageListings = () => {
     const dispatch = useDispatch();
     const id = useSelector((state) => state.session?.user?.id);
-    const listings = useSelector((state) => state.listings);
+    const listings = useSelector((state) => state?.listings);
 
     const userListings = Object.values(listings).filter(listing => listing.userId === id);
 

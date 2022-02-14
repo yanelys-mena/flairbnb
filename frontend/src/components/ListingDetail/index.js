@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { loadImages } from '../../store/images';
-import { deleteListing } from '../../store/listings';
+import { deleteListing, getAllListings } from '../../store/listings';
 import { getReviews } from '../../store/reviews';
 import EditListing from '../EditListing'
 import ReviewCard from '../ReviewCard';
@@ -21,12 +21,13 @@ const ListingDetail = () => {
     const listing = useSelector((state) => state.listings[listingId]);
     const [page, setPage] = useState(1);
     const allReviews = useSelector((state) => state.reviews.entries);
-
+    console.log(allReviews)
     const handlePage = () => {
         setPage(1);
     };
 
     useEffect(() => {
+        dispatch(getAllListings());
         dispatch(loadImages(listingId));
         dispatch(getReviews(listingId));
 

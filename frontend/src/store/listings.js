@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 
 
-const GET_LISTINGS = 'listings/getListings';
+// const GET_LISTINGS = 'listings/getListings';
 const CREATE_LISTING = 'listings/create-listing'
 const DELETE_LISTING = 'listings/delete-listing';
 const UPDATE_LISTING = 'listings/update-listing'
@@ -18,7 +18,7 @@ const load = (listings) => {
 
 
 export const getAllListings = () => async (dispatch) => {
-    const response = await fetch("api/listings/get-all-listings")
+    const response = await fetch("/api/listings/get-all-listings")
     if (response.ok) {
         const listings = await response.json();
         dispatch(load(listings))
@@ -31,20 +31,20 @@ export const getAllListings = () => async (dispatch) => {
 
 
 //NOTE get listing
-const loadListings = (listings) => {
-    return {
-        type: GET_LISTINGS,
-        listings
-    }
-}
+// const loadListings = (listings) => {
+//     return {
+//         type: GET_LISTINGS,
+//         listings
+//     }
+// }
 
 
-export const getListings = () => async (dispatch) => {
-    const response = await fetch('/api/listings');
-    const listings = await response.json();
-    dispatch(loadListings(listings.listings));
-    return listings;
-};
+// export const getListings = () => async (dispatch) => {
+//     const response = await fetch('/api/listings');
+//     const listings = await response.json();
+//     dispatch(loadListings(listings.listings));
+//     return listings;
+// };
 
 
 //NOTE create listing
@@ -102,12 +102,17 @@ export const createNewListing = (formValue) => async (dispatch) => {
 };
 
 
-export const restoreListings = () => async dispatch => {
-    const response = await csrfFetch('/api/listings');
-    const listings = await response.json();
-    dispatch(loadListings(listings.listings));
-    return listings;
-};
+// export const restoreListings = () => async dispatch => {
+//     // const response = await csrfFetch('/api/listings');
+//     // const listings = await response.json();
+//     // dispatch(loadListings(listings.listings));
+//     // return listings;
+// const response = await fetch("/api/listings/get-all-listings")
+// if (response.ok) {
+//     const listings = await response.json();
+//     dispatch(load(listings))
+// }
+// };
 
 
 //NOTE update a listing
@@ -195,9 +200,9 @@ const initialState = {};
 const listingsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case GET_LISTINGS:
-            action.listings.forEach(listing => newState[listing.id] = listing);
-            return { ...state, ...newState };
+        // case GET_LISTINGS:
+        //     action.listings.forEach(listing => newState[listing.id] = listing);
+        //     return { ...state, ...newState };
         case CREATE_LISTING:
             newState = { ...state }
             // newState.entries = { ...newState.entries, [action.newListing.id]: action.newListing }

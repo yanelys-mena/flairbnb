@@ -15,7 +15,10 @@ function CreateReviewForm({ listingId, sessionId }) {
 
     const handleSubmitReview = (e) => {
         e.preventDefault();
-
+        let validateErrors = [];
+        if (review.length < 5) validateErrors.push('Please enter a review');
+        if (rating < 1) validateErrors.push('Please enter a rating')
+        setErrors(errors)
         const toCreate = {
             listingId,
             userId: sessionId,

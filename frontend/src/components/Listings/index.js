@@ -1,17 +1,14 @@
 import './Listings.css'
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllListings } from '../../store/listings';
-
 import { loadCoverImages } from '../../store/images';
-import { getReviews } from '../../store/reviews';
 import ListingCard from './ListingCard';
 
 const Listings = () => {
     const dispatch = useDispatch();
     const id = useSelector((state) => state.session?.user?.id);
-    const listings = useSelector((state) => state.listings);
+    const listings = useSelector((state) => state?.listings);
 
 
     useEffect(() => {

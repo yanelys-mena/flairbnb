@@ -62,7 +62,7 @@ const ListingDetail = () => {
                                 <h2>{listing.name}</h2>
                                 <ul>
                                     <li className="star">{<i className="fas fa-star"></i>} </li>
-                                    {averageRating ? <li id="avgRating"> {averageRating}.toFixed(2) </li> : <li>No Reviews</li>}
+                                    {averageRating ? <li id="avgRating"> {averageRating.toFixed(2)} </li> : <li>No Reviews</li>}
 
 
                                     <li> · </li>

@@ -10,7 +10,7 @@ const MyListingCard = ({ listing }) => {
     const dispatch = useDispatch();
     const bookings = useSelector((state) => state?.bookings);
     const bookedListings = Object.values(bookings).filter(booking => booking?.listingId === listing?.id);
-    const sorted = bookedListings.sort((a, b) => b.startDate - a.startDate)
+    // const sorted = bookedListings.sort((a, b) => b.startDate - a.startDate)
 
 
     const [showModal, setShowModal] = useState(false);
@@ -18,8 +18,7 @@ const MyListingCard = ({ listing }) => {
     useEffect(() => {
         dispatch(load_bookings());
     }, [dispatch])
-    console.log('BOOKINGS FILTERED', bookedListings)
-    console.log('SORTED', sorted)
+
     return (
         <>
             <div id="myListingCard">
@@ -37,7 +36,7 @@ const MyListingCard = ({ listing }) => {
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <SeeBookingsModal setShowModal={setShowModal} bookings={sorted} />
+                    <SeeBookingsModal setShowModal={setShowModal} bookings={bookedListings} />
                 </Modal>
             )}
         </>

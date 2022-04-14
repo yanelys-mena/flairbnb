@@ -1,24 +1,37 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { load_bookings, add_booking } from '../../store/bookings'
 
 const Booking = ({ listing, sessionUser }) => {
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
+    const bookings = useSelector((state) => state?.bookings);
+    const bookedListings = Object.values(bookings).filter(booking => booking?.listingId === listing?.id);
+    const [available, setAvailable] = useState('disabled');
+
     const onChange = (dates) => {
         const [start, end] = dates;
         setStartDate(start);
         setEndDate(end);
     };
 
+
     useEffect(() => {
         dispatch(load_bookings())
-        console.log(startDate, endDate)
     }, []);
 
+
+    useEffect(() => {
+        endDate ? setAvailable(false) : setAvailable('disabled');
+    }, [endDate]);
+
+
+    //  if startDate that is selected, existsed in bookedlistings.startDate == disable the button ||
+    //  if the end date exists in bookedListings.endDate == disable
+    // disable button
 
     const handleBooking = () => {
         const newBooking = {
@@ -32,21 +45,29 @@ const Booking = ({ listing, sessionUser }) => {
     }
 
     return (
-        <div className="bookingsDiv">
-            <div>
-                <DatePicker
-                    selected={startDate}
-                    onChange={onChange}
-                    startDate={startDate}
-                    endDate={endDate}
-                    selectsRange
-                    inline
-                />
+        <>
+            <div className="bookingsDiv">
+                <div>
+                    <DatePicker
+                        selected={startDate}
+                        onChange={onChange}
+                        startDate={startDate}
+                        endDate={endDate}
+                        selectsRange
+                        inline
+                    />
+                </div>
+                <p>${listing.price} / night</p>
+                <button onClick={handleBooking}
+                    disabled={available}
+                >Reserve</button>
+
             </div>
-            <p>${listing.price} / night</p>
-            <button onClick={handleBooking}
-            >Reserve</button>
-        </div>
+            <div>
+                Your Upcoming reservations:
+                <div>{ }</div>
+            </div>
+        </>
     )
 };
 

@@ -15,16 +15,17 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.post('/', asyncHandler(async (req, res) => {
     const newBooking = await Booking.create(req.body);
-    const booking = await Booking.findByPk(booking.id);
+    const booking = await Booking.findByPk(newBooking.id);
     res.json(booking);
 }));
 
 
 
 router.delete('/:bookingId', asyncHandler(async (req, res) => {
+    const { bookingId } = req.params;
     const toDelete = await Booking.findByPk(bookingId);
     const booking = await toDelete.destroy();
-    res.json(booking);
+    res.json(toDelete);
 }));
 
 

@@ -1,9 +1,11 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { add_booking } from '../../store/bookings'
 
-const Booking = ({ listing }) => {
-
+const Booking = ({ listing, sessionUser }) => {
+    const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
     const onChange = (dates) => {

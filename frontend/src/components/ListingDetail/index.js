@@ -108,7 +108,7 @@ const ListingDetail = () => {
 
                             </div>
                             <div className='rightSec'>
-                                <Booking listing={listing} />
+                                <Booking listing={listing} sessionUser={sessionUser} />
 
                             </div>
                         </div>

@@ -26,7 +26,6 @@ export const load_bookings = () => async (dispatch) => {
     console.log(response)
     if (response.ok) {
         const bookings = await response.json();
-        console.log('THUNK', bookings)
         dispatch(load(bookings))
     }
 }

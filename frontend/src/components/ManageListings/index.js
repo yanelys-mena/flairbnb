@@ -15,7 +15,6 @@ const ManageListings = () => {
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(loadCoverImages());
-        dispatch(load_bookings());
     }, [dispatch])
 
 

@@ -1,5 +1,9 @@
-const SeeBookingsModal = (bookings) => {
+const SeeBookingsModal = ({ bookings, setShowModal }) => {
     return (
-        "this are your bookings"
+        <div id="see_bookings_modal">
+            test
+        </div>
     )
 }
+
+export default SeeBookingsModal;

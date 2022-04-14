@@ -14,10 +14,9 @@ const router = express.Router();
 router.get(
     '/get-all-listings',
     asyncHandler(async (req, res, next) => {
-        console.log('//// IN GET ALL', req.body)
         const listings = await Listing.findAll({
             include: [
-                User, Image, Review,
+                User, Image, Review
             ]
         });
         return res.json(listings)

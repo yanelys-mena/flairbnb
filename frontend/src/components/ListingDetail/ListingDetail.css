@@ -9,40 +9,40 @@
     display: flex;
     justify-content: space-between
 }
-.topText > ul {
+
+.topText>ul {
     display: flex;
     justify-content: flex-start;
     margin-left: -40px;
 
 }
-#avgRating{
+
+#avgRating {
     color: black;
 }
 
 #location {
     color: gray;
-font-weight: 500;
-text-decoration: underline;
+    font-weight: 500;
+    text-decoration: underline;
 }
 
-#reviewsLink > a {
+#reviewsLink>a {
     font-weight: 500;
     text-decoration: underline;
     color: black;
 
 }
 
-.topText > ul > li {
+.topText>ul>li {
     padding-right: 7px;
     font-weight: 500;
 
 }
 
 .user_btn {
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
+    background: linear-gradient(to bottom right,
+            #E5204D, #D70965);
     color: white;
     font-weight: 500;
     height: 45px;
@@ -64,6 +64,7 @@ text-decoration: underline;
 .star {
     color: #FF385C;
 }
+
 .test {
     color: black;
     font-weight: 400;
@@ -73,17 +74,18 @@ text-decoration: underline;
 .images {
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 16px 16px 16px 0; 
+    padding: 16px 16px 16px 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 300px;
-    gap: 16px;;
+    gap: 16px;
+    ;
 }
 
-.images > img {
-width: 100%;
-  height: 100%;
-  object-fit: cover;
+.images>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .image-0 {
@@ -104,11 +106,13 @@ width: 100%;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 15px;
 }
+
 .image-3 {
     grid-column: span 1;
     grid-row: span 1;
 
 }
+
 .image-4 {
     grid-column: span 1;
     grid-row: span 1;
@@ -128,15 +132,15 @@ width: 100%;
     display: flex;
     flex-direction: column;
     width: 70%;
-}  
+}
 
-.leftSec > p {
+.leftSec>p {
     font-size: 25px;
     font-weight: 500;
     margin-bottom: -10px;
 }
 
-.rightSec{
+.rightSec {
     width: 25%;
     margin-right: 20px;
     margin-top: 20px;
@@ -147,21 +151,19 @@ width: 100%;
     width: 100%;
     height: 300px;
     border-radius: 20px;
-font-size: 20px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-border: solid 1px #D3D3D3;
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #D3D3D3;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 }
 
-.bookingsDiv > button {
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
+.activeBtn {
+    background: linear-gradient(to bottom right,
+            #E5204D, #D70965);
     color: white;
     font-weight: 500;
     height: 45px;
@@ -187,7 +189,7 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 #reviewButtons {
- display: flex;
+    display: flex;
     justify-content: flex-end;
     /* margin-top: 50px; */
     width: 100%;

@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { load_bookings, add_booking } from '../../store/bookings'
+import './Booking.css';
 
 const Booking = ({ listing, sessionUser }) => {
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const Booking = ({ listing, sessionUser }) => {
     const [endDate, setEndDate] = useState(null);
     const bookings = useSelector((state) => state?.bookings);
     const bookedListings = Object.values(bookings).filter(booking => booking?.listingId === listing?.id);
-    const [available, setAvailable] = useState('disabled');
+    const [disabled, setDisabled] = useState('disabled');
 
     const onChange = (dates) => {
         const [start, end] = dates;
@@ -25,7 +26,7 @@ const Booking = ({ listing, sessionUser }) => {
 
 
     useEffect(() => {
-        endDate ? setAvailable(false) : setAvailable('disabled');
+        endDate ? setDisabled(false) : setDisabled('disabled');
     }, [endDate]);
 
 
@@ -59,7 +60,8 @@ const Booking = ({ listing, sessionUser }) => {
                 </div>
                 <p>${listing.price} / night</p>
                 <button onClick={handleBooking}
-                    disabled={available}
+                    disabled={disabled}
+                    className={disabled ? 'inactiveBtn' : 'activeBtn'}
                 >Reserve</button>
 
             </div>

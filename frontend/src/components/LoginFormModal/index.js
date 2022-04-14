@@ -11,7 +11,6 @@ function LoginFormModal() {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <LoginForm />
-
                 </Modal>
             )}
         </>

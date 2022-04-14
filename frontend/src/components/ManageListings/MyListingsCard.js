@@ -2,11 +2,15 @@ import './ManageListings.css';
 import { Link } from 'react-router-dom';
 import { load_bookings } from '../../store/bookings';
 import { useSelector, useDispatch } from 'react-redux';
+import { Modal } from '../../context/Modal';
+
 
 const MyListingCard = ({ listing }) => {
     const dispatch = useDispatch();
     const bookings = useSelector((state) => state?.bookings);
     const bookedListings = Object.values(bookings).filter(booking => booking.listingId === listing.id);
+    const [showModal, setShowModal] = useState(false);
+
 
     useEffect(() => {
         dispatch(load_bookings());
@@ -26,8 +30,12 @@ const MyListingCard = ({ listing }) => {
                     <span>{listing.city}, {listing.state}</span>
                     <span>See bookings</span>
                 </article>
-
             </div >
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <SeeBookingsModal bookings={bookedListings} />
+                </Modal>
+            )}
         </Link>
     )
 }

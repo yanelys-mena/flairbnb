@@ -12,11 +12,10 @@ const ManageListings = () => {
 
     const userListings = Object.values(listings).filter(listing => listing.userId === id);
 
-
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(loadCoverImages());
-
+        dispatch(load_bookings());
     }, [dispatch])
 
 

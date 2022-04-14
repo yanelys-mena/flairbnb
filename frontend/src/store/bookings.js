@@ -23,8 +23,10 @@ const to_delete = (bookingId) => ({
 
 export const load_bookings = () => async (dispatch) => {
     const response = await csrfFetch('/api/bookings');
+    console.log(response)
     if (response.ok) {
         const bookings = await response.json();
+        console.log('THUNK', bookings)
         dispatch(load(bookings))
     }
 }

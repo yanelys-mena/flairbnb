@@ -1,8 +1,8 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
-import { add_booking } from '../../store/bookings'
+import { load_bookings, add_booking } from '../../store/bookings'
 
 const Booking = ({ listing, sessionUser }) => {
     const dispatch = useDispatch();
@@ -14,8 +14,21 @@ const Booking = ({ listing, sessionUser }) => {
         setEndDate(end);
     };
 
+    useEffect(() => {
+        dispatch(load_bookings())
+        console.log(startDate, endDate)
+    }, []);
+
+
     const handleBooking = () => {
-        return
+        const newBooking = {
+            userId: sessionUser?.id,
+            listingId: listing?.id,
+            startDate,
+            endDate,
+            numGuests: 1
+        };
+        dispatch(add_booking(newBooking))
     }
 
     return (

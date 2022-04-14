@@ -10,9 +10,9 @@ const load = (bookings) => ({
     bookings
 });
 
-const add = (bookings) => ({
+const add = (booking) => ({
     type: ADD,
-    bookings
+    booking
 });
 
 const to_delete = (bookingId) => ({
@@ -72,6 +72,8 @@ const bookingsReducer = (state = initialState, action) => {
         }
 
         case ADD: {
+            console.log('REDUCER', action.booking)
+
             return { [action.booking.id]: action.booking, ...state };
         }
 

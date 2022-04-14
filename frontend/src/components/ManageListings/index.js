@@ -5,6 +5,7 @@ import { getAllListings } from '../../store/listings';
 import MyListingCard from './MyListingsCard';
 
 
+
 const ManageListings = () => {
     const dispatch = useDispatch();
     const id = useSelector((state) => state.session?.user?.id);

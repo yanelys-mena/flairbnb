@@ -4,11 +4,14 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Booking } = require('../../db/models');
 const { User } = require('../../db/models');
+const { Listing } = require('../../db/models');
 const router = express.Router();
 
 
 router.get('/', asyncHandler(async (req, res) => {
-    const bookings = await Booking.findAll();
+    const bookings = await Booking.findAll({
+        include: [User, Listing]
+    });
     return res.json(bookings)
 }));
 

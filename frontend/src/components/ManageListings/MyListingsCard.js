@@ -22,7 +22,6 @@ const MyListingCard = ({ listing }) => {
     console.log('SORTED', sorted)
     return (
         <>
-
             <div id="myListingCard">
                 <Link to={`/listings/${listing.id}`} target="_blank" >
                     <div><img src={listing?.Images[0].url}></img></div>
@@ -34,7 +33,6 @@ const MyListingCard = ({ listing }) => {
                 <article id="bottomCardText">
                     <span>{listing.city}, {listing.state}</span>
                     <span onClick={() => setShowModal(true)} id="see_bookings">See Bookings</span>
-
                 </article>
             </div>
             {showModal && (
@@ -42,7 +40,6 @@ const MyListingCard = ({ listing }) => {
                     <SeeBookingsModal setShowModal={setShowModal} bookings={sorted} />
                 </Modal>
             )}
-
         </>
     )
 }

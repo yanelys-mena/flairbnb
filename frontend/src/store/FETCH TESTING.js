@@ -9,7 +9,7 @@ fetch('/api/bookings/', {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
-        "XSRF-TOKEN": `v1xmhE69-t-W-0whfgeTkxlCKimBRc0NY8q8`
+        "XSRF-TOKEN": `cIWgSMO6-pmY8Q5puvY6xzmo5TF5Si4o8PIw`
     },
     body: JSON.stringify({
         userId: 1,
@@ -27,6 +27,6 @@ fetch('/api/bookings/:bookingId', {
     method: "DELETE",
     headers: {
         "Content-Type": "application/json",
-        "XSRF-TOKEN": `v1xmhE69-t-W-0whfgeTkxlCKimBRc0NY8q8`
+        "XSRF-TOKEN": `cIWgSMO6-pmY8Q5puvY6xzmo5TF5Si4o8PIw`
     }
 }).then(res => res.json()).then(data => console.log(data));

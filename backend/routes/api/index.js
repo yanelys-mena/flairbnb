@@ -8,17 +8,15 @@ const sessionRouter = require('./session');
 const usersRouter = require('./users');
 const listingsRouter = require('./listings')
 const reviewsRouter = require('./reviews');
+const bookingsRouter = require('./bookings');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter)
 router.use('/listings', listingsRouter)
 router.use('/reviews', reviewsRouter)
+router.use('/bookings', bookingsRouter)
 
 
-
-// router.post('/test', (req, res) => {
-//     res.json({ requestBody: req.body })
-// });
 
 //testing if the jwt token cookie is being set
 router.get('/set-token-cookie', asyncHandler(async (_req, res) => {

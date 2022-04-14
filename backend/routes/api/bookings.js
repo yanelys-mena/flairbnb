@@ -7,29 +7,19 @@ const { User } = require('../../db/models');
 const router = express.Router();
 
 
-router.put('/', asyncHandler(async (req, res) => {
-
-    const { reviewId, listingId, userId, rating, review } = req.body;
-    const reviewToUpdate = await Review.findByPk(parseInt(reviewId));
-
-    const updateReview = await reviewToUpdate.update({ listingId, userId, rating, review });
-
-    const updatedReview = await Review.findByPk(updateReview.id, {
-        include: [User]
-    });
-
-    res.json(updatedReview);
+router.get('/', asyncHandler(async (req, res) => {
+    const bookings = await Booking.findAll();
+    return res.json(bookings)
 }));
 
 
 router.post('/', asyncHandler(async (req, res) => {
-    const review = await Review.create(req.body);
-
-    const newReview = await Review.findByPk(review.id, {
-        include: [User]
-    });
-    res.json(newReview);
+    const booking = await Booking.create(req.body);
+    const newBooking = await Booking.findByPk(booking.id);
+    res.json(newBooking);
 }));
+
+
 
 router.delete('/', asyncHandler(async (req, res) => {
     const { id } = req.body;

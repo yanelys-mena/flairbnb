@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { load_bookings, add_booking } from '../../store/bookings'
 import './Booking.css';
+import dayjs from "dayjs";
+
 
 const Booking = ({ listing, sessionUser }) => {
     const dispatch = useDispatch();
@@ -13,6 +15,12 @@ const Booking = ({ listing, sessionUser }) => {
     const bookings = useSelector((state) => state?.bookings);
     const bookedListings = Object.values(bookings).filter(booking => booking?.listingId === listing?.id);
     const [disabled, setDisabled] = useState(true);
+    const [datesBooked, setDatesBooked] = useState([]);
+
+    useEffect(() => {
+        dispatch(load_bookings())
+    }, []);
+
 
     const onChange = (dates) => {
         const [start, end] = dates;
@@ -23,21 +31,27 @@ const Booking = ({ listing, sessionUser }) => {
 
     useEffect(() => {
         if (startDate && endDate) {
+            let getBookedDates = [];
 
             bookedListings.forEach(item => {
-                setAvailable(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate)
-                setDisabled(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate)
-            })
 
+                setAvailable(!(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
+                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate));
+
+                setDisabled(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
+                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate);
+
+                if (startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
+                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate) {
+
+                    getBookedDates.push(`${dayjs(item.startDate).format("MMM DD, YYYY")} - ${dayjs(item.endDate).format("MMM DD YYYY")}`)
+                }
+
+                setDatesBooked(getBookedDates)
+            })
         }
     }, [startDate, endDate])
 
-
-    useEffect(() => {
-        dispatch(load_bookings())
-    }, []);
 
     const handleBooking = () => {
         const newBooking = {
@@ -53,7 +67,8 @@ const Booking = ({ listing, sessionUser }) => {
     return (
         <>
             <div className="bookingsDiv">
-                <div>{available ? '' : 'Please select a valid Date'}</div>
+                {available ? '' : <div id="validDate">Please select a valid Date</div>}
+                {datesBooked && <>{datesBooked.map((ele, idx) => <div id="date" key={idx}>{ele}</div>)}</>}
                 <div>
                     <DatePicker
                         selected={startDate}

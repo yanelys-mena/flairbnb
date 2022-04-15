@@ -8,3 +8,14 @@
     border-radius: 5px;
     cursor: auto;
 }
+
+
+#validDate {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#date {
+    font-size: 14px;
+    font-weight: 700;
+}

@@ -8,23 +8,24 @@ const containerStyle = {
 
 
 
-const center = {
-    // lat: 38.9072,
-    // lng: 77.0369,
-    lat: 25.752349481188816,
-    lng: -80.2634573883995
-};
+// const center = {
+//     // lat: 38.9072,
+//     // lng: 77.0369,
+//     lat: 25.752349481188816,
+//     lng: -80.2634573883995
+// };
 
 
 const Maps = ({ apiKey, listings, hoveredListing }) => {
     const [selected, setSelected] = useState(null);
-    // console.log(hoveredListing)
+    const [center, setCenter] = useState({ lat: 25.752349481188816, lng: -80.2634573883995 })
+
 
     useEffect(() => {
         console.log('SELECTED', selected)
-        // setSelected(hoveredListing)
-        // if (hoveredListing) setCenter({ lat: Number(hoveredListing.lat), lng: Number(hoveredListing.lng) })
-    }, [selected]);
+        setSelected(hoveredListing)
+        if (hoveredListing) setCenter({ lat: Number(hoveredListing.lat), lng: Number(hoveredListing.lng) })
+    }, [hoveredListing]);
 
 
     const { isLoaded } = useJsApiLoader({

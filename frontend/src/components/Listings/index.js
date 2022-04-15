@@ -12,23 +12,24 @@ const Listings = () => {
     const listings = useSelector((state) => state?.listings);
     const [hoveredListing, setHoveredListing] = useState(null);
 
-
-
-
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(loadCoverImages());
     }, [dispatch])
 
 
-
-
     return (
         <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
-
                 {Object.values(listings).map(listing =>
-                    <ListingCard key={listing.id} listing={listing} />
+                    <div onMouseEnter={(e) => setHoveredListing(listing)}>
+                        <ListingCard
+                            key={listing.id}
+                            listing={listing}
+
+                        />
+                    </div>
+
                 )}
 
             </div>
@@ -36,7 +37,7 @@ const Listings = () => {
                 <MapContainer listings={Object.values(listings)} hoveredListing={hoveredListing} />
             </div>
 
-        </div>
+        </div >
     )
 };
 

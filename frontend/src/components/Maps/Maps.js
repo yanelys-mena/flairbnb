@@ -3,17 +3,8 @@ import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-map
 
 const containerStyle = {
     width: '100%',
-    height: '50vh',
+    height: '100vh',
 };
-
-
-
-// const center = {
-//     // lat: 38.9072,
-//     // lng: 77.0369,
-//     lat: 25.752349481188816,
-//     lng: -80.2634573883995
-// };
 
 
 const Maps = ({ apiKey, listings, hoveredListing }) => {
@@ -22,7 +13,6 @@ const Maps = ({ apiKey, listings, hoveredListing }) => {
 
 
     useEffect(() => {
-        console.log('SELECTED', selected)
         setSelected(hoveredListing)
         if (hoveredListing) setCenter({ lat: Number(hoveredListing.lat), lng: Number(hoveredListing.lng) })
     }, [hoveredListing]);

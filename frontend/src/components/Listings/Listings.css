@@ -12,13 +12,19 @@ a {
 
 .leftSide {
     width: 45%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
+.leftSide::-webkit-scrollbar {
+    display: none;
+}
 
 .rightSide {
     width: 55%;
+
 }
 
 .listingCard {

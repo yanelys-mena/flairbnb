@@ -1,4 +1,5 @@
-*, a{
+*,
+a {
     text-decoration: none;
 }
 
@@ -16,24 +17,24 @@
 }
 
 
-.rightSide{
+.rightSide {
     width: 45%;
-    background-color: palegoldenrod;
+    /* background-color: palegoldenrod; */
     display: flex;
     justify-content: center;
-    background-image: url(https://static.vecteezy.com/system/resources/previews/002/222/065/original/abstract-city-map-with-pins-navigation-app-screen-template-vector.jpg); background-repeat: repeat-y;
+    /* background-image: url(https://static.vecteezy.com/system/resources/previews/002/222/065/original/abstract-city-map-with-pins-navigation-app-screen-template-vector.jpg); background-repeat: repeat-y; */
 }
 
 
- 
+
 .listingCard {
     border-top: 1px solid #D3D3D3;
     display: flex;
     justify-content: space-between;
-   height: 250px;
-   width: 90%;
-   margin: 10px;
-   padding-top: 30px;
+    height: 250px;
+    width: 90%;
+    margin: 10px;
+    padding-top: 30px;
 }
 
 .listingCard:hover {
@@ -42,18 +43,18 @@
 
 .title {
     color: black;
-margin-left: 20px;
-font-size: 22px;
-font-weight: 500;
+    margin-left: 20px;
+    font-size: 22px;
+    font-weight: 500;
 }
 
 .cardImage {
     width: 40%;
-height: 100%;
+    height: 100%;
 
 }
 
-.cardImage > img {
+.cardImage>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -69,7 +70,7 @@ height: 100%;
 }
 
 
-.cardInfo> div {
+.cardInfo>div {
     width: 100%;
     height: 100%;
     display: flex;
@@ -88,30 +89,30 @@ height: 100%;
 
 .bottomSec {
     display: flex;
-    display: flex; 
-justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 
 }
 
 .reviews {
     align-self: flex-start;
-font-size: 18px;
-margin-left: 20px;
-color: black;
-display: flex;
-align-items: flex-end;
+    font-size: 18px;
+    margin-left: 20px;
+    color: black;
+    display: flex;
+    align-items: flex-end;
 
 }
 
-.price{
-align-self: flex-end;
-margin-top: -10px;
-margin-right: 20px;
-color: black;
-font-size: 20px;
-font-weight: 500;
-margin-left: 20px;
-color: black;
+.price {
+    align-self: flex-end;
+    margin-top: -10px;
+    margin-right: 20px;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+    color: black;
 }
 
 .fa-star {
@@ -119,17 +120,17 @@ color: black;
     margin-bottom: 3px;
 }
 
-.reviews > span {
+.reviews>span {
     font-weight: 500;
 }
 
 #avgRatingText {
-       padding-left: 5px;
+    padding-left: 5px;
 
 
 }
 
-#reviewAmount{
+#reviewAmount {
     font-weight: 300;
     color: gray;
     font-size: 15px;

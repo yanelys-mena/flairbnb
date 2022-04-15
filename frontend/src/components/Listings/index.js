@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllListings } from '../../store/listings';
 import { loadCoverImages } from '../../store/images';
 import ListingCard from './ListingCard';
+import MapContainer from '../Maps';
 
 const Listings = () => {
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Listings = () => {
 
             </div>
             <div className="rightSide">
-                Map integration coming soon.
+                <MapContainer listings={listings} />
             </div>
 
         </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addDays } from 'date-fns';
 import { getAllListings } from '../../store/listings';
-import { load_bookings } from '../../store/bookings';
+import bookingsReducer, { load_bookings } from '../../store/bookings';
 
 import './SearchBar.css';
 import 'react-date-range/dist/styles.css'; // main style file
@@ -15,14 +15,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function SearchBar() {
     const history = useHistory();
-    const listings = useSelector((state) => state?.listings);
-    const bookings = useSelector((state) => state?.bookings);
+    const listings = useSelector((state) => Object.values(state?.listings));
+    const bookings = useSelector((state) => Object.values(state?.bookings));
 
     const dispatch = useDispatch();
 
     const [showPicker, setShowPicker] = useState(false);
     const [location, setLocation] = useState('');
-    const [guest, setGuest] = useState('');
+    const [guest, setGuest] = useState(1);
     const [state, setState] = useState([
         {
             startDate: new Date(),
@@ -44,16 +44,47 @@ export default function SearchBar() {
         }
     }, [state]);
 
-    const handleSearch = (e) => {
-        // if location -> filter all listings.city || listings.state
-        // if guest => filter guests =< listing.guests
-        // if 
-        /*
-startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate
-        */
-    }
 
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        let searchResults;
+
+        if (location) {
+            let listingIds = [];
+            let listingsWithBookings = {};
+            let searchSet = new Set();
+
+
+            const filteredResults = listings.map(listing => {
+                if ((location === listing.city.toLowerCase() || location === listing.state.toLowerCase()) && listing.guests >= guest) {
+                    if (listing.Bookings.length) {
+                        listingIds.push(listing.id)
+                        listingsWithBookings[listing.id] = listing
+                    } else if (listing.Bookings.length === 0) {
+                        searchSet.add(listing)
+                    }
+                }
+            }
+            )
+
+            if (listingIds.length && (state[0].endDate !== state[0].startDate)) {
+
+                bookings.forEach(b => {
+                    if (listingIds.includes(b.listingId)) {
+
+                        if (!(state[0].startDate.toISOString().slice(0, 10) >= b.startDate && state[0].startDate.toISOString().slice(0, 10) <= b.endDate
+                            || state[0].endDate.toISOString().slice(0, 10) >= b.startDate && state[0].endDate.toISOString().slice(0, 10) <= b.endDate)) {
+                            searchSet.add(listingsWithBookings[b.listingId])
+                        }
+                    }
+                });
+                searchResults = Array.from(searchSet)
+            }
+        };
+
+
+    }
 
     return (
         <div id="searchBarDiv">
@@ -63,7 +94,7 @@ startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString(
                         type='text'
                         placeholder='Where are you going?'
                         value={location}
-                        onChange={(e) => setLocation(e.target.value)}>
+                        onChange={(e) => setLocation(e.target.value.toLowerCase())}>
                     </input>
                 </div>
 

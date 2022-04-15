@@ -28,16 +28,24 @@ function Navigation({ isLoaded }) {
 
     return (
         <nav>
-            <ul className="navBar">
-                <li className='logo'>
-                    <NavLink exact to="/">   <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg"></img></NavLink> </li>
+            <div className="navBar">
+                <div className='logo'>
+                    <NavLink exact to="/">
+                        <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg"></img>
+                    </NavLink>
+                </div>
+                <div id="nav_search">
+                    <SearchBar />
+                </div>
                 <div className='navMiddleLinks'>
-                    <li>  <NavLink exact to="/listings#listingsPage">Places to stay</NavLink> </li>
-                    <li>  <NavLink exact to="/create-listing">Host an Experience</NavLink> </li>
+
+                    {/* <li>  <NavLink exact to="/listings#listingsPage">Places to stay</NavLink> </li>
+                    <li>  <NavLink exact to="/create-listing">Host an Experience</NavLink> </li> */}
                 </div>
                 {isLoaded && sessionLinks}
-            </ul >
-            <SearchBar />
+            </div >
+
+
         </nav >
     );
 }

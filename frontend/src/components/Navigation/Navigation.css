@@ -40,9 +40,14 @@ nav {
    height: 50px;
    background-color: black;
    gap: 20px;
-   margin-bottom: 300px;
+
 }
 
+#nav_search {
+   display: flex;
+   height: fit-content;
+   background-color: palegoldenrod;
+}
 
 .navMiddleLinks {
    display: flex;

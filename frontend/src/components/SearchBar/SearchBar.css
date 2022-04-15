@@ -1,20 +1,26 @@
 #searchBarDiv {
     margin-top: 100px;
-    background-color: white;
+    background-color: black;
     margin-bottom: 20px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px;
+    min-height: 100px;
 }
 
 #searchComponent {
-    width: 80%;
+    width: 70%;
     display: flex;
     gap: 10px;
     justify-content: center;
-    background-color: palegoldenrod;
+    background-color: white;
+    padding: 20px;
+}
+
+#location_search {
+    border: 1px solid black;
 }
 
 #search_check_parent {
@@ -29,9 +35,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    gap: 2px;
     cursor: pointer;
     border-radius: 20px;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 #search_start_date:hover {
@@ -43,10 +51,19 @@
     font-size: 14px;
 }
 
+#search_date_range {
+    font-weight: 700;
+    font-size: 14px;
+}
+
 #date_range_pop_up {
     height: fit-content;
     width: fit-content;
     position: absolute;
     top: 80px;
     right: 50px;
+}
+
+#guest_search {
+    border: solid black 1px;
 }

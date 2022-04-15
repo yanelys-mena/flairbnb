@@ -25,32 +25,10 @@ const Booking = ({ listing, sessionUser }) => {
         if (startDate && endDate) {
 
             bookedListings.forEach(item => {
-                // console.log('booking', item)
-                // console.log('startDate', startDate.toISOString().slice(0, 10));
-                // console.log('endDate', endDate.toISOString().slice(0, 10));
-
-                // console.log('startDate Check', startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate)
-                // console.log('endDate Check', endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate)
-
-                // console.log('BOTH ', startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                //     || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate);
-
                 setAvailable(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
                     || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate)
                 setDisabled(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
                     || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate)
-                //if true ==> setDisablted(True) setAvailable(dale)
-
-                /*
-                checking if either of the dates fall inbetween the range
-                1.  if the startDate is >= listing.startDate && startDate <= listing.endDate
-                2. endDate is >= listing.startDate && startDate <= listing.endDate
-                */
-
-                // setAvailable(startDate.toISOString().slice(0, 10) !== item.startDate)
-                // setDisabled(startDate.toISOString().slice(0, 10) == item.startDate)
-                // setAvailable(startDate.toISOString().slice(0, 10) !== item.startDate)
-                // setDisabled(startDate.toISOString().slice(0, 10) == item.startDate)
             })
 
         }
@@ -60,16 +38,6 @@ const Booking = ({ listing, sessionUser }) => {
     useEffect(() => {
         dispatch(load_bookings())
     }, []);
-
-
-    // useEffect(() => {
-    //     endDate ? setDisabled(false) : setDisabled('disabled');
-    // }, [endDate]);
-
-
-    //  if startDate that is selected, existsed in bookedlistings.startDate == disable the button ||
-    //  if the end date exists in bookedListings.endDate == disable
-    // disable button
 
     const handleBooking = () => {
         const newBooking = {

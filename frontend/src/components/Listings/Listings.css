@@ -11,21 +11,15 @@ a {
 }
 
 .leftSide {
-    width: 55%;
+    width: 45%;
     display: flex;
     flex-direction: column;
 }
 
 
 .rightSide {
-    width: 45%;
-    /* background-color: palegoldenrod; */
-    display: flex;
-    justify-content: center;
-    /* background-image: url(https://static.vecteezy.com/system/resources/previews/002/222/065/original/abstract-city-map-with-pins-navigation-app-screen-template-vector.jpg); background-repeat: repeat-y; */
+    width: 55%;
 }
-
-
 
 .listingCard {
     border-top: 1px solid #D3D3D3;

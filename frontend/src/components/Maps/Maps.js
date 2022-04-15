@@ -3,7 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
     width: '100%',
-    height: '100%',
+    height: '50vh',
 };
 
 
@@ -15,20 +15,28 @@ const center = {
     lng: -80.2634573883995
 };
 
-const Maps = ({ apiKey }) => {
+const Maps = ({ apiKey, listings }) => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: apiKey,
     });
 
+    console.log('MAPS', listings)
+
     return (
         <>
             {isLoaded && (
-                <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={10}>
-                    <Marker />
+                <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={4}>
+                    {listings.map(listing => (
+                        <Marker
+                            key={listing.id}
+                            position={{
+                                lat: Number(listing.lat),
+                                lng: Number(listing.lng)
+                            }}
+                        />
+                    ))}
+
                 </GoogleMap>
             )}
         </>

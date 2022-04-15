@@ -26,7 +26,7 @@ const Listings = () => {
 
             </div>
             <div className="rightSide">
-                <MapContainer listings={listings} />
+                <MapContainer listings={Object.values(listings)} />
             </div>
 
         </div>

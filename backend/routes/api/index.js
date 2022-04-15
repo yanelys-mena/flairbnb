@@ -9,13 +9,14 @@ const usersRouter = require('./users');
 const listingsRouter = require('./listings')
 const reviewsRouter = require('./reviews');
 const bookingsRouter = require('./bookings');
+const mapsRouter = require('./maps');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter)
 router.use('/listings', listingsRouter)
 router.use('/reviews', reviewsRouter)
 router.use('/bookings', bookingsRouter)
-
+router.use('/maps', mapsRouter);
 
 
 //testing if the jwt token cookie is being set

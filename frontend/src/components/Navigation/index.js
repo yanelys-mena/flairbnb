@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import SearchBar from '../SearchBar';
 
 
 import './Navigation.css';
@@ -29,7 +30,6 @@ function Navigation({ isLoaded }) {
         <nav>
             <ul className="navBar">
                 <li className='logo'>
-
                     <NavLink exact to="/">   <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg"></img></NavLink> </li>
                 <div className='navMiddleLinks'>
                     <li>  <NavLink exact to="/listings#listingsPage">Places to stay</NavLink> </li>
@@ -37,6 +37,7 @@ function Navigation({ isLoaded }) {
                 </div>
                 {isLoaded && sessionLinks}
             </ul >
+            <SearchBar />
         </nav >
     );
 }

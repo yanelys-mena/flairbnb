@@ -1,0 +1,32 @@
+#searchBarDiv {
+    margin-top: 100px;
+    background-color: white;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+#searchComponent {
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    background-color: palegoldenrod;
+}
+
+#search_start_date {
+    background-color: red;
+    height: 50px;
+    width: 100px;
+    position: relative;
+}
+
+#date_range_pop_up {
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    top: 0;
+}

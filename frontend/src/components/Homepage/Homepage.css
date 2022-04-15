@@ -1,8 +1,7 @@
-
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
 
 
 }
@@ -10,8 +9,10 @@ main {
 
 /* NOTE SECTION ONE */
 .home_search {
-    background-color: black;;
+    background-color: white;
+    ;
     width: 100%;
+    color: white;
 }
 
 
@@ -42,20 +43,20 @@ div .largeimg_card {
 }
 
 .largeimg_overlay {
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: -250px;
 }
 
-.largeimg_overlay > p {
-color: white;
-font-weight: 700;
-font-size: 50px;
-white-space: nowrap;
+.largeimg_overlay>p {
+    color: white;
+    font-weight: 700;
+    font-size: 50px;
+    white-space: nowrap;
 }
 
-.largeimg_overlay > button {
+.largeimg_overlay>button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,39 +65,39 @@ white-space: nowrap;
     width: 185px;
     height: 50px;
 
-} 
+}
 
-.largeimg_overlay > button > p {
+.largeimg_overlay>button>p {
     font-weight: 700;
     font-size: 20px;
     background:
-    linear-gradient(90deg, #3f0654, #f526d6);
+        linear-gradient(90deg, #3f0654, #f526d6);
     background-clip: text;
     color: transparent;
-}   
+}
 
-.largeimg_overlay > button > p:hover {
-cursor: pointer;
-}  
+.largeimg_overlay>button>p:hover {
+    cursor: pointer;
+}
 
 
 /* NOTE SECTION THREE */
- .home_inspo {
-     display: flex;
-     flex-direction: column;
+.home_inspo {
+    display: flex;
+    flex-direction: column;
 
-    }
+}
 
-.home_inspo > p{
+.home_inspo>p {
     font-size: 40px;
     font-weight: 700;
-    }
+}
 
 .home_inspocards {
-display: flex;
-/* padding-top: 50px; */
-height: 600px;
-} 
+    display: flex;
+    /* padding-top: 50px; */
+    height: 600px;
+}
 
 .inspo_card1 {
     display: flex;
@@ -149,13 +150,13 @@ height: 600px;
     height: 213px;
 }
 
-.inspocard_overlay  > *:first-child{
+.inspocard_overlay>*:first-child {
     font-size: 30px;
     font-weight: 700;
 }
 
-.inspocard_overlay  {
-    padding: 24px 16px 16px; 
+.inspocard_overlay {
+    padding: 24px 16px 16px;
     color: white;
 }
 
@@ -170,7 +171,7 @@ height: 600px;
     position: relative
 }
 
-.discover_card > img {
+.discover_card>img {
     border-radius: 20px;
 }
 
@@ -181,14 +182,14 @@ height: 600px;
     left: 40px;
 }
 
-.discover_overlay > *:first-child {
-    color: white;    
+.discover_overlay>*:first-child {
+    color: white;
     font-size: 50px;
     font-weight: 700;
 }
 
 
-.discover_overlay > button {
+.discover_overlay>button {
     display: flex;
     justify-content: center;
     font-weight: 500;
@@ -209,13 +210,13 @@ height: 600px;
     width: 70%;
 }
 
-.home_shop > div > p{
+.home_shop>div>p {
     display: flex;
     font-size: 50px;
     font-weight: 700;
 }
 
-.home_shop > div > button{
+.home_shop>div>button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,6 +230,6 @@ height: 600px;
     font-weight: 300;
 }
 
-.home_shop > img {
- height: 400px;
+.home_shop>img {
+    height: 400px;
 }

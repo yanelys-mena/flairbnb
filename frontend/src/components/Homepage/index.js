@@ -10,9 +10,7 @@ const Homepage = () => {
 
     return (
         <main>
-            {/* <div className="home_search">
-                <p>search bar goes here</p>
-            </div> */}
+
             <div className="home_largeimg">
                 <div className="largeimg_card">
                     <img className="image" src="https://a0.muscache.com/im/pictures/21c2735e-a734-40f8-9f60-9ac299c4394c.jpg?im_w=960"></img>

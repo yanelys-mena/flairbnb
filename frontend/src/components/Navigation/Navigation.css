@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
 
-a > img{
+a>img {
 
- height: 40px;
+   height: 40px;
 }
 
 nav a {
    text-decoration: none;
    color: white;
    margin: 5px;
-} 
+}
 
 nav a:hover {
-   color:#D3D3D3;
+   color: #D3D3D3;
 }
 
 nav {
@@ -24,11 +24,12 @@ nav {
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
 
 }
 
 
-.navBar{
+.navBar {
    overflow: visible;
    display: flex;
    width: 85%;
@@ -38,17 +39,19 @@ nav {
    font-size: 18px;
    height: 50px;
    background-color: black;
-   }
+   gap: 20px;
+   margin-bottom: 300px;
+}
 
- 
+
 .navMiddleLinks {
    display: flex;
 }
 
-.navMiddleLinks > li > a {
+.navMiddleLinks>li>a {
    display: flex;
-padding-left: 10px;
-padding-bottom: 10px;
+   padding-left: 10px;
+   padding-bottom: 10px;
 }
 
 
@@ -76,15 +79,16 @@ padding-bottom: 10px;
 
 .fa-bars {
    color: #595959;
-font-size: 15px;
-padding-left: 5px;;
+   font-size: 15px;
+   padding-left: 5px;
+   ;
 }
 
 
-.dropdown > button:hover {
+.dropdown>button:hover {
    cursor: pointer;
-   }
-   
+}
+
 
 .dropdownList {
    padding-left: 0;
@@ -99,16 +103,16 @@ padding-left: 5px;;
    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.dropdownList > li {
+.dropdownList>li {
    padding: 10px;
    font-size: 14px;
 
 }
 
-.dropdownList > li:hover {
+.dropdownList>li:hover {
    cursor: pointer;
-background-color: #D3D3D3;
-border-radius: 20px;
+   background-color: #D3D3D3;
+   border-radius: 20px;
 }
 
 #manageListings {
@@ -118,13 +122,14 @@ border-radius: 20px;
 
 .navButtons {
    display: flex;
-      margin-right: 70px;
-align-items: center;
+   margin-right: 70px;
+   align-items: center;
 
 }
 
 .login_btn {
-   border: none;background-color: transparent;
+   border: none;
+   background-color: transparent;
    color: white;
    font-family: 'Roboto', sans-serif;
    font-weight: 300;
@@ -143,4 +148,3 @@ align-items: center;
    font-size: 14px;
    margin-left: -25px;
 }
-

@@ -20,6 +20,15 @@ export default function SearchBar() {
     console.log('startDateSelected', state[0].startDate,)
     console.log('endDateSelected', state[0].endDate)
 
+    useEffect(() => {
+        if (!showPicker) return;
+        const closePicker = () => {
+            setShowPicker(false);
+        };
+        document.addEventListener('click', closePicker);
+        return () => document.removeEventListener("click", closePicker);
+    }, [showPicker]);
+
 
     return (
         <div id="searchBarDiv">
@@ -28,8 +37,8 @@ export default function SearchBar() {
                     type='text'
                     placeholder='Where are you going?'>
                 </input>
-                <div id="search_start_date" onClick={() => setShowPicker(true)}>
-                    <div>Check in</div>
+                <div id="search_start_date" onClick={() => setShowPicker(!showPicker)}>
+                    <div id="check_in">Check in</div>
                     <div>Add dates</div>
                     {showPicker &&
                         <div id="date_range_pop_up">

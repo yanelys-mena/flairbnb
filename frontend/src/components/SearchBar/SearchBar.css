@@ -18,15 +18,31 @@
 }
 
 #search_start_date {
-    background-color: red;
+    background-color: white;
     height: 50px;
-    width: 100px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
     position: relative;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#search_start_date:hover {
+    background-color: #EBEBEB;
+}
+
+#check_in {
+    font-weight: 700;
+    font-size: 14px;
 }
 
 #date_range_pop_up {
     height: 300px;
     width: 500px;
     position: absolute;
-    top: 0;
+    top: 80px;
+    right: 50px;
 }

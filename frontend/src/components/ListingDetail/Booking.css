@@ -1,6 +1,4 @@
 .inactiveBtn {
-    /* background: linear-gradient(to bottom right,
-            #E5204D, #D70965); */
     background-color: #D8D8D8 !important;
     color: white;
     font-weight: 500;
@@ -8,5 +6,5 @@
     width: 80%;
     margin-bottom: 15px;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: auto;
 }

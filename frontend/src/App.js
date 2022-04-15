@@ -11,6 +11,7 @@ import CreateListings from "./components/CreateListing";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ManageListings from './components/ManageListings';
+import SearchResults from './components/SearchResults';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route path="/manage-listings">
             <ManageListings />
+          </Route>
+          <Route path="/search/:location/:guests/:start/:end">
+            <SearchResults />
           </Route>
         </Switch>
       )}

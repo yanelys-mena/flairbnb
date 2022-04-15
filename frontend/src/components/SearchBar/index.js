@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addDays } from 'date-fns';
 import { getAllListings } from '../../store/listings';
-import bookingsReducer, { load_bookings } from '../../store/bookings';
-
+import { load_bookings } from '../../store/bookings';
+import { add_search } from '../../store/search';
 import './SearchBar.css';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -83,6 +83,8 @@ export default function SearchBar() {
             }
         };
 
+        dispatch(add_search(searchResults))
+        history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
 
     }
 

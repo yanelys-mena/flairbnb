@@ -23,7 +23,7 @@ const Maps = ({ apiKey, listings, hoveredListing }) => {
         googleMapsApiKey: apiKey,
     });
 
-    console.log('MAPS', listings)
+
 
     return (
         <>

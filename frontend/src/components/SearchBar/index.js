@@ -42,17 +42,13 @@ export default function SearchBar() {
         }
     }, [state]);
 
-
-
     const handleSearch = (e) => {
         history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
-
     }
 
     return (
         <>
             <div id="searchComponent">
-
                 <div id="location_search">
                     <label>Location</label>
                     <input
@@ -62,12 +58,12 @@ export default function SearchBar() {
                         onChange={(e) => setLocation(e.target.value.toLowerCase())}>
                     </input>
                 </div>
-                <div className="search_border_div"></div>
 
+                <div className="search_border_div"></div>
 
                 <div id="search_dates" onClick={() => setShowPicker(!showPicker)}>
 
-                    <div id="check_in"> Search Dates </div>
+                    <label id="check_in">Select Dates</label>
                     <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
 
                     {showPicker &&
@@ -83,10 +79,11 @@ export default function SearchBar() {
                         </div>
                     }
                 </div>
+
                 <div className="search_border_div"></div>
 
                 <div id="guest_search">
-                    <div>Guests</div>
+                    <label>Guests</label>
                     <input
                         type='text'
                         value={guest}

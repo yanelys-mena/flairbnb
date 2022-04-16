@@ -1,34 +1,45 @@
 #manageListingsPage {
-    height: 100vh;
-    width: 90%;
-    margin: 100px auto 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 20px;
+  height: 100vh;
+  width: 90%;
+  margin: 100px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
 }
 
 #myListingCard {
-    display: flex;
-    text-decoration: none;
-    flex-direction: column;
-  }
+  display: flex;
+  text-decoration: none;
+  flex-direction: column;
+}
 
-  #myListingCard:hover {
-   cursor:pointer;
-  }
+#myListingCard:hover {
+  cursor: pointer;
+}
 
-  #myListingCard > div > img {
-height: 300px;
-border-radius: 15px;
-  }
+#myListingCard>a>div>img {
+  height: 300px;
+  border-radius: 15px;
+}
 
-  #myListingCard > article {
-      display: flex;
-      color: black;
-      justify-content: space-between;
-  }
+#myListingCard>a>article {
+  display: flex;
+  color: black;
+  justify-content: space-between;
+}
 
-#myListingCard > article > p {
-    font-weight: 500;
+#myListingCard>a>article>p {
+  font-weight: 500;
+}
+
+#bottomCardText {
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+}
+
+#see_bookings {
+  font-weight: 700;
+  cursor: pointer;
 }

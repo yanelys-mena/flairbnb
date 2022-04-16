@@ -9,6 +9,7 @@ import { getReviews } from '../../store/reviews';
 import EditListing from '../EditListing'
 import ReviewCard from '../ReviewCard';
 import './ListingDetail.css';
+import Booking from './Booking';
 import CreateReviewModal from '../CreateReviewModal';
 
 
@@ -107,11 +108,8 @@ const ListingDetail = () => {
 
                             </div>
                             <div className='rightSec'>
-                                <div className="bookingsDiv">
-                                    <p>${listing.price} / night</p>
-                                    <button disabled={true}
-                                    >Bookings Coming Soon</button>
-                                </div>
+                                <Booking listing={listing} sessionUser={sessionUser} />
+
                             </div>
                         </div>
                         <div id="reviewsDiv">

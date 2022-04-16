@@ -1,0 +1,21 @@
+.inactiveBtn {
+    background-color: #D8D8D8 !important;
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 80%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: auto;
+}
+
+
+#validDate {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#date {
+    font-size: 14px;
+    font-weight: 700;
+}

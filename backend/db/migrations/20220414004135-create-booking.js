@@ -11,10 +11,16 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Users'
+        }
       },
       listingId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Listings'
+        }
       },
       startDate: {
         type: Sequelize.DATEONLY,

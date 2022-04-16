@@ -6,7 +6,8 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { Listing } = require('../../db/models');
 const { Image } = require('../../db/models');
 const { Review } = require('../../db/models');
-const { User } = require('../../db/models')
+const { User } = require('../../db/models');
+const { Booking } = require('../../db/models');
 
 const router = express.Router();
 
@@ -14,10 +15,9 @@ const router = express.Router();
 router.get(
     '/get-all-listings',
     asyncHandler(async (req, res, next) => {
-        console.log('//// IN GET ALL', req.body)
         const listings = await Listing.findAll({
             include: [
-                User, Image, Review,
+                User, Image, Review, Booking
             ]
         });
         return res.json(listings)

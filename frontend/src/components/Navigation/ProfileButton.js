@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <>
+        <div id="profile_dropdown">
             <button className="menu" onClick={openMenu}>
                 <i className="fas fa-bars"></i>
                 <i className="fas fa-user-circle"></i>
@@ -46,7 +46,7 @@ function ProfileButton({ user }) {
                     </li>
                 </ul >)
             }
-        </>
+        </div>
     );
 }
 

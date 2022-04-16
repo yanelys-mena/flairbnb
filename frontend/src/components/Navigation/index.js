@@ -15,32 +15,29 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <li className="dropdown">   <ProfileButton user={sessionUser} /></li>
+            <div id="nav_right_div">
+                <ProfileButton user={sessionUser} />
+            </div>
         );
     } else {
         sessionLinks = (
-            <div className="navButtons">
-                <li>   <LoginFormModal /></li>
-                <li>  <NavLink to="/signup">Sign Up</NavLink></li>
+            <div id="nav_right_div">
+                <div>   <LoginFormModal /></div>
+                <div>  <NavLink to="/signup">Sign Up</NavLink></div>
             </div>
         );
     }
 
     return (
         <nav>
-            <div className="navBar">
-                <div className='logo'>
+            <div id="navBar">
+                <div id='logo_div'>
                     <NavLink exact to="/">
                         <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg"></img>
                     </NavLink>
                 </div>
-                <div id="nav_search">
+                <div id="nav_search_div">
                     <SearchBar />
-                </div>
-                <div className='navMiddleLinks'>
-
-                    {/* <li>  <NavLink exact to="/listings#listingsPage">Places to stay</NavLink> </li>
-                    <li>  <NavLink exact to="/create-listing">Host an Experience</NavLink> </li> */}
                 </div>
                 {isLoaded && sessionLinks}
             </div >

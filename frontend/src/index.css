@@ -2,25 +2,170 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
 
+/* CSS Reset */
 
-
-div#root > *:first-child { margin-top: -20px; background-color: black; width: 100%; 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* end reset */
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* div#root > *:first-child { margin-top: -20px; background-color: black; width: 100%;  */
+/* } */
+
 /* add overflow:hidden if the body messees up again */
 
-  
+
 * {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-text-decoration: none;
-
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
 
-input:focus, textarea:focus, select:focus, input, button, form{
+input:focus,
+textarea:focus,
+select:focus,
+input,
+button,
+form {
     outline: none;
-border: none;
--webkit-appearance: none;
+    border: none;
+    -webkit-appearance: none;
 }
 
 
@@ -34,11 +179,9 @@ li {
     list-style-type: none;
 }
 
-form > .signup_btn {
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
+form>.signup_btn {
+    background: linear-gradient(to bottom right,
+            #E5204D, #D70965);
     color: white;
     font-weight: 500;
     height: 45px;
@@ -47,15 +190,16 @@ form > .signup_btn {
 }
 
 
-form > .signup_btn:hover {
+form>.signup_btn:hover {
     cursor: pointer;
-} 
+}
 
-body{
-    margin : 0px !important;
- }
+/* 
+body {
+    margin: 0px !important;
+} */
 
-
+/* 
 #modal {
     position: fixed;
     top: 0;
@@ -65,15 +209,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 button:hover {
-cursor: pointer;
+    cursor: pointer;
 }
 
- 
-#modal{
-  
+
+/* #modal {
+
     background-color: rgba(0, 0, 0, 0.7);
-  }
-  /* modal bg did nit work and modal:  */
+} */
+
+/* modal bg did nit work and modal:  */

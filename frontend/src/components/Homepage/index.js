@@ -19,7 +19,7 @@ const Homepage = () => {
                 <div className="largeimg_card">
                     <img className="image" src="https://a0.muscache.com/im/pictures/8aa32150-e831-40aa-98f5-b743b44c6b27.jpg?im_w=1920"></img>
                     <div className="largeimg_overlay">
-                        <p>Not sure where to go? Perfect.</p>
+                        <p>Let your curiosity do the booking.</p>
                         <button onClick={redirect}><p>I'm flexible</p></button>
                     </div>
 

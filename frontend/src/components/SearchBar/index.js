@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { addDays } from 'date-fns';
 import { getAllListings } from '../../store/listings';
 import { load_bookings } from '../../store/bookings';
-import { add_search } from '../../store/search';
 import './SearchBar.css';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -50,40 +49,39 @@ export default function SearchBar() {
         e.preventDefault();
         let searchResults;
 
-        if (location) {
-            let listingIds = [];
-            let listingsWithBookings = {};
-            let searchSet = new Set();
+        // if (location) {
+        //     let listingIds = [];
+        //     let listingsWithBookings = {};
+        //     let searchSet = new Set();
 
 
-            const filteredResults = listings.map(listing => {
-                if ((location === listing.city.toLowerCase() || location === listing.state.toLowerCase()) && listing.guests >= guest) {
-                    if (listing.Bookings.length) {
-                        listingIds.push(listing.id)
-                        listingsWithBookings[listing.id] = listing
-                    } else if (listing.Bookings.length === 0) {
-                        searchSet.add(listing)
-                    }
-                }
-            }
-            )
+        //     const filteredResults = listings.map(listing => {
+        //         if ((location === listing.city.toLowerCase() || location === listing.state.toLowerCase()) && listing.guests >= guest) {
+        //             if (listing.Bookings.length) {
+        //                 listingIds.push(listing.id)
+        //                 listingsWithBookings[listing.id] = listing
+        //             } else if (listing.Bookings.length === 0) {
+        //                 searchSet.add(listing)
+        //             }
+        //         }
+        //     }
+        //     )
 
-            if (listingIds.length && (state[0].endDate !== state[0].startDate)) {
+        //     if (listingIds.length && (state[0].endDate !== state[0].startDate)) {
 
-                bookings.forEach(b => {
-                    if (listingIds.includes(b.listingId)) {
+        //         bookings.forEach(b => {
+        //             if (listingIds.includes(b.listingId)) {
 
-                        if (!(state[0].startDate.toISOString().slice(0, 10) >= b.startDate && state[0].startDate.toISOString().slice(0, 10) <= b.endDate
-                            || state[0].endDate.toISOString().slice(0, 10) >= b.startDate && state[0].endDate.toISOString().slice(0, 10) <= b.endDate)) {
-                            searchSet.add(listingsWithBookings[b.listingId])
-                        }
-                    }
-                });
-                searchResults = Array.from(searchSet)
-            }
-        };
+        //                 if (!(state[0].startDate.toISOString().slice(0, 10) >= b.startDate && state[0].startDate.toISOString().slice(0, 10) <= b.endDate
+        //                     || state[0].endDate.toISOString().slice(0, 10) >= b.startDate && state[0].endDate.toISOString().slice(0, 10) <= b.endDate)) {
+        //                     searchSet.add(listingsWithBookings[b.listingId])
+        //                 }
+        //             }
+        //         });
+        //         searchResults = Array.from(searchSet)
+        //     }
+        // };
 
-        dispatch(add_search(searchResults))
         history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
 
     }

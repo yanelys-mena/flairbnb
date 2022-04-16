@@ -14,9 +14,7 @@ const SearchResults = () => {
     const listings = useSelector((state) => state?.listings);
     const listingsArr = Object.values(listings)
     const [hoveredListing, setHoveredListing] = useState(null);
-    const searchedListings = useSelector((state) => state?.search)
     const { location, guests, start, end } = useParams();
-    console.log(location, guests, start, end)
     const bookings = useSelector((state) => Object.values(state?.bookings));
 
     useEffect(() => {
@@ -57,7 +55,6 @@ const SearchResults = () => {
         }
     });
     searchResults = Array.from(searchSet)
-    console.log('TEST RESULTS', searchResults)
 
     return (
         <div className="listingsPage" id="listingsPage">

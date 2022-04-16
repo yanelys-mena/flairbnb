@@ -26,8 +26,7 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="home_inspo">
-                <p>Inspiration for your next trip
-                </p>
+                <div id="inspiration_new_trip">Inspiration for your next trip</div>
                 <div className="home_inspocards">
                     <div className="inspo_card1">
                         <img src="https://a0.muscache.com/im/pictures/1cdb5298-1e10-4d5a-ac27-20c80b53b4af.jpg?im_w=240" className="inspo_img"></img>

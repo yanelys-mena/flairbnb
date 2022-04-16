@@ -29,7 +29,7 @@ div .home_largeimg {
 
 div .largeimg_card {
     height: 90%;
-    width: 80%;
+    width: 90%;
     position: relative;
 }
 
@@ -89,28 +89,30 @@ div .largeimg_card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: red;
     gap: 10px;
     width: 100%;
 }
 
-.home_inspo>p {
-    font-size: 40px;
-    font-weight: 700;
+#inspiration_new_trip {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    font-size: 30px;
+    font-weight: 300;
 }
 
 .home_inspocards {
     display: flex;
-    width: 95%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: blue;
 }
 
 
 .home_inspocards>div {
-    width: 23%;
+    width: 21%;
+    height: 350px;
 }
 
 .inspo_card1 {
@@ -160,8 +162,8 @@ div .largeimg_card {
 .inspo_img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 320px;
-    height: 213px;
+    width: 100%;
+    height: 200px;
 }
 
 .inspocard_overlay>*:first-child {
@@ -178,18 +180,20 @@ div .largeimg_card {
 .home_discover {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 25px;
 }
 
 .discover_card {
     border-radius: 20px;
-    padding-left: 15px;
     position: relative;
-    background-color: red;
+    width: 44%;
 }
 
 .discover_card>img {
     border-radius: 20px;
-    width: 600px;
+    width: 100%;
 }
 
 .discover_overlay {

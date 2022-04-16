@@ -52,20 +52,24 @@ export default function SearchBar() {
     return (
         <>
             <div id="searchComponent">
+
                 <div id="location_search">
+                    <label>Location</label>
                     <input
                         type='text'
-                        placeholder='Where are you going?'
+                        placeholder='Where are you going? Try "Miami"'
                         value={location}
                         onChange={(e) => setLocation(e.target.value.toLowerCase())}>
                     </input>
                 </div>
+                <div className="search_border_div"></div>
 
-                <div id="search_check_parent">
-                    <div id="search_start_date" onClick={() => setShowPicker(!showPicker)}>
-                        <div id="check_in"> Check in</div>
-                        <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
-                    </div>
+
+                <div id="search_dates" onClick={() => setShowPicker(!showPicker)}>
+
+                    <div id="check_in"> Search Dates </div>
+                    <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
+
                     {showPicker &&
                         <div id="date_range_pop_up">
                             <DateRangePicker
@@ -79,7 +83,10 @@ export default function SearchBar() {
                         </div>
                     }
                 </div>
+                <div className="search_border_div"></div>
+
                 <div id="guest_search">
+                    <div>Guests</div>
                     <input
                         type='text'
                         value={guest}
@@ -87,6 +94,7 @@ export default function SearchBar() {
                         placeholder='Where are you going?'>
                     </input>
                 </div>
+
                 <div id="search_icon_div">
                     <div id="search_icon" onClick={handleSearch}>
                         <SearchIcon />

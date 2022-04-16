@@ -22,7 +22,6 @@ const ListingDetail = () => {
     const listing = useSelector((state) => state.listings[listingId]);
     const [page, setPage] = useState(1);
     const allReviews = useSelector((state) => state.reviews.entries);
-    console.log(allReviews)
     const handlePage = () => {
         setPage(1);
     };

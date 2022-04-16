@@ -23,7 +23,6 @@ const to_delete = (bookingId) => ({
 
 export const load_bookings = () => async (dispatch) => {
     const response = await csrfFetch('/api/bookings');
-    console.log(response)
     if (response.ok) {
         const bookings = await response.json();
         dispatch(load(bookings))
@@ -72,7 +71,6 @@ const bookingsReducer = (state = initialState, action) => {
         }
 
         case ADD: {
-            console.log('REDUCER', action.booking)
 
             return { [action.booking.id]: action.booking, ...state };
         }

@@ -54,7 +54,6 @@ const Maps = ({ apiKey, listings, hoveredListing }) => {
                         >
                             <div>
                                 <h4>{selected.name}</h4>
-                                {/* {selected.town} */}
                             </div>
                         </InfoWindow>
                     )}

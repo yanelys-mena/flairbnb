@@ -4,9 +4,7 @@
 .search_border_div {
     height: 32px;
     border-right: 1px solid #F3F3F3;
-
 }
-
 
 #searchComponent {
     width: 60%;
@@ -17,17 +15,21 @@
     border-bottom: .5px solid #F3F3F3;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 29px 0px;
     margin: 20px 0 20px 0;
-    background-color: bisque;
 }
 
-#searchComponent>div>div {
+#location_search,
+#search_dates,
+#guest_search {
+    border-radius: 30px;
+    background-color: white;
     display: flex;
-    font-weight: 600;
-    font-size: 13px;
-    width: 80%;
-    letter-spacing: .5px;
-    font-family: Lato, sans-serif;
-    gap: 8px;
+    width: 30%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: auto;
+    gap: 5px
 }
 
 #searchComponent>div>label {
@@ -46,6 +48,12 @@
 
 }
 
+#location_search:hover,
+#search_dates:hover,
+#guest_search:hover {
+    background-color: #EBEBEB;
+}
+
 
 #location_search {
     border-radius: 30px;
@@ -54,13 +62,10 @@
     width: 30%;
     height: 100%;
     flex-direction: column;
-    padding: 10px;
     justify-content: center;
     align-items: center;
     cursor: auto;
 }
-
-
 
 #search_dates {
     position: relative;
@@ -91,18 +96,19 @@
 
 }
 
-#searchComponent>div:hover {
-    background-color: #EBEBEB;
-}
 
-#check_in {
+
+#search_dates>label {
     font-weight: 700;
     font-size: 14px;
+    cursor: pointer;
 }
 
 #search_date_range {
     font-weight: 700;
     font-size: 14px;
+    width: 80%;
+    cursor: pointer;
 }
 
 #date_range_pop_up {
@@ -141,4 +147,5 @@
     color: white;
     background-color: #FF395C;
     cursor: pointer;
+    margin-right: 10px;
 }

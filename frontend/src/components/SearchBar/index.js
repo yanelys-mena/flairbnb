@@ -63,7 +63,7 @@ export default function SearchBar() {
 
                 <div id="search_dates" onClick={() => setShowPicker(!showPicker)}>
 
-                    <label id="check_in">Select Dates</label>
+                    <label id="check_in">Selected Dates</label>
                     <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
 
                     {showPicker &&
@@ -85,7 +85,8 @@ export default function SearchBar() {
                 <div id="guest_search">
                     <label>Guests</label>
                     <input
-                        type='text'
+                        type='number'
+                        min="1"
                         value={guest}
                         onChange={(e) => setGuest(e.target.value)}
                         placeholder='Where are you going?'>

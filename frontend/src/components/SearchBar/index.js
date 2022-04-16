@@ -9,7 +9,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from 'react-redux';
-
+import SearchIcon from '@mui/icons-material/Search';
 
 
 export default function SearchBar() {
@@ -33,7 +33,6 @@ export default function SearchBar() {
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(load_bookings())
-
     }, [dispatch])
 
 
@@ -46,48 +45,12 @@ export default function SearchBar() {
 
 
     const handleSearch = (e) => {
-        e.preventDefault();
-        let searchResults;
-
-        // if (location) {
-        //     let listingIds = [];
-        //     let listingsWithBookings = {};
-        //     let searchSet = new Set();
-
-
-        //     const filteredResults = listings.map(listing => {
-        //         if ((location === listing.city.toLowerCase() || location === listing.state.toLowerCase()) && listing.guests >= guest) {
-        //             if (listing.Bookings.length) {
-        //                 listingIds.push(listing.id)
-        //                 listingsWithBookings[listing.id] = listing
-        //             } else if (listing.Bookings.length === 0) {
-        //                 searchSet.add(listing)
-        //             }
-        //         }
-        //     }
-        //     )
-
-        //     if (listingIds.length && (state[0].endDate !== state[0].startDate)) {
-
-        //         bookings.forEach(b => {
-        //             if (listingIds.includes(b.listingId)) {
-
-        //                 if (!(state[0].startDate.toISOString().slice(0, 10) >= b.startDate && state[0].startDate.toISOString().slice(0, 10) <= b.endDate
-        //                     || state[0].endDate.toISOString().slice(0, 10) >= b.startDate && state[0].endDate.toISOString().slice(0, 10) <= b.endDate)) {
-        //                     searchSet.add(listingsWithBookings[b.listingId])
-        //                 }
-        //             }
-        //         });
-        //         searchResults = Array.from(searchSet)
-        //     }
-        // };
-
         history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
 
     }
 
     return (
-        <div id="searchBarDiv">
+        <>
             <div id="searchComponent">
                 <div id="location_search">
                     <input
@@ -124,10 +87,13 @@ export default function SearchBar() {
                         placeholder='Where are you going?'>
                     </input>
                 </div>
-                <div id="search_btn">
-                    <button onClick={handleSearch}> Search  </button>
+                <div id="search_icon_div">
+                    <div id="search_icon" onClick={handleSearch}>
+                        <SearchIcon />
+                    </div>
+
                 </div>
             </div>
-        </div >
+        </ >
     )
 }

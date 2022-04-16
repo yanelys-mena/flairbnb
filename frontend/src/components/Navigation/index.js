@@ -33,12 +33,13 @@ function Navigation({ isLoaded }) {
             <div id="navBar">
                 <div id='logo_div'>
                     <NavLink exact to="/">
-                        <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg"></img>
+                        <img src="https://1000logos.net/wp-content/uploads/2017/08/Airbnb-logo.jpg"></img>
+                        {/* <img src="https://live.staticflickr.com/65535/51871198614_a4bea30867.jpg"></img> */}
                     </NavLink>
                 </div>
-                <div id="nav_search_div">
+                {/* <div id="nav_search_div">
                     <SearchBar />
-                </div>
+                </div> */}
                 {isLoaded && sessionLinks}
             </div >
 

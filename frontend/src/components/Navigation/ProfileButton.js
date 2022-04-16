@@ -30,7 +30,6 @@ function ProfileButton({ user }) {
 
     return (
         <>
-
             <button id="menu" onClick={openMenu}>
                 <i className="fas fa-bars nav_bars_icon"></i>
                 <i className="fas fa-user-circle nav_user_icon"></i>
@@ -41,9 +40,7 @@ function ProfileButton({ user }) {
                         Trips
                     </div>
                     <Link id="dropdown_second" to="/manage-listings">
-
                         Manage listings
-
                     </Link>
                     <div id="dropdown_last" onClick={logout}>
                         Log out

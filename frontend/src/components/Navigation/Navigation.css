@@ -7,37 +7,36 @@
    /* overflow: visible; */
    display: flex;
    width: 100%;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
    font-size: 18px;
-   height: 80px;
+   height: 70px;
    gap: 10px;
-   background-color: black;
-   background-color: red;
+   background-color: white;
+   border-bottom: .5px solid #D3D3D3;
+
 }
 
 #logo_div {
-   background-color: aliceblue;
    height: 100%;
    width: 20%;
    display: flex;
    align-items: center;
-   justify-content: flex-start;
+   justify-content: center;
 }
 
 #logo_div>a>img {
-   height: 40px;
+   height: 50px;
 }
 
-#nav_search_div {
-   background-color: palegoldenrod;
+/* #nav_search_div {
    width: 60%;
    height: 100%;
 
    display: flex;
    align-items: center;
    justify-content: center;
-}
+} */
 
 #nav_right_div {
    display: flex;

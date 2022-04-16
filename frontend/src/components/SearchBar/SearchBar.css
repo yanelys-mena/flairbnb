@@ -1,30 +1,27 @@
-#searchBarDiv {
-
-    background-color: green;
-    margin-bottom: 20px;
-    width: 100%;
+#searchComponent {
+    width: 60%;
+    height: 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 30px;
-    min-height: 100px;
-}
-
-#searchComponent {
-    width: 70%;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    background-color: white;
+    gap: 20px;
+    /* justify-content: center; */
+    border-radius: 30px;
+    /* background-color: pink; */
     padding: 20px;
+    border-bottom: .5px solid #F3F3F3;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 29px 0px;
+    margin: 20px 0 20px 0
 }
 
 #location_search {
     border: 1px solid black;
+    width: 30%;
 }
 
 #search_check_parent {
     position: relative;
+    width: 30%;
+
 
 }
 
@@ -66,4 +63,24 @@
 
 #guest_search {
     border: solid black 1px;
+    width: 30%;
+
+}
+
+#search_icon_div {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#search_icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #FF395C;
+    cursor: pointer;
 }

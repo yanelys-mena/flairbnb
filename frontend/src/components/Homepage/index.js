@@ -1,5 +1,6 @@
 import './Homepage.css'
 import { useHistory } from 'react-router-dom';
+import SearchBar from '../SearchBar';
 
 const Homepage = () => {
     const history = useHistory();
@@ -11,9 +12,12 @@ const Homepage = () => {
     return (
         <main>
 
+            <div id="search_bar_div">
+                <SearchBar />
+            </div>
             <div className="home_largeimg">
                 <div className="largeimg_card">
-                    <img className="image" src="https://a0.muscache.com/im/pictures/21c2735e-a734-40f8-9f60-9ac299c4394c.jpg?im_w=960"></img>
+                    <img className="image" src="https://a0.muscache.com/im/pictures/8aa32150-e831-40aa-98f5-b743b44c6b27.jpg?im_w=1920"></img>
                     <div className="largeimg_overlay">
                         <p>Not sure where to go? Perfect.</p>
                         <button onClick={redirect}><p>I'm flexible</p></button>
@@ -74,13 +78,13 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
-            <div className="home_shop">
+            {/* <div className="home_shop">
                 <div>
                     <p>Shop Flairbnb gift cards</p>
                     <button>Learn more</button>
                 </div>
                 <img src="https://a0.muscache.com/im/pictures/1ca4a497-ba40-4429-be1c-ac6abe4209c6.jpg?im_w=1200"></img>
-            </div>
+            </div> */}
         </main >
     )
 };

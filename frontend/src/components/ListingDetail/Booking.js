@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { load_bookings, add_booking } from '../../store/bookings'
 import './Booking.css';
 import dayjs from "dayjs";
+import { subDays } from 'date-fns';
+import { getTableSortLabelUtilityClass } from "@mui/material";
+
 
 
 const Booking = ({ listing, sessionUser }) => {
@@ -17,6 +20,7 @@ const Booking = ({ listing, sessionUser }) => {
     const [disabled, setDisabled] = useState(true);
     const [datesBooked, setDatesBooked] = useState([]);
     const [guest, setGuest] = useState(1);
+    const [count, setCount] = useState(1)
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
@@ -25,6 +29,7 @@ const Booking = ({ listing, sessionUser }) => {
 
 
     const onChange = (dates) => {
+
         const [start, end] = dates;
         setStartDate(start);
         setEndDate(end);
@@ -42,22 +47,29 @@ const Booking = ({ listing, sessionUser }) => {
 
             let getBookedDates = [];
 
-            bookedListings.forEach(item => {
 
-                setAvailable(!(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate));
+            if (bookedListings.length > 0) {
 
-                setDisabled(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate);
+                bookedListings.forEach(item => {
 
-                if (startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                    || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate) {
+                    setAvailable(!(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
+                        || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate));
 
-                    getBookedDates.push(`${dayjs(item.startDate).format("MMM DD, YYYY")} - ${dayjs(item.endDate).format("MMM DD YYYY")}`)
-                }
+                    setDisabled(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
+                        || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate);
 
-                setDatesBooked(getBookedDates)
-            })
+                    if (startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
+                        || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate) {
+
+                        getBookedDates.push(`${dayjs(item.startDate).format("MMM DD, YYYY")} - ${dayjs(item.endDate).format("MMM DD YYYY")}`)
+                    }
+
+                    setDatesBooked(getBookedDates)
+                })
+            } else {
+                setDisabled(false)
+            }
+
         }
     }, [startDate, endDate])
 
@@ -132,9 +144,18 @@ const Booking = ({ listing, sessionUser }) => {
                         endDate={endDate}
                         selectsRange
                         inline
+                        showMonthDropdown
+
+                        minDate={subDays(new Date(), 0)}
+
+                    // excludeDates={[new Date(), subDays(new Date(), 1)]}
                     />
                 </div>
+                <div id="price_total_div">
+                    <div>{listing?.price}</div>
+                    <div>{(disabled || errors.length) && count}</div>
 
+                </div>
                 <button onClick={handleBooking}
                     disabled={disabled}
                     className={disabled || errors.length ? 'inactiveBtn' : 'activeBtn'}

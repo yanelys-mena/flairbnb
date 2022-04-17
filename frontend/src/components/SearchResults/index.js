@@ -59,15 +59,13 @@ const SearchResults = () => {
     return (
         <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
-                {searchResults.map(listing =>
-                    <div onMouseEnter={(e) => setHoveredListing(listing)}>
+                {searchResults?.map(listing =>
+                    <div id="listingsCard_div" onMouseEnter={(e) => setHoveredListing(listing)}>
                         <ListingCard
                             key={listing.id}
                             listing={listing}
-
                         />
                     </div>
-
                 )}
 
             </div>

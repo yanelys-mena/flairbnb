@@ -12,13 +12,13 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ManageListings from './components/ManageListings';
 import SearchResults from './components/SearchResults';
+import Trips from './components/Trips';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    // dispatch(restoreListings());
   }, [dispatch]);
 
   return (
@@ -46,6 +46,9 @@ function App() {
           </Route>
           <Route path="/search/:location/:guests/:start/:end">
             <SearchResults />
+          </Route>
+          <Route path="/trips">
+            <Trips />
           </Route>
         </Switch>
       )}

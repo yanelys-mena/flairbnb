@@ -9,7 +9,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from 'react-redux';
-
+import SearchIcon from '@mui/icons-material/Search';
 
 
 export default function SearchBar() {
@@ -18,7 +18,7 @@ export default function SearchBar() {
     const bookings = useSelector((state) => Object.values(state?.bookings));
 
     const dispatch = useDispatch();
-
+    const [errors, setErrors] = useState([]);
     const [showPicker, setShowPicker] = useState(false);
     const [location, setLocation] = useState('');
     const [guest, setGuest] = useState(1);
@@ -33,76 +33,61 @@ export default function SearchBar() {
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(load_bookings())
-
     }, [dispatch])
+
 
 
     useEffect(() => {
         if (!(state[0].startDate.toISOString().slice(0, 10) === state[0].endDate.toISOString().slice(0, 10))) {
             setShowPicker(false)
+            setErrors([])
         }
+
+        if ((state[0].startDate.toISOString().slice(0, 10) === state[0].endDate.toISOString().slice(0, 10))) {
+            setErrors(['Check in date and Check out date must not match.'])
+        }
+
     }, [state]);
 
 
-
     const handleSearch = (e) => {
-        e.preventDefault();
-        let searchResults;
+        if (location) {
+            history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
+        } else if (location.length === 0) {
+            setErrors(['Enter a location. Try "Alaska"'])
+        }
+    };
 
-        // if (location) {
-        //     let listingIds = [];
-        //     let listingsWithBookings = {};
-        //     let searchSet = new Set();
-
-
-        //     const filteredResults = listings.map(listing => {
-        //         if ((location === listing.city.toLowerCase() || location === listing.state.toLowerCase()) && listing.guests >= guest) {
-        //             if (listing.Bookings.length) {
-        //                 listingIds.push(listing.id)
-        //                 listingsWithBookings[listing.id] = listing
-        //             } else if (listing.Bookings.length === 0) {
-        //                 searchSet.add(listing)
-        //             }
-        //         }
-        //     }
-        //     )
-
-        //     if (listingIds.length && (state[0].endDate !== state[0].startDate)) {
-
-        //         bookings.forEach(b => {
-        //             if (listingIds.includes(b.listingId)) {
-
-        //                 if (!(state[0].startDate.toISOString().slice(0, 10) >= b.startDate && state[0].startDate.toISOString().slice(0, 10) <= b.endDate
-        //                     || state[0].endDate.toISOString().slice(0, 10) >= b.startDate && state[0].endDate.toISOString().slice(0, 10) <= b.endDate)) {
-        //                     searchSet.add(listingsWithBookings[b.listingId])
-        //                 }
-        //             }
-        //         });
-        //         searchResults = Array.from(searchSet)
-        //     }
-        // };
-
-        history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
-
+    const handleInvalidInput = (e) => {
+        const invalid = ['e', 'E', '-', '.', '+'];
+        if (invalid.includes(e.key)) e.preventDefault()
     }
 
+
+
     return (
-        <div id="searchBarDiv">
+        <>
+            {errors && errors.map(e => <div>{e}</div>)}
             <div id="searchComponent">
                 <div id="location_search">
+                    <label>Location</label>
                     <input
                         type='text'
-                        placeholder='Where are you going?'
+                        placeholder='Where are you going? Try "Miami"'
                         value={location}
                         onChange={(e) => setLocation(e.target.value.toLowerCase())}>
                     </input>
                 </div>
 
-                <div id="search_check_parent">
-                    <div id="search_start_date" onClick={() => setShowPicker(!showPicker)}>
-                        <div id="check_in"> Check in</div>
+                <div className="search_border_div"></div>
+
+                <div id="search_dates">
+                    <div id="selected_dated_div" onClick={() => setShowPicker(!showPicker)}>
+                        <label id="check_in">Selected Dates</label>
                         <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
                     </div>
+
+
                     {showPicker &&
                         <div id="date_range_pop_up">
                             <DateRangePicker
@@ -116,18 +101,30 @@ export default function SearchBar() {
                         </div>
                     }
                 </div>
+
+                <div className="search_border_div"></div>
+
                 <div id="guest_search">
+                    <label>Guests</label>
                     <input
-                        type='text'
+                        type='number'
+                        min="1"
+                        onKeyDown={handleInvalidInput}
+                        step="1"
+                        pattern="^[-/d]/d*$"
                         value={guest}
                         onChange={(e) => setGuest(e.target.value)}
                         placeholder='Where are you going?'>
                     </input>
                 </div>
-                <div id="search_btn">
-                    <button onClick={handleSearch}> Search  </button>
+
+                <div id="search_icon_div">
+                    <div id="search_icon" onClick={handleSearch}>
+                        <SearchIcon />
+                    </div>
+
                 </div>
             </div>
-        </div >
+        </ >
     )
 }

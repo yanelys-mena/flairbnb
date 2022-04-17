@@ -27,19 +27,26 @@ const ListingCard = ({ listing }) => {
     return (
 
         <>
-            <Link to={`/listings/${listing.id}`} key={listing.id}>
+            <Link to={`/listings/${listing.id}`} key={listing.id} target="_blank" rel="noreferrer">
                 <div className="listingCard" key={listing.id}>
                     <div className="cardImage">
                         {imageUrls &&
                             <img alt={listing.name} src={Object.values(imageUrls).find(ele => ele.listingId === listing.id)?.url}></img>}
                     </div>
                     <div className="cardInfo">
-                        <div className='title'>{listing.name}</div>
-                        <div className="cardInfoDetails"> <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p></div>
-                        <div className="bottomSec">
+                        <div id="cardInfo_top">
+                            <div id="card_detail_title">
+                                <div id="card_detail">{`Entire ${listing?.listingType} in ${listing?.city}`}</div>
+                                <div id='card_title'>{listing?.name}</div>
+                            </div>
+                            <div id='card_border_separator'></div>
+                            <div id="cardInfoDetails"> <p>{listing?.guests} Guests · {listing?.bedrooms} bedroom(s) ·  {listing?.beds} Bed · {listing?.bathrooms} bath</p></div>
+                        </div>
+
+                        <div id="bottom_section">
                             <div className="reviews">
 
-                                < span >
+                                <span>
                                     {averageRating > 0 ? <i className="fas fa-star"></i> : ""}
                                 </span>
                                 <span id="avgRatingText">
@@ -51,7 +58,7 @@ const ListingCard = ({ listing }) => {
 
 
                             </div>
-                            <div className='price'> ${listing.price} / night</div>
+                            <div className='price'> ${listing.price} night</div>
 
                         </div>
 

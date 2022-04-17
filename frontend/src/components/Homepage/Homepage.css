@@ -2,36 +2,37 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
+    gap: 15px;
 }
 
+/* NOTE SECTION SEARCH BAR */
 
-/* NOTE SECTION ONE */
-.home_search {
-    background-color: white;
-    ;
+#search_bar_div {
+    margin-top: 20px;
     width: 100%;
-    color: white;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
-/* NOTE SECTION TWO */
+/* NOTE SECTION BIG IMAGE FLEXIBLE */
 
 div .home_largeimg {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: white;
     width: 100%;
     height: 80vh;
-    margin-bottom: 55px;
-
 }
 
 div .largeimg_card {
     height: 90%;
-    width: 80%;
+    width: 90%;
+    position: relative;
 }
 
 .image {
@@ -45,14 +46,18 @@ div .largeimg_card {
 .largeimg_overlay {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
-    margin-top: -250px;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, 0);
 }
 
 .largeimg_overlay>p {
     color: white;
-    font-weight: 700;
-    font-size: 50px;
+    font-weight: 300;
+    font-size: 40px;
     white-space: nowrap;
 }
 
@@ -81,22 +86,35 @@ div .largeimg_card {
 }
 
 
-/* NOTE SECTION THREE */
+/* NOTE SECTION FOUR CARDS */
 .home_inspo {
     display: flex;
     flex-direction: column;
-
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
 
-.home_inspo>p {
-    font-size: 40px;
-    font-weight: 700;
+#inspiration_new_trip {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .home_inspocards {
     display: flex;
-    /* padding-top: 50px; */
-    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.home_inspocards>div {
+    width: 21.5%;
+    height: 350px;
 }
 
 .inspo_card1 {
@@ -146,13 +164,15 @@ div .largeimg_card {
 .inspo_img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 320px;
-    height: 213px;
+    width: 100%;
+    height: 200px;
 }
 
 .inspocard_overlay>*:first-child {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    ;
 }
 
 .inspocard_overlay {
@@ -160,32 +180,46 @@ div .largeimg_card {
     color: white;
 }
 
-/* NOTE SECTION 5 */
+/* NOTE SECTION ARTICLES 2 BIG IMAGES */
 .home_discover {
     display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 25px;
+    position: relative;
 }
 
 .discover_card {
     border-radius: 20px;
-    padding-left: 15px;
-    position: relative
+    width: 44%;
+    position: relative;
+
 }
 
 .discover_card>img {
     border-radius: 20px;
+    width: 100%;
 }
 
 .discover_overlay {
+    /* right: 150px;
+    top: 5%; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
     position: absolute;
-    /* inset: 0 0 0 0; */
-    top: 0;
-    left: 40px;
+    left: 5%;
+    top: 5%;
+    transform: translate(0%, 0);
+
 }
 
 .discover_overlay>*:first-child {
     color: white;
-    font-size: 50px;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 500;
 }
 
 
@@ -201,7 +235,7 @@ div .largeimg_card {
     height: 50px;
 }
 
-/* NOTE SECTION 6 */
+/* NOTE SECTION SHOP*/
 
 .home_shop {
     display: flex;

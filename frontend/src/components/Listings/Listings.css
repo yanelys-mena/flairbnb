@@ -4,18 +4,20 @@ a {
 }
 
 .listingsPage {
-    margin: 150px auto 0 auto;
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
+
 .leftSide {
-    width: 45%;
+    width: 54%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    align-items: center;
+    gap: 20px;
 }
 
 .leftSide::-webkit-scrollbar {
@@ -23,33 +25,32 @@ a {
 }
 
 .rightSide {
-    width: 55%;
+    width: 45%;
+}
+
+#listingsCard_div {
+    width: 100%;
+    margin-left: 20px;
+    border-top: 1px solid #D3D3D3;
 
 }
 
 .listingCard {
-    border-top: 1px solid #D3D3D3;
+    /* border-top: 1px solid #D3D3D3; */
     display: flex;
     justify-content: space-between;
     height: 250px;
-    width: 90%;
-    margin: 10px;
-    padding-top: 30px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 .listingCard:hover {
     cursor: pointer;
 }
 
-.title {
-    color: black;
-    margin-left: 20px;
-    font-size: 22px;
-    font-weight: 500;
-}
-
 .cardImage {
-    width: 40%;
+    width: 45%;
     height: 100%;
 
 }
@@ -63,77 +64,92 @@ a {
 }
 
 .cardInfo {
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: column;
-
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
 }
 
 
 .cardInfo>div {
     width: 100%;
-    height: 100%;
+    height: 50%;
+}
+
+#cardInfo_top {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-
+    justify-content: space-between;
 }
 
-.cardInfoDetails {
+#card_detail_title {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#card_detail {
+    color: #7D7D7D;
+    font-size: 14px;
+}
+
+#card_title {
     font-size: 18px;
-    margin-left: 20px;
-    color: gray;
+    color: black;
+}
+
+#cardInfoDetails {
+    font-size: 15px;
+    letter-spacing: .5px;
     font-weight: 700;
+    color: #7D7D7D;
+
 }
 
 
-.bottomSec {
-    display: flex;
-    display: flex;
-    justify-content: flex-end;
+#card_border_separator {
+    border-top: #EEEEEE 1px solid;
+    width: 40px;
+}
 
+#bottom_section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
 }
 
 .reviews {
-    align-self: flex-start;
     font-size: 18px;
-    margin-left: 20px;
     color: black;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    gap: 5px;
+}
 
+#avgRatingText {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .price {
-    align-self: flex-end;
-    margin-top: -10px;
-    margin-right: 20px;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    margin-left: 20px;
     color: black;
 }
 
 .fa-star {
     color: #FF385C;
-    margin-bottom: 3px;
-}
-
-.reviews>span {
-    font-weight: 500;
-}
-
-#avgRatingText {
-    padding-left: 5px;
-
-
+    font-size: 20px;
 }
 
 #reviewAmount {
     font-weight: 300;
     color: gray;
     font-size: 15px;
-
-    padding-left: 10px;
 }

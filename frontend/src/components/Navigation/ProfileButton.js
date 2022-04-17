@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import CreateListings from '../CreateListing';
 
+import './ProfileButton.css';
+
+
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
@@ -15,13 +18,8 @@ function ProfileButton({ user }) {
 
     useEffect(() => {
         if (!showMenu) return;
-
-        const closeMenu = () => {
-            setShowMenu(false);
-        };
-
+        const closeMenu = () => { setShowMenu(false) };
         document.addEventListener('click', closeMenu);
-
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
@@ -32,20 +30,22 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <button className="menu" onClick={openMenu}>
-                <i className="fas fa-bars"></i>
-                <i className="fas fa-user-circle"></i>
-
+            <button id="menu" onClick={openMenu}>
+                <i className="fas fa-bars nav_bars_icon"></i>
+                <i className="fas fa-user-circle nav_user_icon"></i>
             </button>
             {showMenu && (
-                <ul className="dropdownList">
-                    <li >{user.username}</li>
-                    <li><Link to="/manage-listings" id="manageListings">Manage listings</Link>  </li>
-                    <li className="buttonli">
-                        <button className="logout_btn" onClick={logout}>Log Out</button>
-                    </li>
-                </ul >)
-            }
+                <div id="dropdown">
+                    <div id="dropdown_first">
+                        Trips
+                    </div>
+                    <Link id="dropdown_second" to="/manage-listings">
+                        Manage listings
+                    </Link>
+                    <div id="dropdown_last" onClick={logout}>
+                        Log out
+                    </div>
+                </div>)}
         </>
     );
 }

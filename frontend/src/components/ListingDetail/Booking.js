@@ -7,7 +7,7 @@ import { load_bookings, add_booking } from '../../store/bookings'
 import './Booking.css';
 import dayjs from "dayjs";
 import { subDays } from 'date-fns';
-import { getTableSortLabelUtilityClass } from "@mui/material";
+// import { getTableSortLabelUtilityClass } from "@mui/material";
 
 
 
@@ -36,6 +36,19 @@ const Booking = ({ listing, sessionUser }) => {
         setStartDate(start);
         setEndDate(end);
     };
+
+    useEffect(() => {
+        // setErrors([`Maximum guests are ${listing?.guests}`])
+        console.log('compare', Number(guest) > listing.guests)
+        if (Number(guest) > listing.guests) {
+            setErrors([`Maximum guests are ${listing?.guests}`])
+            setDisabled(true)
+            console.log('guest', guest)
+            console.log('listguest', listing.guests)
+            console.log('error', errors)
+        };
+
+    }, [guest, setGuest])
 
 
     useEffect(() => {
@@ -73,10 +86,24 @@ const Booking = ({ listing, sessionUser }) => {
             }
 
         }
-    }, [startDate, endDate])
+    }, [startDate, endDate]);
 
+
+    useEffect(() => {
+
+        if (Number(guest) > listing.guest) {
+            setErrors([`Maximum guests are ${listing?.guests}`])
+            setDisabled(true)
+        };
+
+    }, [guest, setGuest])
 
     const handleBooking = async () => {
+        if (Number(guest) > listing.guest) {
+            setErrors([`Maximum guests are ${listing?.guests}`])
+            return;
+        };
+
         const newBooking = {
             userId: sessionUser?.id,
             listingId: listing?.id,
@@ -87,6 +114,7 @@ const Booking = ({ listing, sessionUser }) => {
         const data = await dispatch(add_booking(newBooking))
         if (data) {
             setReserved(true)
+            setDisabled(true)
         }
     }
 
@@ -106,7 +134,8 @@ const Booking = ({ listing, sessionUser }) => {
 
                 {available ? '' : <div id="validDate">Please select a valid Date</div>}
                 {datesBooked && <>{datesBooked.map((ele, idx) => <div id="date" key={idx}>{ele}</div>)}</>}
-                {errors && errors.map(e => <div id="validDate">{e}</div>)}
+
+                {errors && errors.map(e => <div id="validDate" key={e}>{e}</div>)}
 
                 <div id="bookings_guest_date_selector">
                     <div id="bookings_selected_dates">
@@ -150,9 +179,7 @@ const Booking = ({ listing, sessionUser }) => {
                         selectsRange
                         inline
                         showMonthDropdown
-
                         minDate={subDays(new Date(), 0)}
-
                     // excludeDates={[new Date(), subDays(new Date(), 1)]}
                     />
                 </div>
@@ -164,7 +191,8 @@ const Booking = ({ listing, sessionUser }) => {
                 <button onClick={handleBooking}
                     disabled={disabled}
                     className={disabled || errors.length ? 'inactiveBtn' : 'activeBtn'}
-                >{reserve ? <span id="booked">Success! <Link to="/trips">See Booking</Link></span> : 'Reserve'}</button>
+                >{reserve ? <span id="booked">Success! </span> : 'Reserve'}</button>
+                <div>{reserve && <Link to="/trips">See Bookings</Link>}</div>
 
             </div>
 

@@ -52,7 +52,7 @@ export const delete_booking = (bookingId) => async (dispatch) => {
         method: 'DELETE',
     });
     const deletedBookingId = await response.json();
-    dispatch(to_delete(deletedBookingId))
+    dispatch(to_delete(deletedBookingId.id))
     return;
 };
 
@@ -78,7 +78,8 @@ const bookingsReducer = (state = initialState, action) => {
 
         case DELETE: {
             newState = { ...state };
-            delete newState[action.booking.id];
+            console.log('ACTION BOOKING', action.bookingId)
+            delete newState[action.bookingId];
             return newState;
         }
         default:

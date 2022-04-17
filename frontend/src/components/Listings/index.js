@@ -28,7 +28,6 @@ const Listings = () => {
                             listing={listing}
                         />
                     </div>
-
                 )}
 
             </div>

@@ -196,6 +196,10 @@ form>.signup_btn:hover {
     cursor: pointer;
 }
 
+img {
+    object-fit: cover;
+}
+
 /* 
 body {
     margin: 0px !important;

@@ -36,11 +36,14 @@ function ProfileButton({ user }) {
             </button>
             {showMenu && (
                 <div id="dropdown">
-                    <div id="dropdown_first">
+                    <Link to="/trips" id="dropdown_first">
                         Trips
-                    </div>
-                    <Link id="dropdown_second" to="/manage-listings">
+                    </Link>
+                    <Link to="/manage-listings" id="dropdown_second" >
                         Manage listings
+                    </Link>
+                    <Link to="/create-listing" id="dropdown_third">
+                        Host an Experience
                     </Link>
                     <div id="dropdown_last" onClick={logout}>
                         Log out

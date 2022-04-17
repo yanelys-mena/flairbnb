@@ -62,7 +62,8 @@
 
 
 #dropdown_first,
-#dropdown_second {
+#dropdown_second,
+#dropdown_third {
     font-size: 15px;
     color: black;
     font-weight: 700;
@@ -83,6 +84,8 @@
     border-top: .5px #D3D3D3 solid;
 
 }
+
+
 
 #dropdown_last:hover {
     background-color: #F7F7F7;

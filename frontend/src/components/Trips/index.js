@@ -59,9 +59,8 @@ const Trips = () => {
                                 <div>
                                     ${(dayjs(booking.endDate).diff(dayjs(booking.startDate), 'day') - 1) * booking.Listing.price} Total
                                 </div>
-                                <div>
+                                <div id="cancel_reservation">
                                     Cancel Reservation
-
                                 </div>
                             </div>
                         </div>)}

@@ -22,7 +22,7 @@ const Listings = () => {
         <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
                 {listings?.map(listing =>
-                    <div onMouseEnter={(e) => setHoveredListing(listing)}>
+                    <div id="listingsCard_div" onMouseEnter={(e) => setHoveredListing(listing)}>
                         <ListingCard
                             key={listing.id}
                             listing={listing}

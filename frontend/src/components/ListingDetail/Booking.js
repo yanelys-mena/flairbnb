@@ -17,7 +17,7 @@ const Booking = ({ listing, sessionUser }) => {
     const [disabled, setDisabled] = useState(true);
     const [datesBooked, setDatesBooked] = useState([]);
     const [guest, setGuest] = useState(1);
-
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         dispatch(load_bookings())
@@ -33,6 +33,13 @@ const Booking = ({ listing, sessionUser }) => {
 
     useEffect(() => {
         if (startDate && endDate) {
+
+            if (startDate.toISOString().slice(0, 10) === endDate.toISOString().slice(0, 10)) {
+                setErrors(['Check-in and Checkout cannot be the same.'])
+            } else {
+                setErrors([])
+            }
+
             let getBookedDates = [];
 
             bookedListings.forEach(item => {
@@ -82,6 +89,8 @@ const Booking = ({ listing, sessionUser }) => {
 
                 {available ? '' : <div id="validDate">Please select a valid Date</div>}
                 {datesBooked && <>{datesBooked.map((ele, idx) => <div id="date" key={idx}>{ele}</div>)}</>}
+                {errors && errors.map(e => <div id="validDate">{e}</div>)}
+
                 <div id="bookings_guest_date_selector">
                     <div id="bookings_selected_dates">
                         <div id="bkn_checkin">
@@ -115,7 +124,7 @@ const Booking = ({ listing, sessionUser }) => {
 
 
                 </div>
-                <div>
+                <div id="date_picker">
                     <DatePicker
                         selected={startDate}
                         onChange={onChange}
@@ -128,7 +137,7 @@ const Booking = ({ listing, sessionUser }) => {
 
                 <button onClick={handleBooking}
                     disabled={disabled}
-                    className={disabled ? 'inactiveBtn' : 'activeBtn'}
+                    className={disabled || errors.length ? 'inactiveBtn' : 'activeBtn'}
                 >Reserve</button>
 
             </div>

@@ -95,7 +95,7 @@ const ListingDetail = () => {
                         </div>
                         <div className="bottomSection">
                             <div className="leftSec">
-                                {/* <p>Hosted by {sessionUser.username}</p> */}
+                                <div id="listing_detail_host">Hosted by {listing?.User?.username}</div>
                                 <div className="leftSecInner">
                                     <p>{listing.guests} Guests · {listing.listingType} ·  {listing.beds} Bed · {listing.bathrooms} bath</p>
 

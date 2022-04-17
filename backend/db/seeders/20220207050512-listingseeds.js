@@ -296,7 +296,7 @@ module.exports = {
       },
       {
         userId: 1,
-        name: "TYoung Wild & TREE(HOUSE) private hot tub",
+        name: "Young Wild & TREE(HOUSE) private hot tub",
         listingType: 'Entire home',
         guests: 4,
         beds: 2,

@@ -12,6 +12,7 @@
   display: flex;
   text-decoration: none;
   flex-direction: column;
+  gap: 10px;
 }
 
 #myListingCard:hover {

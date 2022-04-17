@@ -3,18 +3,25 @@
     display: flex;
     flex-direction: column;
     width: 70%;
+    gap: 15px;
 }
 
 .topDiv {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    gap: 15px;
+
+}
+
+.topText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .topText>ul {
     display: flex;
     justify-content: flex-start;
-    margin-left: -40px;
-
 }
 
 #avgRating {
@@ -128,10 +135,17 @@
     border-bottom: #D3D3D3 solid 1px;
 }
 
+.leftSecInner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .leftSec {
     display: flex;
     flex-direction: column;
     width: 70%;
+    gap: 5px;
 }
 
 .leftSec>p {
@@ -161,6 +175,12 @@
 
 }
 
+#listing_detail_host {
+    font-size: 20px;
+    font-weight: 500;
+
+}
+
 .activeBtn {
     background: linear-gradient(to bottom right,
             #E5204D, #D70965);
@@ -174,9 +194,12 @@
 
 
 .descriptionDiv {
+    padding-top: 10px;
     width: 90%;
     border-top: #D3D3D3 solid 1px;
-
+    letter-spacing: .5px;
+    line-height: 25px;
+    text-align: justify;
 }
 
 .reviewsDiv {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import './Maps.css'
 
 const containerStyle = {
     width: '100%',
@@ -9,8 +10,7 @@ const containerStyle = {
 
 const Maps = ({ apiKey, listings, hoveredListing }) => {
     const [selected, setSelected] = useState(null);
-    const [center, setCenter] = useState({ lat: 25.752349481188816, lng: -80.2634573883995 })
-
+    const [center, setCenter] = useState({ lat: 41.68030120482413, lng: -93.79865983926028 })
 
     useEffect(() => {
         setSelected(hoveredListing)
@@ -52,8 +52,9 @@ const Maps = ({ apiKey, listings, hoveredListing }) => {
                                 setSelected(null);
                             }}
                         >
-                            <div>
-                                {selected.name}
+                            <div id="maps_pin">
+                                {selected.name.slice(0, 20)}...
+                                <img id="map_pin_photo" src={selected.Images[1].url}></img>
                             </div>
                         </InfoWindow>
                     )}

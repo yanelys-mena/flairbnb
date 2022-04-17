@@ -85,8 +85,8 @@ module.exports = {
         city: 'Salida',
         state: 'Colorado',
         country: 'United States',
-        lat: 39.7792101528639,
-        lng: -104.89458103210228,
+        lat: 40.95609416444551,
+        lng: -105.19040327628231,
         price: 125.00,
       },
 

@@ -2,6 +2,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { load_bookings, add_booking } from '../../store/bookings'
 import './Booking.css';
 import dayjs from "dayjs";
@@ -22,6 +23,7 @@ const Booking = ({ listing, sessionUser }) => {
     const [guest, setGuest] = useState(1);
     const [count, setCount] = useState(1)
     const [errors, setErrors] = useState([]);
+    const [reserve, setReserved] = useState(false)
 
     useEffect(() => {
         dispatch(load_bookings())
@@ -74,7 +76,7 @@ const Booking = ({ listing, sessionUser }) => {
     }, [startDate, endDate])
 
 
-    const handleBooking = () => {
+    const handleBooking = async () => {
         const newBooking = {
             userId: sessionUser?.id,
             listingId: listing?.id,
@@ -82,7 +84,10 @@ const Booking = ({ listing, sessionUser }) => {
             endDate,
             numGuests: guest
         };
-        dispatch(add_booking(newBooking))
+        const data = await dispatch(add_booking(newBooking))
+        if (data) {
+            setReserved(true)
+        }
     }
 
     const handleInvalidInput = (e) => {
@@ -159,7 +164,7 @@ const Booking = ({ listing, sessionUser }) => {
                 <button onClick={handleBooking}
                     disabled={disabled}
                     className={disabled || errors.length ? 'inactiveBtn' : 'activeBtn'}
-                >Reserve</button>
+                >{reserve ? <span id="booked">Success! <Link to="/trips">See Booking</Link></span> : 'Reserve'}</button>
 
             </div>
 

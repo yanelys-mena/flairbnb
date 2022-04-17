@@ -18,6 +18,7 @@ export default function SearchBar() {
     const bookings = useSelector((state) => Object.values(state?.bookings));
 
     const dispatch = useDispatch();
+
     const [errors, setErrors] = useState([]);
     const [showPicker, setShowPicker] = useState(false);
     const [location, setLocation] = useState('');

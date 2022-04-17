@@ -5,6 +5,8 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { Booking } = require('../../db/models');
 const { User } = require('../../db/models');
 const { Listing } = require('../../db/models');
+const { Image } = require('../../db/models');
+
 const router = express.Router();
 
 

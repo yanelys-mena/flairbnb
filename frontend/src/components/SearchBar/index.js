@@ -18,7 +18,7 @@ export default function SearchBar() {
     const bookings = useSelector((state) => Object.values(state?.bookings));
 
     const dispatch = useDispatch();
-
+    const [errors, setErrors] = useState([]);
     const [showPicker, setShowPicker] = useState(false);
     const [location, setLocation] = useState('');
     const [guest, setGuest] = useState(1);
@@ -36,18 +36,33 @@ export default function SearchBar() {
     }, [dispatch])
 
 
+
     useEffect(() => {
         if (!(state[0].startDate.toISOString().slice(0, 10) === state[0].endDate.toISOString().slice(0, 10))) {
             setShowPicker(false)
+            setErrors([])
         }
+
+        if ((state[0].startDate.toISOString().slice(0, 10) === state[0].endDate.toISOString().slice(0, 10))) {
+            setErrors(['Check in date and Check out date must not match.'])
+        }
+
+
     }, [state]);
 
+
     const handleSearch = (e) => {
-        history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
-    }
+        if (location) {
+            history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
+        }
+    };
+
+
+
 
     return (
         <>
+            {errors && errors.map(e => <div>{e}</div>)}
             <div id="searchComponent">
                 <div id="location_search">
                     <label>Location</label>
@@ -61,10 +76,12 @@ export default function SearchBar() {
 
                 <div className="search_border_div"></div>
 
-                <div id="search_dates" onClick={() => setShowPicker(!showPicker)}>
+                <div id="search_dates">
+                    <div id="selected_dated_div" onClick={() => setShowPicker(!showPicker)}>
+                        <label id="check_in">Selected Dates</label>
+                        <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
+                    </div>
 
-                    <label id="check_in">Selected Dates</label>
-                    <div id="search_date_range">{state[0].startDate && state[0].endDate ? <> {`${dayjs(state[0].startDate).format("MMM DD")} - ${dayjs(state[0].endDate).format("MMM DD")}`} </> : 'Add dates'}</div>
 
                     {showPicker &&
                         <div id="date_range_pop_up">

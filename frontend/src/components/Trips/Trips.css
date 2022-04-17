@@ -13,22 +13,32 @@
 
 }
 
-#trips_list {
-    width: 60%;
+#trip_card_container {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d3d3d3;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+#trips_list {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 #reservations_info {
     width: 100%;
-    background-color: palegoldenrod;
+    background-color: black;
     display: flex;
     height: 50px;
     align-items: center;
 }
 
 #reservations_info>div {
+    color: white;
     width: 25%;
     display: flex;
     align-items: center;

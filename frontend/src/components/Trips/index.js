@@ -47,7 +47,7 @@ const Trips = () => {
             <div id="trips_list">
                 {bookings.length ? <>
                     {bookings?.map(booking =>
-                        <div key={booking.id}>
+                        <div id="trip_card_container" key={booking.id}>
                             <TripCard listing={listings[booking?.listingId]} />
                             <div id="reservations_info">
                                 <div>
@@ -61,6 +61,7 @@ const Trips = () => {
                                 </div>
                                 <div>
                                     Cancel Reservation
+
                                 </div>
                             </div>
                         </div>)}

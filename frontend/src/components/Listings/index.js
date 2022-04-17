@@ -9,7 +9,7 @@ import MapContainer from '../Maps';
 const Listings = () => {
     const dispatch = useDispatch();
     const id = useSelector((state) => state.session?.user?.id);
-    const listings = useSelector((state) => state?.listings);
+    const listings = useSelector((state) => Object.values(state?.listings));
     const [hoveredListing, setHoveredListing] = useState(null);
 
     useEffect(() => {
@@ -21,12 +21,11 @@ const Listings = () => {
     return (
         <div className="listingsPage" id="listingsPage">
             <div className="leftSide">
-                {Object.values(listings).map(listing =>
+                {listings?.map(listing =>
                     <div onMouseEnter={(e) => setHoveredListing(listing)}>
                         <ListingCard
                             key={listing.id}
                             listing={listing}
-
                         />
                     </div>
 
@@ -34,7 +33,7 @@ const Listings = () => {
 
             </div>
             <div className="rightSide">
-                <MapContainer listings={Object.values(listings)} hoveredListing={hoveredListing} />
+                <MapContainer listings={listings} hoveredListing={hoveredListing} />
             </div>
 
         </div >

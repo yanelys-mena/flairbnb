@@ -54,9 +54,15 @@ export default function SearchBar() {
     const handleSearch = (e) => {
         if (location) {
             history.push(`/search/${location}/${guest}/${state[0].startDate.toISOString().slice(0, 10)}/${state[0].endDate.toISOString().slice(0, 10)}`)
+        } else if (location.length === 0) {
+            setErrors(['Enter a location. Try "Alaska"'])
         }
     };
 
+    const handleInvalidInput = (e) => {
+        const invalid = ['e', 'E', '-', '.', '+'];
+        if (invalid.includes(e.key)) e.preventDefault()
+    }
 
 
 
@@ -104,6 +110,9 @@ export default function SearchBar() {
                     <input
                         type='number'
                         min="1"
+                        onKeyDown={handleInvalidInput}
+                        step="1"
+                        pattern="^[-/d]/d*$"
                         value={guest}
                         onChange={(e) => setGuest(e.target.value)}
                         placeholder='Where are you going?'>

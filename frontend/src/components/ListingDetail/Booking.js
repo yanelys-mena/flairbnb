@@ -16,6 +16,8 @@ const Booking = ({ listing, sessionUser }) => {
     const bookedListings = Object.values(bookings).filter(booking => booking?.listingId === listing?.id);
     const [disabled, setDisabled] = useState(true);
     const [datesBooked, setDatesBooked] = useState([]);
+    const [guest, setGuest] = useState(1);
+
 
     useEffect(() => {
         dispatch(load_bookings())
@@ -59,16 +61,60 @@ const Booking = ({ listing, sessionUser }) => {
             listingId: listing?.id,
             startDate,
             endDate,
-            numGuests: 1
+            numGuests: guest
         };
         dispatch(add_booking(newBooking))
     }
 
+    const handleInvalidInput = (e) => {
+        const invalid = ['e', 'E', '-', '.', '+'];
+        if (invalid.includes(e.key)) e.preventDefault()
+    }
+
+
+
     return (
         <>
-            <div className="bookingsDiv">
+            <div id="bookingsDiv">
+                <div id="bookings_price">
+                    <div><span id="price_bigger">${listing.price} </span>night</div>
+                </div>
+
                 {available ? '' : <div id="validDate">Please select a valid Date</div>}
                 {datesBooked && <>{datesBooked.map((ele, idx) => <div id="date" key={idx}>{ele}</div>)}</>}
+                <div id="bookings_guest_date_selector">
+                    <div id="bookings_selected_dates">
+                        <div id="bkn_checkin">
+                            <div id="checkin">CHECK-IN</div>
+                            <div id="bkn_start">{(startDate && endDate) && `${dayjs(startDate.toISOString().slice(0, 10)).format("MMM DD")}`}</div>
+                        </div>
+                        <div id="bkn_checkout">
+                            <div id="checkout">CHECKOUT</div>
+                            <div id="bkn_end">{(startDate && endDate) && `${dayjs(endDate.toISOString().slice(0, 10)).format("MMM DD")}`}</div>
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </div>
+                    <div id="bookings_guest_input_div">
+                        <label>GUESTS</label>
+                        <input
+                            type='number'
+                            min="1"
+                            max={listing?.guests}
+                            onKeyDown={handleInvalidInput}
+                            step="1"
+                            pattern="^[-/d]/d*$"
+                            value={guest}
+                            onChange={(e) => setGuest(e.target.value)}
+                            placeholder='Where are you going?'>
+                        </input>
+
+                    </div>
+
+
+                </div>
                 <div>
                     <DatePicker
                         selected={startDate}
@@ -86,11 +132,7 @@ const Booking = ({ listing, sessionUser }) => {
                 >Reserve</button>
 
             </div>
-            <div>
-                <p>${listing.price} / night</p>
-                Your Upcoming reservations:
-                <div>{ }</div>
-            </div>
+
         </>
     )
 };

@@ -1,3 +1,123 @@
+#bookingsDiv {
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: solid 1px #D3D3D3;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+
+#bookings_price {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+}
+
+#price_bigger {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+#bookings_guest_date_selector {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    gap: 5px;
+    border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 120px;
+    border: .5px #D3D3D3 solid;
+
+}
+
+#bookings_selected_dates {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+}
+
+#bkn_checkin,
+#bkn_checkout {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 40px;
+    padding: 4px;
+}
+
+#checkin,
+#checkout {
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#bkn_start,
+#bkn_end {
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#bkn_checkout {
+    border-left: .5px #D3D3D3 solid;
+
+}
+
+
+#bookings_guest_input_div {
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 40px;
+    padding: 4px;
+    border-top: .5px #D3D3D3 solid;
+    ;
+}
+
+#bookings_guest_input_div label {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+#bookings_guest_input_div input {
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 4px;
+
+}
+
+
 .inactiveBtn {
     background-color: #D8D8D8 !important;
     color: white;

@@ -38,6 +38,8 @@
     background-color: #EBEBEB;
 }
 
+
+
 #searchComponent>div>label {
     display: flex;
     font-weight: 600;
@@ -114,23 +116,6 @@
 
 
 
-#search_start_date {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2px;
-    cursor: pointer;
-    border-radius: 20px;
-    padding: 8px;
-    box-sizing: border-box;
-    cursor: pointer;
-
-}
-
-
-
 #search_dates>label {
     font-weight: 700;
     font-size: 14px;
@@ -142,6 +127,7 @@
     font-size: 14px;
     width: 80%;
     cursor: pointer;
+    letter-spacing: .5px;
 }
 
 #date_range_pop_up {

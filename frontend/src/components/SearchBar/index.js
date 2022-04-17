@@ -47,7 +47,6 @@ export default function SearchBar() {
             setErrors(['Check in date and Check out date must not match.'])
         }
 
-
     }, [state]);
 
 

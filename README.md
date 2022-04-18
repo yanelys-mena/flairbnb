@@ -1,20 +1,88 @@
 <div id="top"></div>
 
-<!-- PROJECT LOGO -->
+<a id="top"></a>
+# Welcome to [FlairBnb](https://pinterest-clone-aa.herokuapp.com/), an Airbnb Clone!
 
-<!-- ABOUT THE PROJECT -->
+Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Searching through eye-catching listings; these are some of the features available for users on Flairbnb. The app provides a clean and sharp user interface designed to put the user experience first. 
 
-<!-- GETTING STARTED -->
-## Getting Started
+[Live Link](https://pinterest-clone-aa.herokuapp.com/)
+
+![search](./frontend/public/gifs/flair_search-high.gif)
+[Click for a full list of features and upcoming releases.](#features)
 
 
-### Prerequisites
+## Wiki Links
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install
-  ```
+ - [Database Schema](https://github.com/yanelys-mena/flairbnb/wiki/Wireframes-and-Front-End-Routes)
+ - [Feature List](https://github.com/yanelys-mena/flairbnb/wiki/MVP-Feature-List)
+- [Redux State Shade](https://github.com/yanelys-mena/pinterest-clone/wiki/Redux-State-Shape)
+
+## Technologies
+
+ - **Backend:** Node.js, Express
+ - **Frontend:** JavaScript, React/Redux
+ - **Database:** PostgresSQL
+ - **Design and Styling:** HTML/CSS
+ - **External APIs:** Google Maps API
+
+
+<a id="features"></a>
+## Features
+* [Listings](#listings)
+    * [View all listings](#listings)
+    * [View a Listing](#listing_page)
+    * [Create a listing](#create_listing)
+    * [Edit or Delete a listing](#edit_listing)
+* [Reviews](#reviews)
+* [Search listings](#search)
+* [Book a Trip](#bookings)
+    * [Make a Reservation](#bookings)
+    * [View your Trips](#trips)
+* [Google Maps](#maps)
+
+
+* Future Releases
+    * Geolocation
+
+
+## Local Setup Instructions
+* [Setup Instructions](#instructions)
+
+
+# Features
+
+<a id="google_maps"></a>
+ ## Google Maps Pins and Previews 
+![Google Maps](./frontend/public/gifs/google_maps-high.gif)
+
+-----------------------------
+
+<a id="listings"></a>
+## Listing and Listing Page
+![Listings](./frontend/public/gifs/listings_page-high.gif)
+-----------------------------
+
+<a id="reviews"></a>
+## Reviews
+![Reviews](./frontend/public/gifs/reviews-high.gif)
+-----------------------------
+
+<a id="search"></a>
+##  Search by availability, location, and guest number
+![search](./frontend/public/gifs/flair_search-high.gif)
+-----------------------------
+
+<a id="bookings"></a>
+## Book Trips
+![bookings](./frontend/public/gifs/book-high.gif)
+-----------------------------
+
+
+-----------------------------
+ [Back to top](#top)
+
+<a id="instructions"></a>
+## Install Instructions
 
 ### Installation
 
@@ -64,7 +132,9 @@ This is an example of how to list things you need to use the software and how to
       npm start
     ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
+---------------------
+ [Back to top](#top)
 
 
 <!-- CONTACT -->
@@ -74,5 +144,6 @@ Yanelys Mena - yanelyshm@outlook.com
 
 Project Link: [https://github.com/yanelys-mena/flairbnb](https://github.com/github_username/flairbnb)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+---------------------
+ [Back to top](#top)
 

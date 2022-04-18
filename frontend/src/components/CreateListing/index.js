@@ -29,7 +29,7 @@ const CreateListing = () => {
 
     if (!sessionUser) return <Redirect to="/signup" />;
 
-    console.log(price)
+    console.log('listing', listingType)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,8 +74,6 @@ const CreateListing = () => {
 
         if (listingSuccess) {
             setListingId(listingSuccess.id);
-            console.log('LISTING SUCCESS', listingSuccess)
-            console.log('LISTING ID', listingId)
             setPage(2);
         }
     }
@@ -189,7 +187,7 @@ const CreateListing = () => {
                             <p> What kind of space will guests have? </p>
                             <div id='space_type_btn_div'>
                                 <div
-                                    id={listingType === 'entire_home' ? 'selected_space' : ''}
+                                    id={listingType === 'entire home' ? 'selected_space' : ''}
                                     className="space_type_btn"
                                     onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</div>
                                 <div

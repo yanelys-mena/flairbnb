@@ -56,7 +56,8 @@
 }
 
 #selected_space {
-    background-color: red;
+    background-color: #D70965;
+    ;
 }
 
 .createListingForm>label>p {

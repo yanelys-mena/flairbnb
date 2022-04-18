@@ -24,12 +24,22 @@ const Booking = ({ listing, sessionUser }) => {
     const [reserve, setReserved] = useState(false)
     const [guestError, setGuestError] = useState('');
     const [uniqueDateError, setUniqueDateError] = useState('');
-    const [unavailableError, setUnavailableError] = useState('')
+    const [unavailableError, setUnavailableError] = useState('');
+    const [userLoggedOut, setUserLoggedOut] = useState('')
 
+    // console.log('USER', sessionUser)
 
     useEffect(() => {
         dispatch(load_bookings())
     }, []);
+
+    useEffect(() => {
+        if (!sessionUser) {
+            setUserLoggedOut(true)
+        } else {
+            setUserLoggedOut(false)
+        }
+    })
 
 
     const onChange = (dates) => {
@@ -38,6 +48,12 @@ const Booking = ({ listing, sessionUser }) => {
         setStartDate(start);
         setEndDate(end);
     };
+
+    useEffect(() => {
+        dispatch(load_bookings())
+    }, []);
+
+
 
     useEffect(() => {
 
@@ -130,7 +146,7 @@ const Booking = ({ listing, sessionUser }) => {
                 {guestError && <div id="validDate"> {guestError} </div>}
                 {uniqueDateError && <div id="validDate"> {uniqueDateError} </div>}
                 {unavailableError && <div id="validDate"> {unavailableError} </div>}
-
+                {userLoggedOut && <div id="validDate">Log in to Reserve a Listing</div>}
                 <div id="bookings_guest_date_selector">
                     <div id="bookings_selected_dates">
                         <div id="bkn_checkin">
@@ -180,8 +196,8 @@ const Booking = ({ listing, sessionUser }) => {
                     <div>  {(startDate && endDate) && <div id="validDate">{dayjs(endDate).diff(dayjs(startDate), 'day')} night total {`$${dayjs(endDate).diff(dayjs(startDate), 'day') * listing.price}`} </div>}</div>
                 </div>
                 <button onClick={handleBooking}
-                    disabled={(guestError || uniqueDateError || unavailableError)}
-                    className={(guestError || uniqueDateError || unavailableError) ? 'inactiveBtn' : 'activeBtn'}
+                    disabled={(!(startDate && endDate) || guestError || uniqueDateError || unavailableError || userLoggedOut)}
+                    className={(!(startDate && endDate) || guestError || uniqueDateError || unavailableError || userLoggedOut) ? 'inactiveBtn' : 'activeBtn'}
                 >{reserve ? <span id="booked">Success! </span> : 'Reserve'}</button>
                 <div>{reserve && <Link to="/trips">See Bookings</Link>}</div>
 

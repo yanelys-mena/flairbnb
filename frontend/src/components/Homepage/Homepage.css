@@ -2,7 +2,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
 }
 
 /* NOTE SECTION SEARCH BAR */
@@ -223,7 +223,7 @@ div .largeimg_card {
 }
 
 
-.discover_overlay>button {
+.discover_overlay>a>button {
     display: flex;
     justify-content: center;
     font-weight: 500;
@@ -232,7 +232,7 @@ div .largeimg_card {
     border-radius: 15px;
     background-color: white;
     width: 185px;
-    height: 50px;
+    height: 45px;
 }
 
 /* NOTE SECTION SHOP*/

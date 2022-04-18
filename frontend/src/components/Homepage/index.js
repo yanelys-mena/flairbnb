@@ -101,21 +101,27 @@ const Homepage = () => {
                         </div>
                     </div> */}
 
+            <div id="inspiration_new_trip">Discover our partners</div>
 
             <div className="home_discover">
 
                 <div className="discover_card">
                     <img src="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=720" ></img>
                     <div className="discover_overlay">
-                        <p>Things to do on your trip</p>
-                        <button>Experiences</button>
+                        <p>Get inspired for your trip</p>
+                        <a href="https://pinterest-clone-aa.herokuapp.com/" target="_blank">
+                            <button>Organize your ideas</button>
+                        </a>
                     </div>
                 </div>
                 <div className="discover_card">
                     <img src="https://a0.muscache.com/im/pictures/cae7ae9a-d069-4c6a-9267-795643472df1.jpg?im_w=720" ></img>
                     <div className="discover_overlay">
-                        <p>Things to do from home</p>
-                        <button>Online Experiences</button>
+                        <p>Traveling with pets</p>
+                        <a href="https://aa-petsy.herokuapp.com/" target="_blank">
+                            <button>Shop Pet Products</button>
+                        </a>
+
                     </div>
                 </div>
             </div>

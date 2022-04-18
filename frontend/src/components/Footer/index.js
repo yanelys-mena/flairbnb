@@ -7,8 +7,7 @@ const Footer = () => {
             <div className="bottomFooter">
                 <span> © 2022 Flairbnb</span>
                 <span> · </span>
-                <span>Yanelys Mena</span>
-                <span> · </span>
+                <a href="https://www.yanelys.dev/" target="blank">Yanelys Mena</a>                <span> · </span>
                 <a href="https://github.com/yanelys-mena/flairbnb#readme" target="blank">Read Me</a>
                 <span> · </span>
                 <a href="https://github.com/yanelys-mena" target="blank">GitHub </a>

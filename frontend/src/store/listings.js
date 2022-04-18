@@ -30,24 +30,6 @@ export const getAllListings = () => async (dispatch) => {
 
 
 
-
-//NOTE get listing
-// const loadListings = (listings) => {
-//     return {
-//         type: GET_LISTINGS,
-//         listings
-//     }
-// }
-
-
-// export const getListings = () => async (dispatch) => {
-//     const response = await fetch('/api/listings');
-//     const listings = await response.json();
-//     dispatch(loadListings(listings.listings));
-//     return listings;
-// };
-
-
 //NOTE create listing
 const createListing = (newListing) => {
     return {

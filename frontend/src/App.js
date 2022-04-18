@@ -13,6 +13,7 @@ import Navigation from "./components/Navigation";
 import ManageListings from './components/ManageListings';
 import SearchResults from './components/SearchResults';
 import Trips from './components/Trips';
+import NotFound from "./components/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path="/trips">
             <Trips />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       )}

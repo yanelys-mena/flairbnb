@@ -34,8 +34,8 @@ function LoginForm() {
     };
 
     return (
-        <>
-            <div className="Welcome">
+        <div id="login_modal">
+            <div className="welcome">
                 <h2> Welcome to Flairbnb </h2>
             </div>
             <form
@@ -70,7 +70,7 @@ function LoginForm() {
                 <button type="submit">Log In</button>
                 <button type="submit" onClick={handleDemoLogin}>Demo Login</button>
             </form>
-        </>
+        </div>
     );
 }
 

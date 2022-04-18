@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Oswald:wght@500&family=Roboto:wght@100;300;500&display=swap');
+
+#four_page {
+    background-image: URL(https://media.vanityfair.com/photos/5d83e5e46879fa00082e6eb4/5:3/w_480,h_288,c_limit/friends%20the%20routine.gif);
+    background-position: center;
+    background-size: contain;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#test {
+    color: white;
+    font-size: 400px;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+
+}
+
+#text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+#wrong_place {
+    color: white;
+    font-size: 70px;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+
+}

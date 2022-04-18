@@ -44,7 +44,9 @@
    align-items: center;
    width: 20%;
    height: 100%;
+
    position: relative;
+
 }
 
 
@@ -57,15 +59,34 @@
 }
 
 
-
-.login_btn {
-   border: none;
-   background-color: transparent;
-   color: white;
-   font-family: 'Roboto', sans-serif;
-   font-weight: 300;
-   font-size: 18px;
+#nav_right_div {
+   display: flex;
+   align-items: center;
+   height: 100%;
+   justify-content: center;
+   gap: 10px;
 }
+
+#log_in_Button_div>div {
+   color: black;
+   font-size: 16px;
+   font-weight: 500;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+#sign_up_link>a {
+   color: black;
+   font-size: 16px;
+   font-weight: 500;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 
 .nav_hover {
    background-color: #D3D3D3;

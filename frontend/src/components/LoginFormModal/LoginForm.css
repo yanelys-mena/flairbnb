@@ -1,83 +1,78 @@
-
-
-#modal-content {
-    height: 400px;
-    background-color:white;
-    border-radius: 25px;
-    width: 30%;
-    height: 60%; 
+#login_modal {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    width: 80%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 30px;
+    gap: 25px;
 }
 
-.Welcome {
- display: flex;
-    width: 60%;
+
+
+.welcome {
+    display: flex;
+    width: 100%;
     justify-content: flex-start;
-margin-bottom: -30px;
+    margin-bottom: -30px;
+    color: black;
+    background-color: blue;
 }
 
-.Welcome > h2 {
-font-size: 25px;
-}
+/* .welcome>h2 {
+    font-size: 25px;
+    color: black;
+    background-color: red;
+} */
+
 .loginForm {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 60%;
+    width: 100%;
 
+    background-color: red;
 }
 
-.loginForm  > label{
+.loginForm>label {
     display: flex;
     flex-direction: column;
     width: 100%;
 
 }
 
-.loginForm  > label >input{
-height: 40px;
-border: #D3D3D3 1.5px solid;
-width: 100%;
-border-radius:5px;
-color: gray;
-margin-bottom: 15px;
+.loginForm>label>input {
+    height: 40px;
+    border: #D3D3D3 1.5px solid;
+    width: 100%;
+    border-radius: 5px;
+    color: gray;
+    margin-bottom: 15px;
+    width: 100%;
 
 
 }
 
-.loginForm  > label >input:focus{
- color: black;
- border: black 1.5px solid;
-    }
+.loginForm>label>input:focus {
+    color: black;
+    border: black 1.5px solid;
+}
 
-.loginForm  > button{
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
+.loginForm>button {
+    background: linear-gradient(to bottom right,
+            #E5204D, #D70965);
     color: white;
     font-weight: 500;
     height: 45px;
     width: 103%;
     margin-bottom: 15px;
     border-radius: 5px;
-    }
+    width: 100%;
 
-.loginForm  > button:hover{
-    cursor: pointer;
 }
 
-#modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loginForm>button:hover {
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import './Trips.css';
 import { load_bookings } from '../../store/bookings';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import TripCard from './TripCard';
 import { getAllListings } from '../../store/listings';
@@ -15,6 +15,14 @@ const Trips = () => {
     const bookings = useSelector((state) => Object.values(state?.bookings).filter(booking => booking?.userId === user?.id));
     const dispatch = useDispatch();
     const listings = useSelector((state) => state?.listings);
+    const history = useHistory()
+
+    useEffect(() => {
+        if (!user) {
+            history.push('/')
+        }
+    })
+
 
     useEffect(() => {
         dispatch(getAllListings());

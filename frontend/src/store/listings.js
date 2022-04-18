@@ -22,6 +22,7 @@ export const getAllListings = () => async (dispatch) => {
     if (response.ok) {
         const listings = await response.json();
         dispatch(load(listings))
+        return listings
     }
 }
 

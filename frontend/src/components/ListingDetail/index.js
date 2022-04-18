@@ -27,7 +27,13 @@ const ListingDetail = () => {
     };
 
     useEffect(() => {
-        dispatch(getAllListings());
+        dispatch(getAllListings()).then(data => {
+            if (!data.includes(listingId)) {
+                history.push('/not-found')
+            }
+        });
+
+
         dispatch(loadImages(listingId));
         dispatch(getReviews(listingId));
 

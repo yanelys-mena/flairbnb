@@ -32,8 +32,9 @@ export default function SearchBar() {
     ]);
 
     useEffect(() => {
-        dispatch(getAllListings());
         dispatch(load_bookings())
+        dispatch(getAllListings())
+
     }, [dispatch])
 
 
@@ -74,7 +75,7 @@ export default function SearchBar() {
                     <label>Location</label>
                     <input
                         type='text'
-                        placeholder='Where are you going? Try "Miami"'
+                        placeholder='Where are you going? "Miami"'
                         value={location}
                         onChange={(e) => setLocation(e.target.value.toLowerCase())}>
                     </input>
@@ -115,7 +116,7 @@ export default function SearchBar() {
                         pattern="^[-/d]/d*$"
                         value={guest}
                         onChange={(e) => setGuest(e.target.value)}
-                        placeholder='Where are you going?'>
+                        placeholder='Enter Guests'>
                     </input>
                 </div>
 

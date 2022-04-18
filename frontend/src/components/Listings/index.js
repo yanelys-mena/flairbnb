@@ -15,6 +15,7 @@ const Listings = () => {
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(loadCoverImages());
+        window.scrollTo(0, 0);
     }, [dispatch])
 
 

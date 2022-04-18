@@ -159,3 +159,13 @@
     color: white;
     font-weight: 700;
 }
+
+#see_bookings>a {
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+#see_bookings>a:hover {
+    color: #D70965;
+}

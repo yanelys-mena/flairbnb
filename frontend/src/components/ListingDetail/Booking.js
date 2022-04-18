@@ -197,7 +197,7 @@ const Booking = ({ listing, sessionUser }) => {
                     disabled={(!(startDate && endDate) || guestError || uniqueDateError || unavailableError || userLoggedOut)}
                     className={(!(startDate && endDate) || guestError || uniqueDateError || unavailableError || userLoggedOut) ? 'inactiveBtn' : 'activeBtn'}
                 >{reserve ? <span id="booked">Success! </span> : 'Reserve'}</button>
-                <div>{reserve && <Link to="/trips">See Bookings</Link>}</div>
+                <div id="see_bookings">{reserve && <Link to="/trips">See Bookings</Link>}</div>
 
             </div>
 

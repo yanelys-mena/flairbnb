@@ -26,6 +26,7 @@ const Trips = () => {
     useEffect(() => {
         dispatch(getAllListings());
         dispatch(load_bookings())
+        window.scrollTo(0, 0);
     }, [dispatch])
 
 

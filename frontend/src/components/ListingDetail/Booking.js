@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import { load_bookings, add_booking } from '../../store/bookings'
 import './Booking.css';
 import dayjs from "dayjs";
-import { subDays } from 'date-fns';
-// import { getTableSortLabelUtilityClass } from "@mui/material";
 
 
 
@@ -21,7 +19,7 @@ const Booking = ({ listing, sessionUser }) => {
     const [disabled, setDisabled] = useState(true);
     const [datesBooked, setDatesBooked] = useState([]);
     const [guest, setGuest] = useState(1);
-    const [count, setCount] = useState(1)
+
     const [errors, setErrors] = useState([]);
     const [reserve, setReserved] = useState(false)
 
@@ -54,7 +52,7 @@ const Booking = ({ listing, sessionUser }) => {
     useEffect(() => {
         if (startDate && endDate) {
 
-            if (startDate.toISOString().slice(0, 10) === endDate.toISOString().slice(0, 10)) {
+            if (startDate.toString().slice(0, 10) === endDate.toString().slice(0, 10)) {
                 setErrors(['Check-in and Checkout cannot be the same.'])
             } else {
                 setErrors([])
@@ -67,14 +65,14 @@ const Booking = ({ listing, sessionUser }) => {
 
                 bookedListings.forEach(item => {
 
-                    setAvailable(!(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                        || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate));
+                    setAvailable(!(startDate.toString().slice(0, 10) >= item.startDate && startDate.toString().slice(0, 10) <= item.endDate
+                        || endDate.toString().slice(0, 10) >= item.startDate && endDate.toString().slice(0, 10) <= item.endDate));
 
-                    setDisabled(startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                        || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate);
+                    setDisabled(startDate.toString().slice(0, 10) >= item.startDate && startDate.toString().slice(0, 10) <= item.endDate
+                        || endDate.toString().slice(0, 10) >= item.startDate && endDate.toString().slice(0, 10) <= item.endDate);
 
-                    if (startDate.toISOString().slice(0, 10) >= item.startDate && startDate.toISOString().slice(0, 10) <= item.endDate
-                        || endDate.toISOString().slice(0, 10) >= item.startDate && endDate.toISOString().slice(0, 10) <= item.endDate) {
+                    if (startDate.toString().slice(0, 10) >= item.startDate && startDate.toString().slice(0, 10) <= item.endDate
+                        || endDate.toString().slice(0, 10) >= item.startDate && endDate.toString().slice(0, 10) <= item.endDate) {
 
                         getBookedDates.push(`${dayjs(item.startDate).format("MMM DD, YYYY")} - ${dayjs(item.endDate).format("MMM DD YYYY")}`)
                     }
@@ -85,37 +83,35 @@ const Booking = ({ listing, sessionUser }) => {
                 setDisabled(false)
             }
 
-        }
+        };
+
+
     }, [startDate, endDate]);
 
-
-    useEffect(() => {
-
-        if (Number(guest) > listing.guest) {
-            setErrors([`Maximum guests are ${listing?.guests}`])
-            setDisabled(true)
-        };
-
-    }, [guest, setGuest])
+    console.log('SELECTED SATES', startDate, endDate)
 
     const handleBooking = async () => {
+        console.log('HANDLE', Number(guest) > listing.guest)
         if (Number(guest) > listing.guest) {
             setErrors([`Maximum guests are ${listing?.guests}`])
+            setDisabled(true)
             return;
+        } else {
+            const newBooking = {
+                userId: sessionUser?.id,
+                listingId: listing?.id,
+                startDate,
+                endDate,
+                numGuests: guest
+            };
+            const data = await dispatch(add_booking(newBooking))
+            if (data) {
+                setReserved(true)
+                setDisabled(true)
+            }
         };
 
-        const newBooking = {
-            userId: sessionUser?.id,
-            listingId: listing?.id,
-            startDate,
-            endDate,
-            numGuests: guest
-        };
-        const data = await dispatch(add_booking(newBooking))
-        if (data) {
-            setReserved(true)
-            setDisabled(true)
-        }
+
     }
 
     const handleInvalidInput = (e) => {
@@ -124,7 +120,7 @@ const Booking = ({ listing, sessionUser }) => {
     }
 
 
-
+    console.log('DISABLED BUTTON', disabled && (listing.guest > Number(guest)) && available)
     return (
         <>
             <div id="bookingsDiv">
@@ -132,8 +128,12 @@ const Booking = ({ listing, sessionUser }) => {
                     <div><span id="price_bigger">${listing.price} </span>night</div>
                 </div>
 
-                {available ? '' : <div id="validDate">Please select a valid Date</div>}
-                {datesBooked && <>{datesBooked.map((ele, idx) => <div id="date" key={idx}>{ele}</div>)}</>}
+                {available ? '' : <div id="validDate">Please select a valid Date
+
+                    <>{datesBooked && <>{datesBooked.map((ele, idx) => <div id="date" key={idx}>{ele}</div>)}</>}</>
+
+                </div>}
+
 
                 {errors && errors.map(e => <div id="validDate" key={e}>{e}</div>)}
 
@@ -141,11 +141,12 @@ const Booking = ({ listing, sessionUser }) => {
                     <div id="bookings_selected_dates">
                         <div id="bkn_checkin">
                             <div id="checkin">CHECK-IN</div>
-                            <div id="bkn_start">{(startDate && endDate) && `${dayjs(startDate.toISOString().slice(0, 10)).format("MMM DD")}`}</div>
+                            {/* <div id="bkn_start">{startDate}</div> */}
+                            <div id="bkn_start">{`${dayjs(startDate.toString().slice(0, 10)).format("MMM DD YYYY")}`}</div>
                         </div>
                         <div id="bkn_checkout">
                             <div id="checkout">CHECKOUT</div>
-                            <div id="bkn_end">{(startDate && endDate) && `${dayjs(endDate.toISOString().slice(0, 10)).format("MMM DD")}`}</div>
+                            <div id="bkn_end">{(startDate && endDate) && `${dayjs(endDate.toString().slice(0, 10)).format("MMM DD")}`}</div>
                         </div>
                         <div>
 
@@ -178,14 +179,13 @@ const Booking = ({ listing, sessionUser }) => {
                         endDate={endDate}
                         selectsRange
                         inline
-                        showMonthDropdown
-                        minDate={subDays(new Date(), 0)}
+                    // showMonthDropdown
+                    // minDate={subDays(new Date(), 0)}
                     // excludeDates={[new Date(), subDays(new Date(), 1)]}
                     />
                 </div>
                 <div id="price_total_div">
                     <div>{listing?.price}</div>
-                    <div>{(disabled || errors.length) && count}</div>
 
                 </div>
                 <button onClick={handleBooking}

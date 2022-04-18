@@ -292,34 +292,28 @@ const CreateListing = () => {
                         </label>
                         <div className="address" >
 
+                            <input
+                                type="text"
+                                name="city"
+                                placeholder="city"
+                                value={city}
+                                required={true}
+                                onChange={(e) => setCity(e.target.value)} />
 
-                            <label>
-                                <input
-                                    type="text"
-                                    name="city"
-                                    placeholder="city"
-                                    value={city}
-                                    required={true}
-                                    onChange={(e) => setCity(e.target.value)} />
-                            </label>
-                            <label>
-                                <input
-                                    type="text"
-                                    name="state"
-                                    placeholder="state"
-                                    value={state}
-                                    required={true}
-                                    onChange={(e) => setState(e.target.value)} />
-                            </label>
-                            <label>
-                                <input
-                                    type="text"
-                                    name="country"
-                                    placeholder="country"
-                                    value={country}
-                                    required={true}
-                                    onChange={(e) => setCountry(e.target.value)} />
-                            </label>
+                            <input
+                                type="text"
+                                name="state"
+                                placeholder="state"
+                                value={state}
+                                required={true}
+                                onChange={(e) => setState(e.target.value)} />
+                            <input
+                                type="text"
+                                name="country"
+                                placeholder="country"
+                                value={country}
+                                required={true}
+                                onChange={(e) => setCountry(e.target.value)} />
                         </div>
                         <label>
                             <p>Latitude</p>

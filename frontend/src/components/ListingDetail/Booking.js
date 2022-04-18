@@ -119,6 +119,7 @@ const Booking = ({ listing, sessionUser }) => {
         const invalid = ['e', 'E', '-', '.', '+'];
         if (invalid.includes(e.key)) { e.preventDefault() }
     }
+
     return (
         <>
             <div id="bookingsDiv">

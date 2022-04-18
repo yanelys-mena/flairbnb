@@ -54,7 +54,7 @@ const Maps = ({ apiKey, listings, hoveredListing }) => {
                         >
                             <div id="maps_pin">
                                 {selected.name.slice(0, 20)}...
-                                <img id="map_pin_photo" src={selected.Images[1].url}></img>
+                                <img id="map_pin_photo" src={selected.Images[1]?.url}></img>
                             </div>
                         </InfoWindow>
                     )}

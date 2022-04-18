@@ -23,7 +23,7 @@ const MyListingCard = ({ listing }) => {
         <>
             <div id="myListingCard">
                 <Link to={`/listings/${listing.id}`} target="_blank" >
-                    <div><img src={listing?.Images[0].url}></img></div>
+                    <div><img src={listing?.Images[0]?.url}></img></div>
                     <article id="topCardText">
                         <p>{listing.name} </p>
                         <p>${listing.price} / night</p>

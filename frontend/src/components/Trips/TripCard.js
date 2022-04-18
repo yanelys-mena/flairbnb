@@ -28,8 +28,8 @@ const TripCard = ({ listing, booking }) => {
             <Link to={`/listings/${listing?.id}`} key={listing?.id} target="_blank" rel="noreferrer">
                 <div className="listingCard" key={listing?.id}>
                     <div className="cardImage">
-                        {listing?.Images[0].url &&
-                            <img alt={listing.name} src={listing.Images[0].url}></img>}
+                        {listing?.Images[0]?.url &&
+                            <img alt={listing.name} src={listing.Images[0]?.url}></img>}
                     </div>
                     <div className="cardInfo">
                         <div id="cardInfo_top">

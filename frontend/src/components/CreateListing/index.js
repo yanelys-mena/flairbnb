@@ -8,7 +8,6 @@ import { Redirect } from 'react-router-dom';
 const CreateListing = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-
     const [page, setPage] = useState(1);
     const [name, setName] = useState('');
     const [listingType, setListingType] = useState('');
@@ -43,7 +42,6 @@ const CreateListing = () => {
         if (price.length < 1) {
             validateErrors.push('Please include a price.')
         } else if (price.length > 0) {
-
             if (Number(price) === 0) {
                 validateErrors.push('Price must be more that $0')
             }
@@ -74,9 +72,10 @@ const CreateListing = () => {
 
         const listingSuccess = await dispatch(createNewListing(newListing))
 
-
         if (listingSuccess) {
-            setListingId(listingSuccess.newListing.id);
+            setListingId(listingSuccess.id);
+            console.log('LISTING SUCCESS', listingSuccess)
+            console.log('LISTING ID', listingId)
             setPage(2);
         }
     }
@@ -88,7 +87,6 @@ const CreateListing = () => {
 
     const handleGuestDecrement = (e) => {
         e.preventDefault();
-
         setGuests((guests) => {
             if (guests > 1) {
                 return guests - 1
@@ -114,7 +112,6 @@ const CreateListing = () => {
             }
         })
     }
-
 
 
     const handleBedroomIncrement = (e) => {
@@ -153,6 +150,7 @@ const CreateListing = () => {
 
     const handleListingType = (e, value) => {
         e.preventDefault()
+
         setListingType(value)
     }
 
@@ -191,12 +189,15 @@ const CreateListing = () => {
                             <p> What kind of space will guests have? </p>
                             <div id='space_type_btn_div'>
                                 <div
+                                    id={listingType === 'entire_home' ? 'selected_space' : ''}
                                     className="space_type_btn"
                                     onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</div>
                                 <div
+                                    id={listingType === 'private room' ? 'selected_space' : ''}
                                     className="space_type_btn"
                                     onClick={(e) => handleListingType(e, 'private room')} value={listingType}>private room</div>
                                 <div
+                                    id={listingType === 'shared room' ? 'selected_space' : ''}
                                     className="space_type_btn"
                                     onClick={(e) => handleListingType(e, 'shared room')} value={listingType}>shared room</div>
                             </div>

@@ -11,10 +11,12 @@ import ReviewCard from '../ReviewCard';
 import './ListingDetail.css';
 import Booking from './Booking';
 import CreateReviewModal from '../CreateReviewModal';
+import { FaCommentsDollar } from 'react-icons/fa';
 
 
 const ListingDetail = () => {
-    const { listingId } = useParams();
+    let { listingId } = useParams();
+    listingId = Number(listingId)
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
@@ -28,16 +30,19 @@ const ListingDetail = () => {
 
     useEffect(() => {
         dispatch(getAllListings()).then(data => {
-            if (!data.includes(listingId)) {
+            if (!data[listingId]) {
                 history.push('/not-found')
+                console.log('data', data)
+                console.log('TRUE?', data[listingId])
             }
+
         });
 
 
         dispatch(loadImages(listingId));
         dispatch(getReviews(listingId));
 
-    }, [dispatch])
+    }, [dispatch, listingId])
 
 
     if (listing && allReviews) {

@@ -56,7 +56,7 @@ const Homepage = () => {
 
                                     <Link to={`/listings/${listing?.id}`} target="_blank" rel='noreferrer'>
                                         {/* <img src={inspoImages[idx]} className="inspo_img"></img> */}
-                                        <img src={listing?.Images[0].url} className="inspo_img"></img>
+                                        <img src={listing?.Images[0]?.url} className="inspo_img"></img>
                                         <div className="inspocard_overlay">
                                             <p>{listing?.name}</p>
                                             <p>{listing?.city}</p>

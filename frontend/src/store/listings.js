@@ -22,7 +22,9 @@ export const getAllListings = () => async (dispatch) => {
     if (response.ok) {
         const listings = await response.json();
         dispatch(load(listings))
-        return listings
+        const all = {};
+        listings.forEach(listing => all[listing.id] = listing);
+        return { ...all };
     }
 }
 
@@ -81,7 +83,7 @@ export const createNewListing = (formValue) => async (dispatch) => {
     });
     const newListing = await response.json();
     dispatch(createListing(newListing.newListing));
-    return newListing;
+    return newListing.newListing
 };
 
 

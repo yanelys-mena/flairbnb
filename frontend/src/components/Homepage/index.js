@@ -101,7 +101,7 @@ const Homepage = () => {
                         </div>
                     </div> */}
 
-            <div id="inspiration_new_trip">Discover our partners</div>
+            <div id="inspiration_new_trip">Discover our Partners</div>
 
             <div className="home_discover">
 
@@ -115,7 +115,7 @@ const Homepage = () => {
                     </div>
                 </div>
                 <div className="discover_card">
-                    <img src="https://a0.muscache.com/im/pictures/cae7ae9a-d069-4c6a-9267-795643472df1.jpg?im_w=720" ></img>
+                    <img src="../../../static/pets.png" ></img>
                     <div className="discover_overlay">
                         <p>Traveling with pets</p>
                         <a href="https://aa-petsy.herokuapp.com/" target="_blank">

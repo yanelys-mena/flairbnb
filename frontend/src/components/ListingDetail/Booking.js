@@ -63,13 +63,13 @@ const Booking = ({ listing, sessionUser }) => {
             // || dayjs(endDate.toString()).format("YYYY-MM-DD") >= '2022-04-27' && dayjs(endDate.toString()).format("YYYY-MM-DD") <= '2022-04-30')
 
             let getBookedDates = [];
-            console.log('start date', dayjs(startDate.toString()).format("YYYY-MM-DD"), "'> 2022-04-27")
-            console.log('comparison', dayjs(startDate.toString()).format("YYYY-MM-DD") >= '2022-04-27')
-            console.log('endDate date', dayjs(endDate.toString()).format("YYYY-MM-DD"), "'> 2022-04-30")
-            console.log('comparison', dayjs(endDate.toString()).format("YYYY-MM-DD") >= '2022-04-30')
-            console.log('is start date booked', dayjs(startDate.toString()).format("YYYY-MM-DD") >= '2022-04-27' && dayjs(startDate.toString()).format("YYYY-MM-DD") < '2022-04-30')
-            console.log('is end Date booked', dayjs(endDate.toString()).format("YYYY-MM-DD") > '2022-04-27' && dayjs(endDate.toString()).format("YYYY-MM-DD") <= '2022-04-30')
-            console.log('matching either', (dayjs(startDate.toString()).format("YYYY-MM-DD") >= '2022-04-27' && dayjs(startDate.toString()).format("YYYY-MM-DD") < '2022-04-30') || (dayjs(endDate.toString()).format("YYYY-MM-DD") > '2022-04-27' && dayjs(endDate.toString()).format("YYYY-MM-DD") <= '2022-04-30'))
+            // console.log('start date', dayjs(startDate.toString()).format("YYYY-MM-DD"), "'> 2022-04-27")
+            // console.log('comparison', dayjs(startDate.toString()).format("YYYY-MM-DD") >= '2022-04-27')
+            // console.log('endDate date', dayjs(endDate.toString()).format("YYYY-MM-DD"), "'> 2022-04-30")
+            // console.log('comparison', dayjs(endDate.toString()).format("YYYY-MM-DD") >= '2022-04-30')
+            // console.log('is start date booked', dayjs(startDate.toString()).format("YYYY-MM-DD") >= '2022-04-27' && dayjs(startDate.toString()).format("YYYY-MM-DD") < '2022-04-30')
+            // console.log('is end Date booked', dayjs(endDate.toString()).format("YYYY-MM-DD") > '2022-04-27' && dayjs(endDate.toString()).format("YYYY-MM-DD") <= '2022-04-30')
+            // console.log('matching either', (dayjs(startDate.toString()).format("YYYY-MM-DD") >= '2022-04-27' && dayjs(startDate.toString()).format("YYYY-MM-DD") < '2022-04-30') || (dayjs(endDate.toString()).format("YYYY-MM-DD") > '2022-04-27' && dayjs(endDate.toString()).format("YYYY-MM-DD") <= '2022-04-30'))
 
             if (bookedListings.length > 0) {
 
@@ -90,13 +90,14 @@ const Booking = ({ listing, sessionUser }) => {
 
     }, [startDate, endDate]);
 
-
+    // console.log( == false)
+    console.log('guestError', guestError, 'uniqueDateError:', uniqueDateError, 'unavailableError', unavailableError)
 
     const handleBooking = async () => {
 
         if (Number(guest) > listing.guest) {
             setGuestError(`Maximum guests are ${listing?.guests}`)
-            setDisabled(true)
+            // setDisabled(true)
             return;
         } else {
             const newBooking = {
@@ -182,8 +183,8 @@ const Booking = ({ listing, sessionUser }) => {
 
                 </div>
                 <button onClick={handleBooking}
-                    disabled={guestError && uniqueDateError && unavailableError}
-                    className={disabled || errors.length ? 'inactiveBtn' : 'activeBtn'}
+                    disabled={(guestError || uniqueDateError || unavailableError)}
+                    className={(guestError || uniqueDateError || unavailableError) ? 'inactiveBtn' : 'activeBtn'}
                 >{reserve ? <span id="booked">Success! </span> : 'Reserve'}</button>
                 <div>{reserve && <Link to="/trips">See Bookings</Link>}</div>
 

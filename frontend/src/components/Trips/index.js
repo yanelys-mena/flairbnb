@@ -1,13 +1,12 @@
-import './Trips.css';
 import { load_bookings } from '../../store/bookings';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-import TripCard from './TripCard';
 import { getAllListings } from '../../store/listings';
 import { delete_booking } from '../../store/bookings';
-
+import './Trips.css';
 import '../Listings'
+import TripCard from './TripCard';
 import dayjs from "dayjs";
 
 const Trips = () => {
@@ -29,10 +28,6 @@ const Trips = () => {
         dispatch(load_bookings())
     }, [dispatch])
 
-
-    const handleNights = (start, end) => {
-        end.diff(start, 'day')
-    };
 
     const handleDelete = (bookingId) => {
         dispatch(delete_booking(bookingId))

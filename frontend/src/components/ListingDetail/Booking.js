@@ -122,6 +122,9 @@ const Booking = ({ listing, sessionUser }) => {
         if (invalid.includes(e.key)) { e.preventDefault() }
     }
 
+    // console.log(dayjs(endDate.toString()).format("YYYY-MM-DD")).diff(dayjs(startDate.toString()).format("YYY-MM-DD"), 'day'))
+    console.log(endDate, startDate)
+    console.log('nights', (dayjs(endDate).diff(dayjs(startDate), 'day')))
 
     return (
         <>
@@ -179,8 +182,8 @@ const Booking = ({ listing, sessionUser }) => {
                     />
                 </div>
                 <div id="price_total_div">
-                    <div>{listing?.price}</div>
 
+                    <div>  {(startDate && endDate) && <div id="validDate">{dayjs(endDate).diff(dayjs(startDate), 'day')} night total {`$${dayjs(endDate).diff(dayjs(startDate), 'day') * listing.price}`} </div>}</div>
                 </div>
                 <button onClick={handleBooking}
                     disabled={(guestError || uniqueDateError || unavailableError)}

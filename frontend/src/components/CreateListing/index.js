@@ -28,8 +28,9 @@ const CreateListing = () => {
     const [errors, setErrors] = useState([]);
     const [listingId, setListingId] = useState('');
 
-
     if (!sessionUser) return <Redirect to="/signup" />;
+
+    console.log(price)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +40,14 @@ const CreateListing = () => {
         if (description.length < 1) validateErrors.push('Please include a description for your listing.');
         if (address.length < 1 || city.length < 1 || country.length < 1 || state.length < 1) validateErrors.push('Please include a full address.');
         if (lat.length < 1 || lng.length < 1) validateErrors.push('Please include a latitude and longitude.');
-        if (price.length < 1) validateErrors.push('Please include a price.');
+        if (price.length < 1) {
+            validateErrors.push('Please include a price.')
+        } else if (price.length > 0) {
+
+            if (Number(price) === 0) {
+                validateErrors.push('Price must be more that $0')
+            }
+        }
         if (validateErrors.length > 0) {
             setErrors(validateErrors);
             return;
@@ -108,6 +116,7 @@ const CreateListing = () => {
     }
 
 
+
     const handleBedroomIncrement = (e) => {
         e.preventDefault();
         setBedrooms((bedrooms) => bedrooms + 1)
@@ -147,6 +156,11 @@ const CreateListing = () => {
         setListingType(value)
     }
 
+    const handleInvalidInput = (e) => {
+        const invalid = ['e', 'E', '-', '.', '+'];
+        if (invalid.includes(e.key)) { e.preventDefault() }
+    }
+
     return (
         <>
             {page === 2 &&
@@ -170,23 +184,24 @@ const CreateListing = () => {
                                 value={name}
                                 placeholder="Lovely 3-bedroom vacation home
                                  with pool"
+                                required={true}
                                 onChange={(e) => setName(e.target.value)} />
                         </label>
-                        <label>
+                        <div id="space_type_div">
                             <p> What kind of space will guests have? </p>
-                            <div id='spaceTypeBtnDiv'>
-                                <button
-                                    className="spaceTypeBtn"
-                                    onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</button>
-                                <button
-                                    className="spaceTypeBtn"
-                                    onClick={(e) => handleListingType(e, 'private room')} value={listingType}>private room</button>
-                                <button
-                                    className="spaceTypeBtn"
-                                    onClick={(e) => handleListingType(e, 'shared room')} value={listingType}>shared room</button>
+                            <div id='space_type_btn_div'>
+                                <div
+                                    className="space_type_btn"
+                                    onClick={(e) => handleListingType(e, 'entire home')} value={listingType}>entire home</div>
+                                <div
+                                    className="space_type_btn"
+                                    onClick={(e) => handleListingType(e, 'private room')} value={listingType}>private room</div>
+                                <div
+                                    className="space_type_btn"
+                                    onClick={(e) => handleListingType(e, 'shared room')} value={listingType}>shared room</div>
                             </div>
 
-                        </label>
+                        </div>
                         <div className="form_buttons">
                             <label className="form_buttons_label">
                                 <p>Guests</p>
@@ -272,6 +287,7 @@ const CreateListing = () => {
                                 name="address"
                                 placeholder="address"
                                 value={address}
+                                required={true}
                                 onChange={(e) => setAddress(e.target.value)} />
                         </label>
                         <div className="address" >
@@ -283,6 +299,7 @@ const CreateListing = () => {
                                     name="city"
                                     placeholder="city"
                                     value={city}
+                                    required={true}
                                     onChange={(e) => setCity(e.target.value)} />
                             </label>
                             <label>
@@ -291,6 +308,7 @@ const CreateListing = () => {
                                     name="state"
                                     placeholder="state"
                                     value={state}
+                                    required={true}
                                     onChange={(e) => setState(e.target.value)} />
                             </label>
                             <label>
@@ -299,15 +317,18 @@ const CreateListing = () => {
                                     name="country"
                                     placeholder="country"
                                     value={country}
+                                    required={true}
                                     onChange={(e) => setCountry(e.target.value)} />
                             </label>
                         </div>
                         <label>
                             <p>Latitude</p>
+                            <span className="lat-long" onClick={() => setLat(40.74877717256489)}>Click for sample Latitude</span>
                             <input
                                 type="number"
                                 step="any"
                                 name="lat"
+                                required={true}
                                 placeholder=" find coordinates on google maps"
                                 value={lat}
                                 onChange={(e) => setLat(Number(e.target.value))} />
@@ -315,22 +336,28 @@ const CreateListing = () => {
 
                         <label>
                             <p>Longtitude</p>
+
+                            <span className="lat-long" onClick={() => setLng(-74.00541429173198)} >Click for sample Longtitude</span>
                             <input
                                 type="number"
                                 step="any"
                                 name="lgt"
                                 placeholder=" find coordinates on google maps"
                                 value={lng}
+                                required={true}
                                 onChange={(e) => setLng(Number(e.target.value))} />
                         </label>
 
                         <label>
                             <p>Price per night</p>
+
                             <input
                                 type="number"
                                 step="any"
                                 name="price"
                                 placeholder="$00"
+                                required={true}
+                                onKeyDown={handleInvalidInput}
                                 value={price}
                                 onChange={(e) => setPrice(Number(e.target.value))} />
                         </label>

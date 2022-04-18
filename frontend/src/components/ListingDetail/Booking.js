@@ -90,8 +90,6 @@ const Booking = ({ listing, sessionUser }) => {
 
     }, [startDate, endDate]);
 
-    // console.log( == false)
-    console.log('guestError', guestError, 'uniqueDateError:', uniqueDateError, 'unavailableError', unavailableError)
 
     const handleBooking = async () => {
 
@@ -121,11 +119,6 @@ const Booking = ({ listing, sessionUser }) => {
         const invalid = ['e', 'E', '-', '.', '+'];
         if (invalid.includes(e.key)) { e.preventDefault() }
     }
-
-    // console.log(dayjs(endDate.toString()).format("YYYY-MM-DD")).diff(dayjs(startDate.toString()).format("YYY-MM-DD"), 'day'))
-    console.log(endDate, startDate)
-    console.log('nights', (dayjs(endDate).diff(dayjs(startDate), 'day')))
-
     return (
         <>
             <div id="bookingsDiv">

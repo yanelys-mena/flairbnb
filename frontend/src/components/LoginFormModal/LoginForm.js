@@ -41,11 +41,11 @@ function LoginForm() {
             <form
                 className="loginForm"
                 onSubmit={handleSubmit} >
-                <ul>
+                <div id="errors_login">
                     {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
+                        <div key={idx}>{error}</div>
                     ))}
-                </ul>
+                </div>
                 <label>
                     {/* Email */}
                     <input

@@ -1,6 +1,7 @@
 import './Trips.css';
 import { load_bookings } from '../../store/bookings';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import TripCard from './TripCard';
 import { getAllListings } from '../../store/listings';
@@ -32,7 +33,7 @@ const Trips = () => {
     return (
         <>
 
-            {bookings.length &&
+            {
                 <div id="trips_page">
                     <div id="your_trips">Your Trips</div>
                     <div id="trips_list">
@@ -57,7 +58,7 @@ const Trips = () => {
                                 </div>)}
 
                         </>
-                            : 'No Trips Booked.'}
+                            : <div id="no_trips">No Trips Booked.<Link to="/listings">Explore places.</Link></div>}
                     </div>
 
 

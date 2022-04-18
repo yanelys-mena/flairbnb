@@ -55,3 +55,21 @@
     color: black;
     border: .5px black solid;
 }
+
+#no_trips {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    color: black;
+    gap: 10px;
+}
+
+#no_trips>a {
+    font-weight: 700;
+}
+
+#no_trips>a:hover {
+    font-weight: 700;
+    color: #FF5A60;
+}

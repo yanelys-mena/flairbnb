@@ -123,9 +123,14 @@ const ListingDetail = () => {
 
 
                             <div className="reviewsDiv" >
-                                {reviews.map(review => (
-                                    <ReviewCard key={review.id} review={review} listingId={listing.id} />
-                                ))}
+                                {reviews.length ?
+                                    <>
+                                        {reviews.map(review => (
+                                            <ReviewCard key={review.id} review={review} listingId={listing.id} />
+                                        ))}
+                                    </> : 'No reviews. Reserve this spot to add one!'
+                                }
+
                             </div>
                         </div>
                     </div >}

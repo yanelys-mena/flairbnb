@@ -33,8 +33,6 @@ Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Se
 * [Reviews](#reviews)
 * [Search listings](#search)
 * [Book a Trip](#bookings)
-    * [Make a Reservation](#bookings)
-    * [View your Trips](#trips)
 * [Google Maps](#maps)
 
 

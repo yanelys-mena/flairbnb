@@ -127,8 +127,6 @@ const Booking = ({ listing, sessionUser }) => {
                 setDisabled(true)
             }
         };
-
-
     }
 
     const handleInvalidInput = (e) => {

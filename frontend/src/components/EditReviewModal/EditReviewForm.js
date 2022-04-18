@@ -49,10 +49,10 @@ function EditReviewForm({ listingId, review, setShowModal }) {
     };
 
     return (
-        <>
-            <div className="EditReviewDiv">
-                <h2> Update your review </h2>
-            </div>
+
+        <div id="edit_review_modal">
+            <h2> Update your review </h2>
+
             <form
                 className="createReviewForm"
                 onSubmit={handleEditReview} >
@@ -106,7 +106,8 @@ function EditReviewForm({ listingId, review, setShowModal }) {
                         onClick={handleDeleteReview}>Delete my review instead.</button>
                 </div>
             </form>
-        </>
+        </div>
+
     );
 }
 

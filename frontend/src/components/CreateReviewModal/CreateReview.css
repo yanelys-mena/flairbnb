@@ -1,23 +1,23 @@
-
 #addReviewButton {
-    background: linear-gradient(
-        to bottom right,
-        #E5204D, #D70965
-    );
+    background: linear-gradient(to bottom right,
+            #E5204D, #D70965);
     color: white;
     font-weight: 500;
     height: 35px;
     width: 10%;
     margin-top: 20px;
     margin-bottom: 15px;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
 .createReviewDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    gap: 20px;
+    min-width: 60vw;
+    min-height: 50vh;
+    padding: 20px;
 }
 
 .createReviewForm {
@@ -26,11 +26,11 @@
     justify-content: space-around;
     width: 80%;
 }
-#starRating {
-display: flex;
-justify-content: center;
-margin-bottom: 50px;
 
+#starRating {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
 }
 
 input[type="radio"] {
@@ -39,7 +39,7 @@ input[type="radio"] {
 
 
 .ratingStars:hover {
-    cursor:pointer;
+    cursor: pointer;
     transition: color 200ms;
 }
 
@@ -47,32 +47,31 @@ input[type="radio"] {
 #reviewInput {
     border: #D3D3D3 1.5px solid;
     width: 100%;
-    border-radius:5px;
+    border-radius: 5px;
     color: gray;
     margin-bottom: 15px;
 }
-    .createReviewForm  > label >input:focus{
-     color: black;
-     border: black 1.5px solid;
-        }
-    
-#reviewInput {
- height: 100px;
+
+.createReviewForm>label>input:focus {
+    color: black;
+    border: black 1.5px solid;
 }
 
-    .createReviewForm  > button{
-        background: linear-gradient(
-            to bottom right,
-            #E5204D, #D70965
-        );
-        color: white;
-        font-weight: 500;
-        height: 45px;
-        width: 103%;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        }
-    
-    .createReviewForm  > button:hover{
-        cursor: pointer;
-    }
+#reviewInput {
+    height: 100px;
+}
+
+.createReviewForm>button {
+    background: linear-gradient(to bottom right,
+            #E5204D, #D70965);
+    color: white;
+    font-weight: 500;
+    height: 45px;
+    width: 103%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.createReviewForm>button:hover {
+    cursor: pointer;
+}

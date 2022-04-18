@@ -1,3 +1,12 @@
+#edit_review_modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-width: 60vw;
+  min-height: 50vh;
+  padding: 20px;
+}
 
 .editReview {
   margin-left: 10px;
@@ -7,14 +16,16 @@
   background-color: white;
 }
 
+
+
 .editReview:hover {
-  color:black;
+  color: black;
   cursor: pointer;
 }
 
 #reviewInput {
   /* background-color: red; */
-font-size: 14px;
+  font-size: 14px;
   width: 100%;
   resize: none;
 }
@@ -28,17 +39,15 @@ font-size: 14px;
 
 }
 
-.deleteButton{
+.deleteButton {
   display: flex;
   justify-content: center;
 
 }
 
-.deleteButton > button {
+.deleteButton>button {
   padding: 10px;
   font-size: 14px;
   text-decoration: underline;
   background-color: transparent;
-};
-
-
+}

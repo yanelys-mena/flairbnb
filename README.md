@@ -8,6 +8,7 @@ Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Se
 [Live Link](https://pinterest-clone-aa.herokuapp.com/)
 
 ![search](./frontend/public/gifs/flair_search-high.gif)
+
 [Click for a full list of features and upcoming releases.](#features)
 
 
@@ -29,10 +30,6 @@ Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Se
 <a id="features"></a>
 ## Features
 * [Listings](#listings)
-    * [View all listings](#listings)
-    * [View a Listing](#listing_page)
-    * [Create a listing](#create_listing)
-    * [Edit or Delete a listing](#edit_listing)
 * [Reviews](#reviews)
 * [Search listings](#search)
 * [Book a Trip](#bookings)

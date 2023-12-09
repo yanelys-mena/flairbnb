@@ -5,7 +5,7 @@
 
 Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Searching through eye-catching listings; these are some of the features available for users on Flairbnb. The app provides a clean and sharp user interface designed to put the user experience first. 
 
-[Live Link](https://pinterest-clone-aa.herokuapp.com/)
+[Live Link](https://flairbnb-yanelys-47aed5eebf21.herokuapp.com/)
 
 ![search](./frontend/public/gifs/flair_search-high.gif)
 
@@ -34,10 +34,6 @@ Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Se
 * [Search listings](#search)
 * [Book a Trip](#bookings)
 * [Google Maps](#maps)
-
-
-* Future Releases
-    * Geolocation
 
 
 ## Local Setup Instructions
@@ -135,7 +131,7 @@ Hosting Experiences, Booking Trips, Visualizing Locations on Google Maps, and Se
 <!-- CONTACT -->
 ## Contact
 
-Yanelys Mena - yanelyshm@outlook.com
+Yanelys Mena - yanelysdev@gmail.com
 
 Project Link: [https://github.com/yanelys-mena/flairbnb](https://github.com/github_username/flairbnb)
 

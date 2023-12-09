@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/yanelys-mena/flairbnb#readme",
   "dependencies": {
-    "dayjs": "^1.10.7"
+    "dayjs": "^1.10.7",
+    "sequelize": "^6.6.2"
   }
 }
